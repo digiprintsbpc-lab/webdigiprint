@@ -1,0 +1,2184 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIGIPRINT – Pusat Cetak Nota, Lanyard & Souvenir Custom</title>
+    <!-- CELAH LINK GAMBAR FAVICON -->
+    <link id=" dynamic-favicon" rel="icon" type="image/png" href="https://placehold.co/100x100/45a2f2/ffffff?text=DP">
+    <meta name="description" content="DIGIPRINT adalah pusat percetakan modern terpercaya yang menyediakan cetak Nota NCR, Lanyard Premium, Gantungan Kunci, ID Card PVC, dan Polaroid dengan sistem otomatis real-time dan pembayaran QRIS.">
+    <meta name="theme-color" content="#061327">
+    <meta name="keywords" content="DIGIPRINT, cetak nota ncr, lanyard custom, gantungan kunci akrilik, id card pvc, cetak polaroid, percetakan malang, percetakan murah, cetak online otomatis">
+    <meta name="author" content="DIGIPRINT">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="DIGIPRINT – Pusat Cetak Nota, Lanyard & Souvenir Custom">
+    <meta property="og:description" content="Pesan cetak Nota NCR, Lanyard, Ganci, dan ID Card custom di DIGIPRINT. Proses otomatis, cepat, dan aman.">
+    <meta property="og:image" content="https://placehold.co/1200x630/061327/45a2f2?text=DIGIPRINT+Banner">
+
+    <script>
+        // Penjaga animasi bawaan: mencabut kelas anim jika pustaka gagal dimuat
+        document.documentElement.classList.add('anim');
+        window.__v2Failsafe = setTimeout(function () {
+            document.documentElement.classList.remove('anim');
+        }, 4000);
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        rose: {"50":"#f0f7fe","100":"#ddedfd","200":"#c2e0fb","300":"#98cbf8","400":"#68adf4","500":"#45a2f2","600":"#257fd9","700":"#1d65b0","800":"#1c548f","900":"#1c4774","950":"#123049"},
+                        primary: {"50":"#f0f7fe","100":"#ddedfd","200":"#c2e0fb","300":"#98cbf8","400":"#68adf4","500":"#45a2f2","600":"#257fd9","700":"#1d65b0","800":"#1c548f","900":"#1c4774","950":"#123049"},
+                        brand: {"50":"#f0f7fe","100":"#ddedfd","200":"#c2e0fb","300":"#98cbf8","400":"#68adf4","500":"#45a2f2","600":"#257fd9","700":"#1d65b0","800":"#1c548f","900":"#1c4774","950":"#123049"},
+                        ink: "#061327"
+                    },
+                    fontFamily: { sans: ['Outfit', 'ui-sans-serif', 'system-ui', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --brand: #45a2f2;
+            --brand-600: #257fd9;
+            --brand-700: #1d65b0;
+            --brand-rgb: 69, 162, 242;
+            --brand-text: #257fd9;
+            --brand-on-dark: #68adf4;
+            --on-brand: #ffffff;
+            --ink: #061327;
+            --ease: cubic-bezier(.22, 1, .36, 1);
+            --slow: 1;
+        }
+
+        html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+        body { font-family: 'Outfit', ui-sans-serif, system-ui, sans-serif; }
+        [id] { scroll-margin-top: calc(88px + var(--v2-bar-h, 0px)); }
+
+        .is-offscreen, .is-offscreen * , .is-offscreen *::before, .is-offscreen *::after { animation-play-state: paused !important; }
+        .v2-mq, .v2-wall { contain: layout paint; }
+
+        html.lenis, html.lenis body { height: auto; }
+        .lenis.lenis-smooth { scroll-behavior: auto !important; }
+        .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+        .lenis.lenis-stopped { overflow: clip; }
+
+        .anim [data-reveal],
+        .anim [data-stagger-item],
+        .anim .v2-in { opacity: 0; }
+        .v2-word { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: .14em; margin-bottom: -.14em; }
+        .v2-word > span { display: inline-block; }
+        .anim .v2-word > span { transform: translateY(115%); }
+
+        .v2-accent { color: var(--brand-text); }
+        .v2-accent-dark { color: var(--brand-on-dark); }
+
+        /* ── Tombol ── */
+        .v2-btn {
+            display: inline-flex; align-items: center; justify-content: center; gap: .6rem;
+            padding: .95rem 1.6rem; border-radius: 999px; font-weight: 700; font-size: .95rem;
+            background: var(--brand-600); color: var(--on-brand);
+            box-shadow: 0 10px 30px -10px rgba(var(--brand-rgb), .7);
+            transition: transform .25s var(--ease), box-shadow .25s var(--ease), background-color .2s;
+            will-change: transform;
+        }
+        .v2-btn:hover { background: var(--brand-700); box-shadow: 0 16px 40px -12px rgba(var(--brand-rgb), .85); }
+        .v2-btn:active { transform: scale(.97); }
+        .v2-btn-ghost {
+            display: inline-flex; align-items: center; justify-content: center; gap: .6rem;
+            padding: .95rem 1.6rem; border-radius: 999px; font-weight: 700; font-size: .95rem;
+            color: #fff; border: 1px solid rgba(255, 255, 255, .22); background: rgba(255, 255, 255, .08);
+            transition: background-color .2s, border-color .2s, transform .25s var(--ease);
+        }
+        .v2-btn-ghost:hover { background: rgba(255, 255, 255, .14); border-color: rgba(255, 255, 255, .4); }
+        .v2-btn .fa-arrow-right, .v2-link .fa-arrow-right { transition: transform .25s var(--ease); }
+        .v2-btn:hover .fa-arrow-right, .v2-link:hover .fa-arrow-right { transform: translateX(4px); }
+        :focus-visible { outline: 2px solid var(--brand); outline-offset: 3px; }
+        .v2-iconbtn {
+            display: flex; align-items: center; justify-content: center; width: 2.75rem; height: 2.75rem; border-radius: 50%;
+            border: 1px solid rgba(127, 127, 127, .4);
+            border: 1px solid color-mix(in srgb, currentColor 24%, transparent);
+        }
+
+        /* ── Bilah promo di atas header ── */
+        #v2-promo { height: var(--v2-bar-h, 0px); }
+        #v2-header { top: var(--v2-bar-h, 0px); }
+        .v2-promo {
+            position: fixed; left: 0; right: 0; top: 0; z-index: 9991; overflow: hidden; color: #fff;
+            background: linear-gradient(100deg, var(--brand-700), var(--brand-600) 45%, #0ea5e9);
+            transition: transform .5s var(--ease);
+        }
+        #v2-promo[data-closing] { transition: height .5s var(--ease); }
+        #v2-promo[data-closing] .v2-promo { transform: translate3d(0, -100%, 0); }
+        #v2-promo[data-closing] ~ #v2-header { transition: top .5s var(--ease), background-color .3s, box-shadow .3s; }
+        .v2-promo::before {
+            content: ''; position: absolute; top: 0; bottom: 0; left: 0; width: 30%; pointer-events: none;
+            background: linear-gradient(100deg, transparent, rgba(255, 255, 255, .22), transparent);
+            transform: translate3d(-140%, 0, 0); animation: v2-promo-shine calc(6s * var(--slow)) ease-in-out infinite;
+        }
+        @keyframes v2-promo-shine { 0%, 60% { transform: translate3d(-140%, 0, 0); } 100% { transform: translate3d(480%, 0, 0); } }
+        .v2-promo-link {
+            position: relative; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 4px 12px;
+            max-width: 80rem; margin: 0 auto; padding: 9px 48px 9px 16px; font-size: .8125rem; line-height: 1.35; text-align: center;
+        }
+        .v2-promo-main { display: inline-flex; align-items: center; gap: 8px; }
+        .v2-promo-ic { font-size: .8rem; animation: v2-promo-bob calc(2.4s * var(--slow)) ease-in-out infinite alternate; }
+        @keyframes v2-promo-bob { from { transform: translate3d(0, 1px, 0) rotate(-8deg); } to { transform: translate3d(0, -2px, 0) rotate(8deg); } }
+        .v2-promo-title { font-weight: 800; letter-spacing: -.01em; }
+        .v2-promo-text { color: rgba(255, 255, 255, .85); }
+        .v2-promo-wide { display: none; }
+        .v2-promo-price { font-weight: 800; color: #fde047; white-space: nowrap; }
+        .v2-promo-per { font-weight: 600; }
+        .v2-promo-cta {
+            display: inline-flex; align-items: center; gap: 6px; padding: 3px 11px; border-radius: 999px; white-space: nowrap;
+            font-size: .75rem; font-weight: 800; background: #fff; color: var(--brand-text); transition: transform .25s var(--ease);
+        }
+        .v2-promo-cta i { font-size: .6rem; transition: transform .25s var(--ease); }
+        .v2-promo-link:hover .v2-promo-cta { transform: scale(1.05); }
+        .v2-promo-link:hover .v2-promo-cta i { transform: translateX(3px); }
+        .v2-promo-link:focus-visible { outline: 2px solid #fff; outline-offset: -3px; }
+        .v2-promo-x {
+            position: absolute; right: 8px; top: 50%; display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; margin-top: -16px;
+            border-radius: 50%; color: rgba(255, 255, 255, .85); transition: background-color .2s, color .2s, transform .3s var(--ease);
+        }
+        .v2-promo-x:hover { background: rgba(255, 255, 255, .18); color: #fff; transform: rotate(90deg); }
+        .v2-promo-x:focus-visible { outline: 2px solid #fff; outline-offset: 0; }
+        @media (min-width: 1024px) {
+            .v2-promo-link { flex-wrap: nowrap; padding-top: 10px; padding-bottom: 10px; font-size: .875rem; }
+            .v2-promo-wide { display: inline; }
+            .v2-promo-narrow { display: none; }
+        }
+
+        /* ── Header ── */
+        #v2-header { transition: background-color .3s, box-shadow .3s; color: #fff; }
+        #v2-header.is-scrolled {
+            background: rgba(255, 255, 255, .95); color: #0f172a;
+            box-shadow: 0 1px 0 rgba(15, 23, 42, .06), 0 10px 30px -18px rgba(15, 23, 42, .25);
+        }
+        #v2-progress {
+            position: absolute; left: 0; top: 0; height: 3px; width: 100%;
+            background: linear-gradient(90deg, var(--brand), var(--brand-on-dark));
+            transform: scaleX(0); transform-origin: 0 50%;
+        }
+        .v2-navlink { position: relative; font-size: .9rem; font-weight: 600; opacity: .82; transition: opacity .2s; white-space: nowrap; }
+        .v2-navlink:hover { opacity: 1; }
+        .v2-navlink::after {
+            content: ''; position: absolute; left: 0; right: 0; bottom: -6px; height: 2px; border-radius: 2px;
+            background: currentColor; transform: scaleX(0); transform-origin: 0 50%; transition: transform .3s var(--ease);
+        }
+        .v2-navlink:hover::after { transform: scaleX(1); }
+
+        /* ── Dropdown "Lainnya" ── */
+        .v2-dd { position: relative; }
+        .v2-dd-btn { display: inline-flex; align-items: center; gap: .4rem; }
+        .v2-dd-caret { font-size: .6rem; transition: transform .3s var(--ease); }
+        .v2-dd-panel {
+            position: absolute; right: -12px; top: calc(100% + 16px); z-index: 5; width: 17rem; padding: 8px; border-radius: 22px;
+            background: #fff; color: #0f172a; border: 1px solid rgba(15, 23, 42, .08);
+            box-shadow: 0 30px 60px -20px rgba(15, 23, 42, .35);
+            opacity: 0; visibility: hidden; transform: translateY(8px) scale(.97); transform-origin: 100% 0;
+            transition: opacity .2s, transform .3s var(--ease), visibility .2s;
+        }
+        .v2-dd-panel::before { content: ''; position: absolute; left: 0; right: 0; top: -18px; height: 18px; }
+        .v2-dd:hover .v2-dd-panel, .v2-dd:focus-within .v2-dd-panel, .v2-dd[data-open] .v2-dd-panel { opacity: 1; visibility: visible; transform: none; }
+        .v2-dd:hover .v2-dd-caret, .v2-dd:focus-within .v2-dd-caret, .v2-dd[data-open] .v2-dd-caret { transform: rotate(180deg); }
+        .v2-dd:hover .v2-dd-btn, .v2-dd[data-open] .v2-dd-btn { opacity: 1; }
+        .v2-dd[data-closed] .v2-dd-panel { opacity: 0; visibility: hidden; transform: translateY(8px) scale(.97); }
+        .v2-dd[data-closed] .v2-dd-caret { transform: none; }
+        .v2-dd-item {
+            display: flex; align-items: center; gap: 12px; padding: 9px 10px; border-radius: 14px; font-size: .9rem; font-weight: 600; white-space: nowrap;
+            opacity: 0; transform: translateY(6px);
+            transition: background-color .2s, color .2s, opacity .25s, transform .35s var(--ease);
+        }
+        .v2-dd:hover .v2-dd-item, .v2-dd:focus-within .v2-dd-item, .v2-dd[data-open] .v2-dd-item { opacity: 1; transform: none; }
+        .v2-dd-item:nth-child(2) { transition-delay: 0s, 0s, .04s, .04s; }
+        .v2-dd-item:nth-child(3) { transition-delay: 0s, 0s, .08s, .08s; }
+        .v2-dd-item:nth-child(4) { transition-delay: 0s, 0s, .12s, .12s; }
+        .v2-dd-item:nth-child(5) { transition-delay: 0s, 0s, .16s, .16s; }
+        .v2-dd-item:nth-child(n + 6) { transition-delay: 0s, 0s, .2s, .2s; }
+        .v2-dd-item:hover { background: rgba(var(--brand-rgb), .08); color: var(--brand-text); }
+        .v2-dd-item[aria-current="page"] { background: rgba(var(--brand-rgb), .12); color: var(--brand-text); }
+        .v2-dd-ic {
+            display: flex; flex: none; align-items: center; justify-content: center; width: 2.1rem; height: 2.1rem; border-radius: 11px;
+            font-size: .85rem; background: rgba(var(--brand-rgb), .1); color: var(--brand-text); transition: transform .3s var(--ease);
+        }
+        .v2-dd-item:hover .v2-dd-ic { transform: scale(1.1) rotate(-6deg); }
+        #v2-menu [aria-current="page"] { color: var(--brand-on-dark); }
+        .v2-tagline { color: inherit; opacity: .85; }
+
+        #v2-menu {
+            position: fixed; inset: 0; z-index: 9995; background: var(--ink); color: #fff;
+            opacity: 0; visibility: hidden; transition: opacity .3s, visibility .3s;
+            overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch;
+        }
+        #v2-menu.is-open { opacity: 1; visibility: visible; }
+        .v2-navlink.is-current { opacity: 1; }
+        .v2-navlink.is-current::after { transform: scaleX(1); }
+        [hidden] { display: none !important; }
+
+        /* ── Hero ── */
+        .v2-hero { background: var(--ink); }
+        .v2-grid-bg {
+            position: absolute; inset: 0; pointer-events: none;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, .055) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, .055) 1px, transparent 1px);
+            background-size: 56px 56px;
+            -webkit-mask-image: radial-gradient(ellipse 75% 65% at 50% 0%, #000 30%, transparent 78%);
+            mask-image: radial-gradient(ellipse 75% 65% at 50% 0%, #000 30%, transparent 78%);
+        }
+        .v2-blob { position: absolute; border-radius: 50%; pointer-events: none; will-change: transform; }
+        .v2-blob-a {
+            width: 58rem; height: 58rem; left: -20rem; top: -24rem;
+            background: radial-gradient(circle closest-side,
+                rgba(var(--brand-rgb), .46) 0%, rgba(var(--brand-rgb), .36) 22%, rgba(var(--brand-rgb), .2) 46%,
+                rgba(var(--brand-rgb), .07) 72%, rgba(var(--brand-rgb), 0) 100%);
+            animation: v2-drift-a calc(22s * var(--slow)) ease-in-out infinite alternate;
+        }
+        .v2-blob-b {
+            width: 50rem; height: 50rem; right: -18rem; bottom: -22rem;
+            background: radial-gradient(circle closest-side,
+                rgba(var(--brand-rgb), .32) 0%, rgba(var(--brand-rgb), .25) 22%, rgba(var(--brand-rgb), .14) 46%,
+                rgba(var(--brand-rgb), .05) 72%, rgba(var(--brand-rgb), 0) 100%);
+            animation: v2-drift-b calc(26s * var(--slow)) ease-in-out infinite alternate;
+        }
+        @keyframes v2-drift-a { to { transform: translate3d(9rem, 6rem, 0) scale(1.12); } }
+        @keyframes v2-drift-b { to { transform: translate3d(-7rem, -5rem, 0) scale(1.08); } }
+
+        .v2-pill {
+            display: inline-flex; align-items: center; gap: .6rem; padding: .45rem .95rem; border-radius: 999px;
+            font-size: .8rem; font-weight: 600; color: rgba(255, 255, 255, .85);
+            border: 1px solid rgba(255, 255, 255, .16); background: rgba(255, 255, 255, .06);
+        }
+        .v2-dot { position: relative; width: .5rem; height: .5rem; border-radius: 50%; background: var(--brand-on-dark); }
+        .v2-dot::after {
+            content: ''; position: absolute; inset: 0; border-radius: 50%; background: inherit;
+            animation: v2-ping calc(1.8s * var(--slow)) cubic-bezier(0, 0, .2, 1) infinite;
+        }
+        @keyframes v2-ping { 75%, 100% { transform: scale(2.6); opacity: 0; } }
+
+        .v2-ph {
+            width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
+            font-weight: 800; font-size: 2.5rem; color: var(--on-brand);
+            background: linear-gradient(135deg, var(--brand), var(--brand-700));
+        }
+
+        .v2-mq { overflow: hidden; }
+        .v2-mq-track { display: flex; width: max-content; animation: v2-left calc(var(--dur, 40s) * var(--slow)) linear infinite; will-change: transform; }
+        .v2-mq-track.is-reverse { animation-direction: reverse; }
+        .v2-mq:hover .v2-mq-track { animation-play-state: paused; }
+        @keyframes v2-left { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(-50%, 0, 0); } }
+        .v2-fade-x {
+            -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+            mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+        }
+
+        /* ── Kartu ── */
+        .v2-card {
+            position: relative; overflow: hidden; border-radius: 28px; background: #fff;
+            border: 1px solid rgba(15, 23, 42, .08);
+            transition: transform .4s var(--ease), box-shadow .4s var(--ease), border-color .3s;
+        }
+        .v2-card:hover { transform: translateY(-4px); border-color: rgba(var(--brand-rgb), .35); box-shadow: 0 30px 60px -30px rgba(var(--brand-rgb), .45); }
+        .v2-spot::before {
+            content: ''; position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity .3s;
+            background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(var(--brand-rgb), .16), transparent 62%);
+        }
+        .v2-spot:hover::before { opacity: 1; }
+        .v2-icon {
+            display: inline-flex; align-items: center; justify-content: center; width: 3rem; height: 3rem; border-radius: 16px;
+            background: rgba(var(--brand-rgb), .12); color: var(--brand-text); font-size: 1.15rem;
+        }
+
+        /* ── Kartu produk ── */
+        .v2-product-img { aspect-ratio: 1 / 1; overflow: hidden; border-radius: 14px; background: #f1f5f9; }
+        .v2-product-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s var(--ease); }
+        .v2-card:hover .v2-product-img img { transform: scale(1.07); }
+        .v2-pname { min-height: 2.6em; line-height: 1.3; }
+        .v2-buy {
+            display: flex; align-items: center; justify-content: center; gap: .4rem; width: 100%; padding: .55rem .75rem;
+            border-radius: 12px; font-weight: 700; font-size: .75rem; background: var(--brand-600); color: var(--on-brand);
+            transition: background-color .2s, transform .2s var(--ease); cursor: pointer;
+        }
+        .v2-buy:hover { background: var(--brand-700); }
+        .v2-buy:active { transform: scale(.97); }
+        .v2-buy.is-off, .v2-buy.is-off:hover { background: #f1f5f9; color: #94a3b8; cursor: default; }
+
+        .v2-badge {
+            display: inline-flex; align-items: center; padding: .4rem 1rem; border-radius: 999px;
+            font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+            background: rgba(var(--brand-rgb), .1); color: var(--brand-text);
+        }
+
+        /* ── FAQ ── */
+        .v2-faq { border-bottom: 1px solid rgba(15, 23, 42, .1); }
+        .v2-faq-panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .45s var(--ease); }
+        .v2-faq.is-open .v2-faq-panel { grid-template-rows: 1fr; }
+        .v2-faq-panel > div { overflow: hidden; }
+        .v2-faq-plus { position: relative; flex: none; width: 2.25rem; height: 2.25rem; border-radius: 50%; background: rgba(var(--brand-rgb), .12); color: var(--brand-text); transition: transform .45s var(--ease), background-color .3s, color .3s; }
+        .v2-faq-plus::before, .v2-faq-plus::after { content: ''; position: absolute; left: 50%; top: 50%; width: 12px; height: 2px; margin: -1px 0 0 -6px; border-radius: 2px; background: currentColor; }
+        .v2-faq-plus::after { transform: rotate(90deg); transition: transform .45s var(--ease); }
+        .v2-faq.is-open .v2-faq-plus { transform: rotate(180deg); background: var(--brand-600); color: var(--on-brand); }
+        .v2-faq.is-open .v2-faq-plus::after { transform: rotate(0deg); }
+
+        /* ── CTA ── */
+        .v2-cta { position: relative; overflow: hidden; border-radius: 36px; background: var(--ink); color: #fff; }
+        .v2-cta::before {
+            content: ''; position: absolute; width: 44rem; height: 44rem; left: 50%; top: 100%; transform: translate(-50%, -42%);
+            background: radial-gradient(circle, rgba(var(--brand-rgb), .6), transparent 62%); filter: blur(70px); pointer-events: none;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            :root { --slow: 1.8; }
+        }
+    </style>
+
+    <style>
+        /* ══ Gaya khusus landing ══ */
+        .v2-h1 { font-size: clamp(2.5rem, 7.2vw, 5.25rem); line-height: 1.02; letter-spacing: -.035em; font-weight: 800; }
+
+        /* Dinding produk (desktop) */
+        .v2-wall {
+            position: relative; height: 620px; perspective: 1400px;
+            -webkit-mask-image: linear-gradient(to bottom, transparent, #000 14%, #000 84%, transparent);
+            mask-image: linear-gradient(to bottom, transparent, #000 14%, #000 84%, transparent);
+        }
+        .v2-wall-inner {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 18px; height: 100%;
+            transform: rotateX(13deg) rotateY(-17deg) rotateZ(4deg);
+            transition: transform .6s var(--ease); will-change: transform;
+        }
+        .v2-col { display: flex; flex-direction: column; gap: 18px; animation: v2-up calc(38s * var(--slow)) linear infinite; will-change: transform; }
+        .v2-col-down { animation-name: v2-down; animation-duration: calc(44s * var(--slow)); }
+        .v2-wall:hover .v2-col { animation-play-state: paused; }
+        @keyframes v2-up { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(0, calc(-50% - 9px), 0); } }
+        @keyframes v2-down { from { transform: translate3d(0, calc(-50% - 9px), 0); } to { transform: translate3d(0, 0, 0); } }
+        .v2-tile {
+            flex: none; padding: 10px; border-radius: 22px;
+            background: rgba(255, 255, 255, .07); border: 1px solid rgba(255, 255, 255, .12);
+            box-shadow: 0 24px 50px -24px rgba(0, 0, 0, .8);
+        }
+        .v2-tile-img { aspect-ratio: 1 / 1; border-radius: 14px; overflow: hidden; background: rgba(255, 255, 255, .08); }
+        .v2-tile-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        .v2-band { background: var(--brand-600); color: var(--on-brand); transform: rotate(-1.4deg) scale(1.03); }
+        .v2-band-item { font-size: clamp(1.4rem, 3.4vw, 2.5rem); font-weight: 800; letter-spacing: -.02em; text-transform: uppercase; white-space: nowrap; }
+        .v2-band-item.is-outline { color: transparent; -webkit-text-stroke: 1.5px var(--on-brand); }
+
+        /* Alur otomatis di kartu besar */
+        .v2-flow { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+        .v2-flow-line { position: absolute; left: 16%; right: 16%; top: 22px; height: 2px; background: rgba(15, 23, 42, .1); border-radius: 2px; overflow: hidden; }
+        .v2-flow-line::after {
+            content: ''; position: absolute; inset: 0; width: 40%;
+            background: linear-gradient(90deg, transparent, var(--brand), transparent);
+            animation: v2-run calc(3s * var(--slow)) linear infinite;
+        }
+        @keyframes v2-run { from { transform: translateX(-100%); } to { transform: translateX(250%); } }
+        .v2-flow-step { position: relative; text-align: center; }
+        .v2-flow-node {
+            width: 46px; height: 46px; margin: 0 auto 10px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            background: #fff; border: 2px solid rgba(15, 23, 42, .1); color: #64748b;
+            animation: v2-node calc(3s * var(--slow)) ease-in-out infinite;
+        }
+        .v2-flow-step:nth-child(3) .v2-flow-node { animation-delay: calc(1s * var(--slow)); }
+        .v2-flow-step:nth-child(4) .v2-flow-node { animation-delay: calc(2s * var(--slow)); }
+        @keyframes v2-node {
+            0%, 30%, 100% { border-color: rgba(15, 23, 42, .1); color: #64748b; background: #fff; transform: scale(1); }
+            10%, 20% { border-color: var(--brand); color: var(--on-brand); background: var(--brand-600); transform: scale(1.08); }
+        }
+
+        /* ── Produk: satu baris (dua baris di HP), isinya berganti dengan fade ── */
+        .v2-rot { --cols: 2; display: grid; gap: 12px; grid-template-columns: repeat(var(--cols), minmax(0, 1fr)); }
+        @media (min-width: 640px) { .v2-rot { --cols: 3; } }
+        @media (min-width: 768px) { .v2-rot { --cols: 4; gap: 16px; } }
+        @media (min-width: 1024px) { .v2-rot { --cols: 5; } }
+
+        .v2-rot > .v2-pcard {
+            display: flex; flex-direction: column; padding: 8px; border-radius: 20px;
+            transition: transform .4s var(--ease), box-shadow .4s var(--ease), border-color .3s, opacity .4s var(--ease);
+        }
+        .v2-rot > .v2-pcard:nth-child(n+5) { display: none; }
+        @media (min-width: 640px) { .v2-rot > .v2-pcard:nth-child(4) { display: none; } }
+        @media (min-width: 768px) { .v2-rot > .v2-pcard:nth-child(4) { display: flex; } }
+        @media (min-width: 1024px) { .v2-rot > .v2-pcard:nth-child(5) { display: flex; } }
+        .v2-rot.is-js > .v2-pcard { display: none; }
+        .v2-rot.is-js > .v2-pcard.is-shown { display: flex; }
+        .v2-rot > .v2-pcard.is-out { opacity: 0; transform: translateY(10px) scale(.98); pointer-events: none; }
+
+        .v2-dots { display: flex; justify-content: center; gap: 4px; margin-top: 22px; }
+        .v2-dots:empty { display: none; }
+        .v2-dot-btn { padding: 10px 3px; line-height: 0; }
+        .v2-dot-pill {
+            position: relative; display: block; width: 8px; height: 8px; border-radius: 99px; overflow: hidden;
+            background: rgba(15, 23, 42, .16); transition: width .45s var(--ease), background-color .3s;
+        }
+        .v2-dot-btn:hover .v2-dot-pill { background: rgba(15, 23, 42, .32); }
+        .v2-dot-btn.is-active .v2-dot-pill { width: 36px; }
+        .v2-dot-fill { position: absolute; inset: 0; background: var(--brand-600); transform: scaleX(0); transform-origin: 0 50%; }
+        .v2-dot-btn.is-active .v2-dot-fill { animation: v2-dotfill 3s linear forwards; }
+        .v2-rot-wrap.is-paused .v2-dot-fill { animation-play-state: paused; }
+        @keyframes v2-dotfill { to { transform: scaleX(1); } }
+
+        /* ── Testimoni: dua baris kartu berjalan berlawanan arah ── */
+        .v2-testi-track { padding: 8px 0; }
+        .v2-testi {
+            flex: none; width: 300px; margin-right: 16px; padding: 20px 22px; border-radius: 22px;
+            background: #fff; border: 1px solid rgba(15, 23, 42, .08); box-shadow: 0 1px 2px rgba(15, 23, 42, .04);
+            display: flex; flex-direction: column;
+            transition: transform .3s var(--ease), box-shadow .3s var(--ease), border-color .3s;
+        }
+        @media (min-width: 640px) { .v2-testi { width: 370px; } }
+        .v2-testi:hover { transform: translateY(-4px); border-color: rgba(var(--brand-rgb), .35); box-shadow: 0 22px 44px -26px rgba(var(--brand-rgb), .55); }
+        .v2-testi-top { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+        .v2-testi-ava {
+            position: relative; flex: none; width: 44px; height: 44px; border-radius: 50%; overflow: hidden;
+            display: flex; align-items: center; justify-content: center;
+            background: rgba(var(--brand-rgb), .14); color: var(--brand-text); font-weight: 800; font-size: .95rem;
+        }
+        .v2-testi-ava img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+        .v2-testi-n { display: block; font-size: .9rem; font-weight: 700; line-height: 1.3; color: #0f172a; }
+        .v2-testi-r { display: block; font-size: .76rem; color: #64748b; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .v2-testi-q { flex: none; font-size: 1.35rem; color: rgba(var(--brand-rgb), .22); }
+        .v2-testi-text {
+            flex: 1; font-size: .875rem; line-height: 1.65; color: #475569;
+            display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 4; line-clamp: 4; overflow: hidden;
+        }
+        .v2-testi-stars { margin-top: 14px; display: flex; gap: 2px; font-size: .72rem; color: #f59e0b; }
+
+        /* ── Cara order ── */
+        .v2-steps { --p: 1; position: relative; }
+        .v2-track { position: absolute; background: rgba(15, 23, 42, .1); border-radius: 4px; left: 27px; top: 28px; bottom: 28px; width: 2px; }
+        .v2-track-fill { position: absolute; inset: 0; border-radius: 4px; background: var(--brand); transform-origin: 50% 0; transform: scaleY(var(--p)); }
+        @media (min-width: 768px) {
+            .v2-track { left: calc(12.5% - 9px); right: calc(12.5% - 9px); top: 31px; bottom: auto; width: auto; height: 2px; }
+            .v2-track-fill { transform-origin: 0 50%; transform: scaleX(var(--p)); }
+        }
+        .v2-step-node {
+            position: relative; z-index: 1; flex: none; width: 56px; height: 56px; border-radius: 18px;
+            display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
+            background: var(--brand-600); color: var(--on-brand); box-shadow: 0 12px 28px -12px rgba(var(--brand-rgb), .8);
+            transition: background-color .45s, color .45s, box-shadow .45s, transform .45s var(--ease);
+        }
+        @media (min-width: 768px) { .v2-step-node { width: 64px; height: 64px; border-radius: 20px; } }
+        .js-steps .v2-step:not(.is-on) .v2-step-node { background: #fff; color: #94a3b8; box-shadow: inset 0 0 0 2px rgba(15, 23, 42, .1); transform: scale(.94); }
+        .js-steps .v2-step:not(.is-on) .v2-step-body { opacity: .5; }
+        .v2-step-body { transition: opacity .45s; }
+        .v2-step-num { font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--brand-text); }
+    </style>
+</head>
+<body class="bg-white text-slate-900 antialiased">
+
+    <!-- Daftar kelas dinamis untuk Tailwind CDN -->
+    <div hidden aria-hidden="true"
+        class="anim is-scrolled is-open is-offscreen lenis lenis-smooth lenis-scrolling lenis-stopped lenis-locked lenis-autoToggle is-on is-js is-shown is-out is-active is-paused js-steps"></div>
+
+    <style>:root { --v2-bar-h: 62px; } @media (min-width: 1024px) { :root { --v2-bar-h: 42px; } }</style>
+    
+    <!-- ══ Bilah Promo Atas ══ -->
+    <div id="v2-promo" role="region" aria-label="Promo">
+      <div class="v2-promo" id="v2-promo-bar">
+        <a href="#produk" class="v2-promo-link">
+            <span class="v2-promo-main">
+                <i class="fas fa-print v2-promo-ic" aria-hidden="true"></i>
+                <span class="v2-promo-title">Promo Cetak Spesial UMKM</span>
+            </span>
+            <span class="v2-promo-text v2-promo-wide">Cetak Nota NCR, Lanyard &amp; Ganci Custom — Pembayaran QRIS Otomatis 24 Jam!</span>
+            <span class="v2-promo-text v2-promo-narrow">Cetak Nota, Lanyard &amp; Ganci — QRIS Otomatis!</span>
+            <span class="v2-promo-price">Mulai Rp3.500<span class="v2-promo-per">/pcs</span></span>
+            <span class="v2-promo-cta">Pesan Sekarang <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+        </a>
+        <button type="button" class="v2-promo-x" id="v2-promo-x" aria-label="Tutup promo">
+            <i class="fas fa-xmark" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- ══ Header ══ -->
+    <header id="v2-header" class="fixed inset-x-0 top-0 z-[9990]">
+        <div id="v2-progress" aria-hidden="true"></div>
+        <div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 md:h-20 lg:px-8">
+            <a href="#top" class="flex min-w-0 items-center gap-3">
+                <!-- CELAH GAMBAR LOGO HEADER -->
+                <img id="img-logo-header" src="https://placehold.co/100x100/45a2f2/ffffff?text=DP" alt="DIGIPRINT Logo" class="h-11 w-11 rounded-xl object-cover md:h-12 md:w-12">
+                <span class="flex min-w-0 flex-col leading-none">
+                    <span class="whitespace-nowrap text-lg font-extrabold tracking-tight">DIGIPRINT</span>
+                    <span class="v2-tagline mt-1 block max-w-[46vw] truncate text-[8.5px] font-bold uppercase tracking-[0.14em] sm:max-w-none sm:text-[10px] sm:tracking-[0.2em]">Percetakan Modern Terpadu</span>
+                </span>
+            </a>
+
+            <nav class="hidden items-center gap-7 lg:flex xl:gap-8" aria-label="Navigasi utama">
+                <a class="v2-navlink" href="#produk">Katalog Produk</a>
+                <a class="v2-navlink" href="cek-invoice.html">Lacak Resi</a>
+                <a class="v2-navlink" href="#cara-order">Cara Order</a>
+                <a class="v2-navlink" href="#keunggulan">Keunggulan</a>
+                <div class="v2-dd" data-dd>
+                    <button type="button" class="v2-navlink v2-dd-btn" aria-expanded="false" aria-haspopup="true" aria-controls="v2-dd-4">
+                        Lainnya <i class="fas fa-chevron-down v2-dd-caret" aria-hidden="true"></i>
+                    </button>
+                    <div class="v2-dd-panel" id="v2-dd-4">
+                        <a class="v2-dd-item" href="customer.html">
+                            <span class="v2-dd-ic"><i class="fas fa-sliders" aria-hidden="true"></i></span>
+                            <span>Hitung Spesifikasi Custom</span>
+                        </a>
+                        <a class="v2-dd-item" href="#ulasan">
+                            <span class="v2-dd-ic"><i class="fas fa-star" aria-hidden="true"></i></span>
+                            <span>Testimoni Pelanggan</span>
+                        </a>
+                        <a class="v2-dd-item" href="#faq">
+                            <span class="v2-dd-ic"><i class="fas fa-circle-question" aria-hidden="true"></i></span>
+                            <span>Pusat Bantuan (FAQ)</span>
+                        </a>
+                        <a class="v2-dd-item" href="admin.html">
+                            <span class="v2-dd-ic"><i class="fas fa-user-shield" aria-hidden="true"></i></span>
+                            <span>Panel Admin</span>
+                        </a>
+                        <a class="v2-dd-item" href="https://wa.me/6283143152613" target="_blank">
+                            <span class="v2-dd-ic"><i class="fas fa-headset" aria-hidden="true"></i></span>
+                            <span>Kontak WhatsApp</span>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="flex items-center gap-3">
+                <div class="hidden lg:block">
+                    <a href="login.html" class="v2-btn" style="padding: .65rem 1.25rem; font-size: .875rem">
+                        <i class="fas fa-user-circle"></i>
+                        Portal Member
+                    </a>
+                </div>
+                <div class="lg:hidden">
+                    <button type="button" id="v2-menu-btn" class="v2-iconbtn" aria-label="Buka menu" aria-expanded="false" aria-controls="v2-menu">
+                        <i class="fas fa-bars-staggered"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ══ Menu Mobile ══ -->
+    <div id="v2-menu" aria-hidden="true" data-lenis-prevent>
+        <div class="flex h-16 items-center justify-between px-4 sm:px-6">
+            <span class="text-lg font-extrabold tracking-tight">DIGIPRINT</span>
+            <button type="button" id="v2-menu-close" class="v2-iconbtn" aria-label="Tutup menu">
+                <i class="fas fa-xmark"></i>
+            </button>
+        </div>
+        <nav class="flex flex-col gap-1 px-6 pb-10 pt-4" aria-label="Navigasi mobile">
+            <a href="#produk" class="v2-menu-link border-b border-white/10 py-3.5 text-2xl font-extrabold tracking-tight">Katalog Produk</a>
+            <a href="login.html" class="v2-menu-link border-b border-white/10 py-3.5 text-2xl font-extrabold tracking-tight">Lacak Resi</a>
+            <a href="#cara-order" class="v2-menu-link border-b border-white/10 py-3.5 text-2xl font-extrabold tracking-tight">Cara Order</a>
+            <a href="#keunggulan" class="v2-menu-link border-b border-white/10 py-3.5 text-2xl font-extrabold tracking-tight">Keunggulan</a>
+            <p class="v2-menu-link mt-6 text-xs font-bold uppercase tracking-[0.18em] text-white/45">Lainnya</p>
+            <a href="customer.html" class="v2-menu-link flex items-center gap-3 py-2.5 text-lg font-bold tracking-tight text-white/85">
+                <i class="fas fa-sliders w-5 text-center text-sm text-white/45" aria-hidden="true"></i> Hitung Spesifikasi Custom
+            </a>
+            <a href="#ulasan" class="v2-menu-link flex items-center gap-3 py-2.5 text-lg font-bold tracking-tight text-white/85">
+                <i class="fas fa-star w-5 text-center text-sm text-white/45" aria-hidden="true"></i> Testimoni Pelanggan
+            </a>
+            <a href="#faq" class="v2-menu-link flex items-center gap-3 py-2.5 text-lg font-bold tracking-tight text-white/85">
+                <i class="fas fa-circle-question w-5 text-center text-sm text-white/45" aria-hidden="true"></i> Pusat Bantuan (FAQ)
+            </a>
+            <a href="https://wa.me/6283143152613" target="_blank" class="v2-menu-link flex items-center gap-3 py-2.5 text-lg font-bold tracking-tight text-white/85">
+                <i class="fas fa-headset w-5 text-center text-sm text-white/45" aria-hidden="true"></i> Kontak WhatsApp
+            </a>
+            <a href="login.html" class="v2-btn v2-menu-link mt-8">
+                <i class="fas fa-user-circle"></i>
+                Portal Member / Login
+            </a>
+        </nav>
+    </div>
+
+    <div class="overflow-x-clip">
+        <main>
+            <!-- ══ Hero ══ -->
+            <section id="top" class="v2-hero relative isolate overflow-hidden text-white" data-pause-offscreen>
+                <div class="v2-blob v2-blob-a" aria-hidden="true"></div>
+                <div class="v2-blob v2-blob-b" aria-hidden="true"></div>
+                <div class="v2-grid-bg" aria-hidden="true"></div>
+
+                <div class="relative mx-auto max-w-7xl px-4 pb-14 pt-28 sm:px-6 md:pt-36 lg:grid lg:grid-cols-12 lg:items-center lg:gap-10 lg:px-8 lg:pb-24 lg:pt-32">
+                    <div class="lg:col-span-7">
+                        <div class="v2-in v2-pill">
+                            <span class="v2-dot"></span>
+                            Pusat Percetakan Modern &amp; Souvenir Custom
+                        </div>
+                        <h1 class="v2-h1 mt-6">
+                            <span class="v2-word"><span>Cetak</span></span> <span class="v2-word"><span>kebutuhan</span></span> <span class="v2-word"><span>bisnismu,</span></span> <span class="v2-word"><span>praktis</span></span> <span class="v2-word"><span>dalam</span></span> <span class="v2-word"><span class="v2-accent-dark">hitungan</span></span> <span class="v2-word"><span class="v2-accent-dark">detik.</span></span>
+                        </h1>
+                        <p class="v2-in mt-6 max-w-xl text-base leading-relaxed text-white/70 sm:text-lg">
+                            Pesan Nota NCR, Lanyard Sublimasi, Gantungan Kunci, dan ID Card PVC. Bayar pakai QRIS otomatis, status pesanan langsung dikirim ke WhatsApp kamu.
+                        </p>
+                        <div class="v2-in mt-9 flex flex-col gap-3 sm:flex-row">
+                            <a href="#produk" class="v2-btn" data-magnetic>
+                                <i class="fas fa-print text-sm"></i> Lihat Katalog
+                            </a>
+                            <a href="#cara-order" class="v2-btn-ghost">
+                                <i class="fas fa-circle-play text-sm"></i> Cara Order
+                            </a>
+                        </div>
+                        <dl class="v2-in mt-12 grid max-w-xl grid-cols-3 gap-4 border-t border-white/10 pt-8">
+                            <div>
+                                <dd class="text-2xl font-extrabold tracking-tight sm:text-3xl">
+                                    <span data-count="25">25</span>+
+                                </dd>
+                                <dt class="mt-1 text-xs text-white/55 sm:text-sm">Varian produk cetak</dt>
+                            </div>
+                            <div>
+                                <dd class="text-2xl font-extrabold tracking-tight sm:text-3xl">
+                                    <span class="text-base font-bold text-white/60 sm:text-lg">Rp</span>
+                                    <span data-count="3500">3.500</span>
+                                </dd>
+                                <dt class="mt-1 text-xs text-white/55 sm:text-sm">Harga mulai dari</dt>
+                            </div>
+                            <div>
+                                <dd class="text-2xl font-extrabold tracking-tight sm:text-3xl">
+                                    <span data-count="15420">15.420</span>
+                                </dd>
+                                <dt class="mt-1 text-xs text-white/55 sm:text-sm">Pesanan selesai</dt>
+                            </div>
+                        </dl>
+                    </div>
+
+                    <!-- Dinding produk 3D (Desktop): Diisi dari Supabase / Fallback -->
+                    <div class="v2-in relative hidden lg:col-span-5 lg:block" aria-hidden="true">
+                        <div class="v2-wall" id="v2-wall">
+                            <div class="v2-wall-inner" id="v2-wall-inner">
+                                <div class="v2-col" id="wall-col-1"></div>
+                                <div class="v2-col v2-col-down" id="wall-col-2"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Marquee produk (Mobile): Diisi dari Supabase / Fallback -->
+                <div class="v2-in v2-mq v2-fade-x relative pb-14 lg:hidden" aria-hidden="true">
+                    <div class="v2-mq-track" id="v2-mq-mobile" style="--dur: 60s"></div>
+                </div>
+            </section>
+
+            <!-- ══ Pita nama produk ══ -->
+            <div class="relative z-10 -my-5" aria-hidden="true" data-pause-offscreen>
+                <div class="v2-band v2-mq py-4 sm:py-5">
+                    <div class="v2-mq-track" id="v2-band-track" style="--dur: 56s"></div>
+                </div>
+            </div>
+
+            <!-- ══ Keunggulan ══ -->
+            <section id="keunggulan" class="bg-white py-24 sm:py-32" data-pause-offscreen>
+                <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                    <div class="max-w-2xl" data-reveal>
+                        <p class="v2-accent text-sm font-bold uppercase tracking-[0.18em]">Kenapa Memilih DIGIPRINT</p>
+                        <h2 class="mt-3 text-4xl font-extrabold tracking-tight sm:text-5xl">Cetak kebutuhan bisnis tanpa ribet.</h2>
+                    </div>
+
+                    <div class="mt-14 grid grid-cols-1 gap-5 md:grid-cols-6" data-stagger>
+                        <article class="v2-card v2-spot p-7 sm:p-9 md:col-span-4" data-stagger-item>
+                            <div class="relative">
+                                <span class="v2-icon"><i class="fas fa-bolt"></i></span>
+                                <h3 class="mt-5 text-2xl font-extrabold tracking-tight sm:text-3xl">Kasir Pintar &amp; Pembayaran Otomatis</h3>
+                                <p class="mt-3 max-w-md text-slate-600">Checkout mandiri langsung dari website dengan integrasi QRIS PayinAja real-time tanpa perlu menunggu balasan admin.</p>
+
+                                <div class="v2-flow mt-10" aria-hidden="true">
+                                    <div class="v2-flow-line"></div>
+                                    <div class="v2-flow-step">
+                                        <div class="v2-flow-node"><i class="fas fa-qrcode"></i></div>
+                                        <p class="text-xs font-semibold text-slate-700 sm:text-sm">Bayar QRIS</p>
+                                    </div>
+                                    <div class="v2-flow-step">
+                                        <div class="v2-flow-node"><i class="fas fa-print"></i></div>
+                                        <p class="text-xs font-semibold text-slate-700 sm:text-sm">Diproses Cetak</p>
+                                    </div>
+                                    <div class="v2-flow-step">
+                                        <div class="v2-flow-node"><i class="fas fa-truck-fast"></i></div>
+                                        <p class="text-xs font-semibold text-slate-700 sm:text-sm">Dikirim Ekspedisi</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="v2-card v2-spot p-7 sm:p-9 md:col-span-2" data-stagger-item>
+                            <div class="relative">
+                                <span class="v2-icon"><i class="fas fa-pen-ruler"></i></span>
+                                <h3 class="mt-5 text-xl font-extrabold tracking-tight sm:text-2xl">Bebas Desain Custom</h3>
+                                <p class="mt-3 text-slate-600">Punya desain Canva, PDF, atau Corel? Kirimkan link-nya dan siap kami cetak dengan hasil tajam.</p>
+                            </div>
+                        </article>
+
+                        <article class="v2-card v2-spot p-7 sm:p-9 md:col-span-2" data-stagger-item>
+                            <div class="relative">
+                                <span class="v2-icon"><i class="fab fa-whatsapp"></i></span>
+                                <h3 class="mt-5 text-xl font-extrabold tracking-tight">Notifikasi WhatsApp Real-time</h3>
+                                <p class="mt-3 text-slate-600">Setiap perubahan status produksi hingga pengiriman resi otomatis dikirim ke WhatsApp Anda.</p>
+                            </div>
+                        </article>
+
+                        <article class="v2-card v2-spot p-7 sm:p-9 md:col-span-2" data-stagger-item>
+                            <div class="relative">
+                                <span class="v2-icon"><i class="fas fa-qrcode"></i></span>
+                                <h3 class="mt-5 text-xl font-extrabold tracking-tight">QRIS PayinAja</h3>
+                                <p class="mt-3 text-slate-600">Scan mudah dari DANA, OVO, GoPay, ShopeePay, atau mobile banking apa pun yang kamu punya.</p>
+                            </div>
+                        </article>
+
+                        <article class="v2-card v2-spot p-7 sm:p-9 md:col-span-2" data-stagger-item>
+                            <div class="relative">
+                                <span class="v2-icon"><i class="fas fa-box-open"></i></span>
+                                <h3 class="mt-5 text-xl font-extrabold tracking-tight">Packing Aman &amp; Bergaransi</h3>
+                                <p class="mt-3 text-slate-600">Kualitas material terbaik dengan pengiriman cepat via SPX Express ke seluruh Indonesia.</p>
+                            </div>
+                        </article>
+
+                        <a href="cek-invoice.html" class="v2-card v2-spot v2-link flex items-center justify-between gap-6 p-7 sm:px-9 md:col-span-6" data-stagger-item>
+                            <span class="relative flex items-center gap-5">
+                                <span class="v2-icon flex-none"><i class="fas fa-receipt"></i></span>
+                                <span>
+                                    <span class="block text-lg font-extrabold tracking-tight">Sudah pesan? Lacak status &amp; unduh Invoice Digital kapan saja</span>
+                                    <span class="mt-1 block text-sm text-slate-600">Cukup masukkan nomor WhatsApp atau nomor Resi Transaksi (TRX) Anda.</span>
+                                </span>
+                            </span>
+                            <i class="fas fa-arrow-right v2-accent relative flex-none"></i>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ══ Produk (Katalog Dinamis Supabase) ══ -->
+            <section id="produk" class="bg-slate-50 py-24 sm:py-32">
+                <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                    <div class="flex flex-col justify-between gap-6 sm:flex-row sm:items-end" data-reveal>
+                        <div class="max-w-2xl">
+                            <p class="v2-accent text-sm font-bold uppercase tracking-[0.18em]">Katalog Produk</p>
+                            <h2 class="mt-3 text-4xl font-extrabold tracking-tight sm:text-5xl">Pilih produk cetak kebutuhanmu.</h2>
+                        </div>
+                        <a href="customer.html" class="v2-link v2-accent inline-flex items-center gap-2 font-bold">
+                            Buka Kalkulator Spesifikasi Lengkap <i class="fas fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+
+                    <div class="v2-rot-wrap mt-12" id="v2-rot-wrap" data-reveal>
+                        <div class="v2-rot" id="v2-rot">
+                            <!-- Diisi otomatis dari Supabase / Fallback Katalog DIGIPRINT -->
+                        </div>
+                        <div class="v2-dots" id="v2-dots"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ══ Cara order ══ -->
+            <section id="cara-order" class="bg-white py-24 sm:py-32">
+                <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                    <div class="max-w-2xl" data-reveal>
+                        <p class="v2-accent text-sm font-bold uppercase tracking-[0.18em]">Cara order</p>
+                        <h2 class="mt-3 text-4xl font-extrabold tracking-tight sm:text-5xl">Empat langkah, selesai.</h2>
+                    </div>
+
+                    <div class="v2-steps mt-14" id="v2-steps">
+                        <div class="v2-track" aria-hidden="true"><div class="v2-track-fill"></div></div>
+                        <ol class="relative grid grid-cols-1 gap-10 md:grid-cols-4 md:gap-6">
+                            <li class="v2-step is-on flex gap-5 md:flex-col md:items-center md:gap-6 md:text-center">
+                                <div class="v2-step-node"><i class="fas fa-print"></i></div>
+                                <div class="v2-step-body">
+                                    <p class="v2-step-num">Langkah 1</p>
+                                    <h3 class="mt-1.5 text-xl font-extrabold tracking-tight">Pilih Produk Cetak</h3>
+                                    <p class="mt-2 text-sm leading-relaxed text-slate-600 md:mx-auto md:max-w-[15rem]">Pilih produk percetakan (Nota NCR, Lanyard, Ganci, ID Card, atau Polaroid) sesuai kebutuhanmu.</p>
+                                </div>
+                            </li>
+                            <li class="v2-step is-on flex gap-5 md:flex-col md:items-center md:gap-6 md:text-center">
+                                <div class="v2-step-node"><i class="fab fa-whatsapp"></i></div>
+                                <div class="v2-step-body">
+                                    <p class="v2-step-num">Langkah 2</p>
+                                    <h3 class="mt-1.5 text-xl font-extrabold tracking-tight">Isi Data &amp; Desain</h3>
+                                    <p class="mt-2 text-sm leading-relaxed text-slate-600 md:mx-auto md:max-w-[15rem]">Masukkan nomor WhatsApp aktif, alamat pengiriman, serta catatan atau link desain Canva/file cetakmu.</p>
+                                </div>
+                            </li>
+                            <li class="v2-step is-on flex gap-5 md:flex-col md:items-center md:gap-6 md:text-center">
+                                <div class="v2-step-node"><i class="fas fa-qrcode"></i></div>
+                                <div class="v2-step-body">
+                                    <p class="v2-step-num">Langkah 3</p>
+                                    <h3 class="mt-1.5 text-xl font-extrabold tracking-tight">Bayar QRIS Otomatis</h3>
+                                    <p class="mt-2 text-sm leading-relaxed text-slate-600 md:mx-auto md:max-w-[15rem]">Scan kode QRIS PayinAja menggunakan e-wallet atau m-banking. Pembayaran terverifikasi otomatis.</p>
+                                </div>
+                            </li>
+                            <li class="v2-step is-on flex gap-5 md:flex-col md:items-center md:gap-6 md:text-center">
+                                <div class="v2-step-node"><i class="fas fa-box"></i></div>
+                                <div class="v2-step-body">
+                                    <p class="v2-step-num">Langkah 4</p>
+                                    <h3 class="mt-1.5 text-xl font-extrabold tracking-tight">Cetak &amp; Kirim</h3>
+                                    <p class="mt-2 text-sm leading-relaxed text-slate-600 md:mx-auto md:max-w-[15rem]">Pesanan langsung diproduksi dan dikirim. Resi dan Invoice resmi dapat dipantau langsung dari web.</p>
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ══ Ulasan pembeli ══ -->
+            <section id="ulasan" class="bg-slate-50 py-24 sm:py-32" data-pause-offscreen>
+                <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8" data-reveal>
+                    <span class="v2-badge">Testimoni</span>
+                    <h2 class="mt-4 text-4xl font-extrabold tracking-tight sm:text-5xl">Apa kata pelanggan DIGIPRINT?</h2>
+                    <p class="mx-auto mt-4 max-w-xl text-slate-600">Ulasan asli dari pelaku UMKM, komunitas, dan perusahaan yang telah mencetak di tempat kami.</p>
+                </div>
+
+                <div class="mt-12 space-y-4">
+                    <div class="v2-mq v2-fade-x" data-reveal>
+                        <div class="v2-mq-track v2-testi-track" id="testi-row-1" style="--dur: 90s"></div>
+                    </div>
+                    <div class="v2-mq v2-fade-x" data-reveal>
+                        <div class="v2-mq-track v2-testi-track is-reverse" id="testi-row-2" style="--dur: 101s"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ══ FAQ ══ -->
+            <section id="faq" class="bg-white py-24 sm:py-32">
+                <div class="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-12 lg:px-8">
+                    <div class="lg:col-span-4" data-reveal>
+                        <p class="v2-accent text-sm font-bold uppercase tracking-[0.18em]">FAQ</p>
+                        <h2 class="mt-3 text-4xl font-extrabold tracking-tight sm:text-5xl">Yang sering ditanyakan.</h2>
+                        <p class="mt-4 text-slate-600">Belum terjawab? Tanya admin langsung lewat WhatsApp.</p>
+                        <a href="https://wa.me/6283143152613" target="_blank" rel="noopener" class="v2-link v2-accent mt-5 inline-flex items-center gap-2 font-bold">
+                            <i class="fab fa-whatsapp text-lg"></i> Hubungi Admin <i class="fas fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+
+                    <div class="border-t border-slate-900/10 lg:col-span-8" data-stagger>
+                        <div class="v2-faq is-open" data-stagger-item>
+                            <h3>
+                                <button type="button" class="v2-faq-btn flex w-full items-center justify-between gap-6 py-6 text-left" aria-expanded="true" aria-controls="v2-faq-0" id="v2-faq-btn-0">
+                                    <span class="text-lg font-bold tracking-tight sm:text-xl">Bagaimana cara memesan Nota NCR atau Lanyard Custom?</span>
+                                    <span class="v2-faq-plus" aria-hidden="true"></span>
+                                </button>
+                            </h3>
+                            <div class="v2-faq-panel" id="v2-faq-0" role="region" aria-labelledby="v2-faq-btn-0">
+                                <div>
+                                    <p class="max-w-2xl pb-7 leading-relaxed text-slate-600">Anda bisa langsung klik tombol "Beli" pada produk di atas untuk checkout cepat dengan QRIS, atau masuk ke Portal Member untuk mengatur ukuran folio, jumlah rangkap (1-3 ply), dan memakai poin diskon.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="v2-faq" data-stagger-item>
+                            <h3>
+                                <button type="button" class="v2-faq-btn flex w-full items-center justify-between gap-6 py-6 text-left" aria-expanded="false" aria-controls="v2-faq-1" id="v2-faq-btn-1">
+                                    <span class="text-lg font-bold tracking-tight sm:text-xl">Apakah saya bisa menggunakan desain dari Canva?</span>
+                                    <span class="v2-faq-plus" aria-hidden="true"></span>
+                                </button>
+                            </h3>
+                            <div class="v2-faq-panel" id="v2-faq-1" role="region" aria-labelledby="v2-faq-btn-1">
+                                <div>
+                                    <p class="max-w-2xl pb-7 leading-relaxed text-slate-600">Sangat bisa! Anda cukup menyertakan tautan (link) desain Canva, Google Drive, atau mengirimkan file PDF/CDR melalui WhatsApp setelah melakukan pemesanan.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="v2-faq" data-stagger-item>
+                            <h3>
+                                <button type="button" class="v2-faq-btn flex w-full items-center justify-between gap-6 py-6 text-left" aria-expanded="false" aria-controls="v2-faq-2" id="v2-faq-btn-2">
+                                    <span class="text-lg font-bold tracking-tight sm:text-xl">Berapa minimal order untuk Gantungan Kunci &amp; Lanyard?</span>
+                                    <span class="v2-faq-plus" aria-hidden="true"></span>
+                                </button>
+                            </h3>
+                            <div class="v2-faq-panel" id="v2-faq-2" role="region" aria-labelledby="v2-faq-btn-2">
+                                <div>
+                                    <p class="max-w-2xl pb-7 leading-relaxed text-slate-600">Untuk Gantungan Kunci Akrilik minimal pemesanan hanya 5 pcs. Untuk Lanyard dan Nota NCR bisa dipesan satuan (1 pcs / 1 buku), dan tersedia harga grosir otomatis untuk pemesanan jumlah banyak!</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="v2-faq" data-stagger-item>
+                            <h3>
+                                <button type="button" class="v2-faq-btn flex w-full items-center justify-between gap-6 py-6 text-left" aria-expanded="false" aria-controls="v2-faq-3" id="v2-faq-btn-3">
+                                    <span class="text-lg font-bold tracking-tight sm:text-xl">Metode pembayaran apa saja yang didukung?</span>
+                                    <span class="v2-faq-plus" aria-hidden="true"></span>
+                                </button>
+                            </h3>
+                            <div class="v2-faq-panel" id="v2-faq-3" role="region" aria-labelledby="v2-faq-btn-3">
+                                <div>
+                                    <p class="max-w-2xl pb-7 leading-relaxed text-slate-600">Kami terintegrasi dengan payment gateway PayinAja. Anda dapat membayar secara instan menggunakan QRIS dari seluruh aplikasi E-Wallet (DANA, OVO, GoPay, ShopeePay) maupun Mobile Banking.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ══ CTA penutup ══ -->
+            <section class="bg-white px-4 pb-24 sm:px-6 sm:pb-32 lg:px-8">
+                <div class="v2-cta mx-auto max-w-7xl px-6 py-20 text-center sm:px-12 sm:py-28" data-reveal="scale">
+                    <div class="relative">
+                        <h2 class="mx-auto max-w-3xl text-4xl font-extrabold tracking-tight sm:text-6xl">Tinggal pilih, bayar QRIS, langsung kami cetak.</h2>
+                        <p class="mx-auto mt-5 max-w-xl text-white/70 sm:text-lg">Pesanan masuk ke antrean produksi otomatis begitu pembayaran terverifikasi.</p>
+                        <div class="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
+                            <a href="#produk" class="v2-btn w-full sm:w-auto" data-magnetic>
+                                Pesan Sekarang <i class="fas fa-arrow-right text-xs"></i>
+                            </a>
+                            <a href="https://wa.me/6283143152613" target="_blank" rel="noopener" class="v2-btn-ghost w-full sm:w-auto">
+                                <i class="fab fa-whatsapp text-lg"></i> Konsultasi Desain
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- ══ Footer ══ -->
+        <style>
+            .ft { position: relative; overflow: hidden; isolation: isolate; background: var(--ink); color: rgba(255, 255, 255, .62); }
+            .ft::before { content: ''; position: absolute; right: -160px; top: -200px; z-index: -1; width: 520px; height: 520px; border-radius: 50%; background: radial-gradient(closest-side, rgba(var(--brand-rgb), .32), rgba(var(--brand-rgb), 0)); }
+            .ft::after { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(var(--brand-rgb), .7), transparent); }
+            .ft-grid { display: grid; gap: 36px 24px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            @media (min-width: 1024px) { .ft-grid { grid-template-columns: minmax(0, 1.6fr) repeat(3, minmax(0, 1fr)); gap: 48px; } }
+            .ft-brand { grid-column: 1 / -1; }
+            @media (min-width: 1024px) { .ft-brand { grid-column: auto; } }
+            .ft-logo { display: inline-flex; align-items: center; gap: 12px; font-size: 1.2rem; font-weight: 800; letter-spacing: -.02em; color: #fff; }
+            .ft-logo .brand-t { display: flex; flex-direction: column; line-height: 1; }
+            .ft-logo small { margin-top: 5px; font-size: .64rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: rgba(255, 255, 255, .85); }
+            .ft-logo img { width: 52px; height: 52px; border-radius: 15px; object-fit: cover; background: #fff; }
+            .ft-desc { max-width: 24rem; margin-top: 14px; font-size: .9rem; line-height: 1.7; }
+            .ft-social { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+            .ft-social a { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 13px; color: #fff; background: rgba(255, 255, 255, .07); border: 1px solid rgba(255, 255, 255, .1); transition: background-color .25s, transform .25s var(--ease), border-color .25s; }
+            .ft-social a:hover { background: var(--brand-600); color: var(--on-brand); border-color: transparent; transform: translateY(-3px); }
+            .ft-h { font-size: .74rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: #fff; }
+            .ft-links { display: grid; gap: 11px; margin-top: 16px; font-size: .9rem; }
+            .ft-links a { display: inline-flex; align-items: center; gap: 8px; transition: color .2s, transform .2s var(--ease); }
+            .ft-links a::before { content: ''; width: 0; height: 2px; border-radius: 2px; background: var(--brand-on-dark); transition: width .25s var(--ease); }
+            .ft-links a:hover { color: #fff; }
+            .ft-links a:hover::before { width: 10px; }
+            .ft-mail { display: inline-flex; align-items: center; gap: 8px; margin-top: 18px; font-size: .86rem; color: rgba(255, 255, 255, .75); overflow-wrap: anywhere; }
+            .ft-mail:hover { color: #fff; }
+            .ft-bottom { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; margin-top: 48px; padding-top: 24px; border-top: 1px solid rgba(255, 255, 255, .08); font-size: .8rem; }
+            .ft-pay { display: flex; flex-wrap: wrap; gap: 6px; }
+            .ft-pay span { display: inline-flex; align-items: center; gap: 6px; padding: .3rem .7rem; border-radius: 999px; font-size: .72rem; font-weight: 700; color: rgba(255, 255, 255, .78); background: rgba(255, 255, 255, .06); border: 1px solid rgba(255, 255, 255, .1); }
+            .ft-pay i { color: var(--brand-on-dark); }
+        </style>
+        <footer class="ft" aria-label="Footer">
+            <div class="mx-auto max-w-7xl px-4 pb-10 pt-16 sm:px-6 sm:pt-20 lg:px-8">
+                <div class="ft-grid">
+                    <div class="ft-brand">
+                        <a href="#top" class="ft-logo">
+                            <!-- CELAH GAMBAR LOGO FOOTER -->
+                            <img id="img-logo-footer" src="https://placehold.co/100x100/45a2f2/ffffff?text=DP" alt="DIGIPRINT">
+                            <span class="brand-t"><span>DIGIPRINT</span><small>Percetakan Modern</small></span>
+                        </a>
+                        <p class="ft-desc">Pusat cetak online untuk administrasi dan identitas bisnis Anda. Melayani cetak Nota NCR, Lanyard, Ganci, dan ID Card ke seluruh Indonesia didukung pembayaran QRIS otomatis.</p>
+                        <div class="ft-social">
+                            <a href="https://wa.me/6283143152613" target="_blank" rel="noopener" aria-label="WhatsApp" title="WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+                            <a href="https://tiktok.com/@digiprinnt" target="_blank" rel="noopener" aria-label="TikTok" title="TikTok"><i class="fab fa-tiktok" aria-hidden="true"></i></a>
+                            <a href="#" aria-label="Instagram" title="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                        </div>
+                        <a href="mailto:admin@digiprint.id" class="ft-mail"><i class="fas fa-envelope" aria-hidden="true"></i> <span>Jl. Arah Kebonklopo RT23 RW06, Sumberpucung, Malang</span></a>
+                    </div>
+                    <nav aria-label="Layanan Cetak">
+                        <p class="ft-h">Layanan Cetak</p>
+                        <ul class="ft-links">
+                            <li><a href="#produk">Cetak Nota NCR</a></li>
+                            <li><a href="#produk">Lanyard Sublimasi</a></li>
+                            <li><a href="#produk">Gantungan Kunci Akrilik</a></li>
+                            <li><a href="#produk">ID Card PVC</a></li>
+                            <li><a href="#produk">Cetak Foto Polaroid</a></li>
+                        </ul>
+                    </nav>
+                    <nav aria-label="Akses Cepat">
+                        <p class="ft-h">Akses Cepat</p>
+                        <ul class="ft-links">
+                            <li><a href="cek-invoice.html">Lacak Resi Pesanan</a></li>
+                            <li><a href="customer.html">Dashboard Pelanggan</a></li>
+                            <li><a href="admin.html">Panel Admin</a></li>
+                            <li><a href="#cara-order">Panduan Pemesanan</a></li>
+                            <li><a href="#faq">Tanya Jawab (FAQ)</a></li>
+                        </ul>
+                    </nav>
+                    <nav aria-label="Informasi">
+                        <p class="ft-h">Informasi</p>
+                        <ul class="ft-links">
+                            <li><a href="#keunggulan">Keunggulan Sistem</a></li>
+                            <li><a href="#ulasan">Testimoni Pembeli</a></li>
+                            <li><a href="https://wa.me/6283143152613" target="_blank">Bantuan CS Admin</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="ft-bottom">
+                    <p>&copy; 2026 DIGIPRINT Corp. Semua hak dilindungi.</p>
+                    <div class="ft-pay" aria-label="Pembayaran">
+                        <span><i class="fas fa-qrcode" aria-hidden="true"></i> QRIS PayinAja</span>
+                        <span><i class="fas fa-truck" aria-hidden="true"></i> SPX Express</span>
+                        <span><i class="fas fa-bolt" aria-hidden="true"></i> Otomatis 24 Jam</span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- ══ Widget Pop-up Live Order (Kiri Bawah) ══ -->
+        <style>
+            .lo2 { position: fixed; left: 20px; bottom: 20px; z-index: 9998; max-width: 300px; pointer-events: none; }
+            .lo2[hidden] { display: none; }
+            .lo2-pill {
+                position: relative; display: inline-flex; min-width: 230px; max-width: 100%; align-items: center; gap: 13px; padding: 9px 12px 9px 9px; border-radius: 999px;
+                color: #fff; background: rgba(15, 23, 42, .88); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+                box-shadow: 0 16px 36px -14px rgba(15, 23, 42, .6), inset 0 0 0 1px rgba(255, 255, 255, .08); pointer-events: auto;
+                opacity: 0; transform: translateX(-24px); transition: opacity .4s cubic-bezier(.22, 1, .36, 1), transform .55s cubic-bezier(.34, 1.4, .64, 1);
+            }
+            .lo2[data-show] .lo2-pill { opacity: 1; transform: none; }
+            .lo2-media { position: relative; flex: none; width: 44px; height: 44px; padding: 2px; border-radius: 50%; }
+            .lo2-ring { position: absolute; inset: 0; border-radius: 50%; background: conic-gradient(from 0deg, var(--brand), var(--brand-600), rgba(var(--brand-rgb), .15), var(--brand)); animation: lo2-spin 3.2s linear infinite; }
+            @keyframes lo2-spin { to { transform: rotate(360deg); } }
+            .lo2-media > img, .lo2-ph { position: relative; display: flex; width: 40px; height: 40px; align-items: center; justify-content: center; overflow: hidden; border-radius: 50%; object-fit: cover; border: 2px solid #0f172a; background: #1e293b; }
+            .lo2-media > img[hidden], .lo2-ph[hidden] { display: none; }
+            .lo2-ph { font-size: .8rem; color: #fff; }
+            .lo2-ok { position: absolute; right: -2px; bottom: -2px; display: flex; width: 15px; height: 15px; align-items: center; justify-content: center; border-radius: 50%; font-size: .42rem; color: #fff; background: #10b981; border: 2px solid #0f172a; }
+            .lo2-txt { display: flex; flex: 1; min-width: 0; flex-direction: column; gap: 3px; padding-right: 10px; line-height: 1.2; }
+            .lo2-tag { display: flex; align-items: center; gap: 5px; font-size: .56rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--brand-on-dark, #93c5fd); }
+            .lo2-dot { flex: none; width: 6px; height: 6px; border-radius: 50%; background: #34d399; animation: lo2-ping 1.8s ease-out infinite; }
+            @keyframes lo2-ping { from { box-shadow: 0 0 0 0 rgba(52, 211, 153, .6); } to { box-shadow: 0 0 0 6px rgba(52, 211, 153, 0); } }
+            .lo2-name { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-size: .82rem; font-weight: 800; letter-spacing: -.01em; color: #fff; }
+            .lo2-item { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; margin-top: -1px; font-size: .74rem; font-weight: 700; color: rgba(255, 255, 255, .85); }
+            .lo2-item[hidden] { display: none; }
+            .lo2-who { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-size: .74rem; font-weight: 600; letter-spacing: .01em; color: rgba(255, 255, 255, .62); }
+            .lo2-sep { margin: 0 4px; color: rgba(255, 255, 255, .35); }
+            .lo2-x { flex: none; display: flex; width: 22px; height: 22px; align-items: center; justify-content: center; border: 0; border-radius: 50%; font-size: .62rem; color: rgba(255, 255, 255, .55); background: rgba(255, 255, 255, .08); cursor: pointer; transition: color .2s, background-color .2s; }
+            .lo2-x:hover { color: #fff; background: rgba(255, 255, 255, .18); }
+            @media (max-width: 480px) { .lo2 { left: 12px; bottom: 14px; max-width: 80vw; } .lo2-pill { min-width: 0; gap: 11px; padding: 8px 10px 8px 8px; } }
+        </style>
+        <div class="lo2" id="lo2" role="status" aria-live="polite" hidden>
+            <div class="lo2-pill">
+                <span class="lo2-media" aria-hidden="true">
+                    <span class="lo2-ring"></span>
+                    <img id="lo2-img" src="data:," alt="" hidden>
+                    <span class="lo2-ph" id="lo2-ph"><i class="fas fa-bag-shopping"></i></span>
+                    <span class="lo2-ok"><i class="fas fa-check"></i></span>
+                </span>
+                <span class="lo2-txt">
+                    <span class="lo2-tag"><span class="lo2-dot" aria-hidden="true"></span><span id="lo2-label">Pesanan Cetak Masuk</span></span>
+                    <span class="lo2-name" id="lo2-name">&nbsp;</span>
+                    <span class="lo2-item" id="lo2-item" hidden>&nbsp;</span>
+                    <span class="lo2-who"><span id="lo2-buyer">&nbsp;</span><span class="lo2-sep" aria-hidden="true"> · </span><span id="lo2-time">&nbsp;</span></span>
+                </span>
+                <button type="button" class="lo2-x" id="lo2-x" aria-label="Tutup"><i class="fas fa-xmark" aria-hidden="true"></i></button>
+            </div>
+        </div>
+
+        <!-- ══ Modal Checkout Cepat PayinAja & Supabase ══ -->
+        <div id="checkout-modal" class="fixed inset-0 z-[99990] hidden items-center justify-center bg-slate-950/70 backdrop-blur-sm p-4">
+            <div class="bg-white rounded-3xl shadow-2xl w-full max-w-md overflow-hidden border border-slate-100">
+                <div class="flex items-center justify-between px-6 py-5 border-b border-slate-100 bg-slate-50/60">
+                    <div>
+                        <span class="text-[10px] font-extrabold uppercase tracking-widest text-brand-600">Checkout Instan QRIS</span>
+                        <h3 id="co-prod-name" class="text-lg font-extrabold text-slate-900 leading-tight mt-0.5">Nama Produk</h3>
+                    </div>
+                    <button type="button" onclick="tutupModalCheckout()" class="w-8 h-8 rounded-full bg-slate-200/70 text-slate-600 hover:bg-slate-300 flex items-center justify-center">
+                        <i class="fas fa-xmark"></i>
+                    </button>
+                </div>
+
+                <!-- Form Input Pemesan -->
+                <div id="co-step-form" class="p-6 space-y-4">
+                    <div class="grid grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">Nama Pemesan *</label>
+                            <input type="text" id="co-nama" placeholder="Nama / Toko" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm font-semibold focus:outline-none focus:border-brand-500">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">No. WhatsApp *</label>
+                            <input type="tel" id="co-wa" placeholder="08..." class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm font-semibold focus:outline-none focus:border-brand-500">
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-3 gap-3">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">Jumlah (Qty)</label>
+                            <input type="number" id="co-qty" value="1" min="1" oninput="hitungTotalCheckout()" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm font-bold focus:outline-none focus:border-brand-500">
+                        </div>
+                        <div class="col-span-2">
+                            <label class="block text-xs font-bold text-slate-700 mb-1">Link Desain Canva / Catatan</label>
+                            <input type="text" id="co-catatan" placeholder="Link desain / ukuran / ply" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm font-semibold focus:outline-none focus:border-brand-500">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Alamat Pengiriman Lengkap *</label>
+                        <textarea id="co-alamat" rows="2" placeholder="Jalan, Kecamatan, Kota/Kabupaten..." class="w-full px-3.5 py-2 rounded-xl border border-slate-200 text-sm font-semibold focus:outline-none focus:border-brand-500"></textarea>
+                    </div>
+                    <div class="flex items-center justify-between pt-3 border-t border-slate-100">
+                        <span class="text-xs font-bold text-slate-500">Total Pembayaran:</span>
+                        <span id="co-total-label" class="text-xl font-extrabold text-brand-600">Rp 0</span>
+                    </div>
+                    <button type="button" id="btn-submit-co" onclick="eksekusiCheckoutPayinAja()" class="v2-btn w-full py-3.5">
+                        <i class="fas fa-qrcode"></i> Buat Pesanan &amp; Tampilkan QRIS
+                    </button>
+                </div>
+
+                <!-- Tampilan QRIS PayinAja -->
+                <div id="co-step-qris" class="p-6 text-center space-y-4 hidden">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 text-emerald-600 text-xs font-bold">
+                        <i class="fas fa-check-circle"></i> Pesanan Tercatat: <span id="co-trx-id">TRX-000</span>
+                    </div>
+                    <p class="text-xs text-slate-500">Scan QR Code di bawah menggunakan M-Banking atau E-Wallet (DANA, OVO, GoPay, ShopeePay):</p>
+                    <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 inline-block mx-auto">
+                        <img id="co-qris-img" src="" alt="QRIS PayinAja" class="w-48 h-48 object-contain mx-auto">
+                    </div>
+                    <div class="text-sm font-bold text-slate-800">
+                        Total Tagihan: <span id="co-qris-amount" class="text-brand-600 font-extrabold">Rp 0</span>
+                    </div>
+                    <div class="flex gap-2 pt-2">
+                        <a id="co-wa-confirm" href="#" target="_blank" class="v2-btn flex-1 py-3 text-xs">
+                            <i class="fab fa-whatsapp"></i> Konfirmasi via WA
+                        </a>
+                        <button type="button" onclick="tutupModalCheckout()" class="px-4 py-3 rounded-full bg-slate-100 text-slate-700 font-bold text-xs hover:bg-slate-200">
+                            Selesai
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ══ Dialog UI Bawaan ══ -->
+        <div id="ui-dialog-overlay" class="fixed inset-0 z-[100000] hidden items-center justify-center bg-black/50 backdrop-blur-sm p-4">
+            <div id="ui-dialog-card" class="bg-white rounded-2xl shadow-2xl w-full max-w-sm overflow-hidden transform transition-all duration-150 scale-95 opacity-0">
+                <div class="p-6 text-center">
+                    <div id="ui-dialog-icon" class="mx-auto w-14 h-14 rounded-full flex items-center justify-center mb-4 text-2xl"></div>
+                    <h3 id="ui-dialog-title" class="text-lg font-bold text-gray-900 mb-1"></h3>
+                    <p id="ui-dialog-message" class="text-sm text-gray-500 leading-relaxed whitespace-pre-line"></p>
+                </div>
+                <div id="ui-dialog-actions" class="flex gap-2 p-4 pt-0"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- KONFIGURASI SUPABASE, PAYINAJA & CELAH LINK GAMBAR (DAPAT DIUBAH MUDAH) -->
+    <!-- ========================================================================= -->
+    <script src="config.js"></script>
+    <script>
+        // =========================================================================
+        // 1. CELAH LINK GAMBAR (Ganti URL di bawah ini dengan link gambar milikmu)
+        // =========================================================================
+        const GAMBAR_TOKO = {
+            logo_toko:    "https://placehold.co/120x120/45a2f2/ffffff?text=DP",
+            nota_ncr:     "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=500&q=80",
+            lanyard:      "https://images.unsplash.com/photo-1603899122858-a53c39d8924b?auto=format&fit=crop&w=500&q=80",
+            ganci:        "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=500&q=80",
+            id_card:      "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=500&q=80",
+            polaroid:     "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=500&q=80",
+            stempel:      "https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=500&q=80",
+            stiker:       "https://images.unsplash.com/photo-1572375992501-4b0892d50c69?auto=format&fit=crop&w=500&q=80",
+            banner:       "https://images.unsplash.com/photo-1562564055-71e051d33c19?auto=format&fit=crop&w=500&q=80",
+            kartu_nama:   "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=500&q=80",
+            buku_custom:  "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=500&q=80",
+            default_prod: "https://images.unsplash.com/photo-1562564055-71e051d33c19?auto=format&fit=crop&w=500&q=80"
+        };
+
+        // Pasang logo dari celah gambar
+        document.getElementById('img-logo-header').src = GAMBAR_TOKO.logo_toko;
+        document.getElementById('img-logo-footer').src = GAMBAR_TOKO.logo_toko;
+
+        // =========================================================================
+        // 2. DATA FALLBACK PRODUK DIGIPRINT (Tampil otomatis jika Supabase kosong/belum diset)
+        // =========================================================================
+        const FALLBACK_PRODUK_DIGIPRINT = [
+            { id: "PROD-01", nama: "Nota NCR Custom 1/4 Folio", kategori: "Nota NCR", harga: 5550, stok: 100, terjual: 1420, gambar: GAMBAR_TOKO.nota_ncr },
+            { id: "PROD-02", nama: "Nota NCR Custom 1/2 Folio (2 Ply)", kategori: "Nota NCR", harga: 11200, stok: 85, terjual: 980, gambar: GAMBAR_TOKO.nota_ncr },
+            { id: "PROD-03", nama: "Nota NCR Paket 1 Rim (20 Buku)", kategori: "Grosir Nota", harga: 316000, stok: 40, terjual: 310, gambar: GAMBAR_TOKO.nota_ncr },
+            { id: "PROD-04", nama: "Lanyard Tisu Sublimasi + Stopper", kategori: "Lanyard", harga: 15000, stok: 200, terjual: 2150, gambar: GAMBAR_TOKO.lanyard },
+            { id: "PROD-05", nama: "Lanyard Custom Tanpa Stopper", kategori: "Lanyard", harga: 14000, stok: 150, terjual: 890, gambar: GAMBAR_TOKO.lanyard },
+            { id: "PROD-06", nama: "Gantungan Kunci Akrilik 2 Sisi", kategori: "Merchandise", harga: 3500, stok: 500, terjual: 3410, gambar: GAMBAR_TOKO.ganci },
+            { id: "PROD-07", nama: "Cetak Foto Polaroid (Pak 25 Foto)", kategori: "Fotografi", harga: 11000, stok: 120, terjual: 1840, gambar: GAMBAR_TOKO.polaroid },
+            { id: "PROD-08", nama: "ID Card PVC Tebal Standar ATM", kategori: "ID Card", harga: 7500, stok: 300, terjual: 1290, gambar: GAMBAR_TOKO.id_card },
+            { id: "PROD-09", nama: "Stempel Flash Otomatis Custom", kategori: "Administrasi", harga: 35000, stok: 45, terjual: 420, gambar: GAMBAR_TOKO.stempel },
+            { id: "PROD-10", nama: "Stiker Label Kemasan Chromo A3+", kategori: "Kemasan UMKM", harga: 6500, stok: 250, terjual: 1650, gambar: GAMBAR_TOKO.stiker },
+            { id: "PROD-11", nama: "Cetak Kartu Nama Art Carton (1 Box)", kategori: "Identitas", harga: 25000, stok: 90, terjual: 530, gambar: GAMBAR_TOKO.kartu_nama },
+            { id: "PROD-12", nama: "Notebook / Buku Catatan Cover Custom", kategori: "Merchandise", harga: 18000, stok: 60, terjual: 290, gambar: GAMBAR_TOKO.buku_custom }
+        ];
+
+        // =========================================================================
+        // 3. RENDER PRODUK KE DINDING 3D, MARQUEE, PITA NAMA & GRID UTAMA
+        // =========================================================================
+        // KODE BARU DI index.html (Membaca image_url dari Supabase Storage):
+        function pilihGambarProduk(item) {
+            const urlDb = item.image_url || item.gambar || "";
+            if (urlDb && (urlDb.startsWith("http") || urlDb.startsWith("data:image"))) {
+                return urlDb;
+            }
+            const kat = ((item.kategori || "") + " " + (item.nama || "")).toLowerCase();
+            if (kat.includes("nota")) return GAMBAR_TOKO.nota_ncr;
+            if (kat.includes("lanyard")) return GAMBAR_TOKO.lanyard;
+            if (kat.includes("ganci") || kat.includes("gantungan")) return GAMBAR_TOKO.ganci;
+            if (kat.includes("polaroid") || kat.includes("foto")) return GAMBAR_TOKO.polaroid;
+            if (kat.includes("id card") || kat.includes("pvc")) return GAMBAR_TOKO.id_card;
+            if (kat.includes("stempel")) return GAMBAR_TOKO.stempel;
+            if (kat.includes("stiker")) return GAMBAR_TOKO.stiker;
+            return GAMBAR_TOKO.default_prod;
+        }
+
+        function renderSeluruhKatalog(listProduk) {
+            const wallCol1 = document.getElementById("wall-col-1");
+            const wallCol2 = document.getElementById("wall-col-2");
+            const mqMobile = document.getElementById("v2-mq-mobile");
+            const bandTrack = document.getElementById("v2-band-track");
+            const rotGrid = document.getElementById("v2-rot");
+
+            let htmlCol1 = "", htmlCol2 = "", htmlMobile = "", htmlBand = "", htmlGrid = "";
+
+            listProduk.forEach((p, idx) => {
+                const harga = parseInt(p.harga) || 0;
+                const stok = p.stok !== undefined ? parseInt(p.stok) : 100;
+                const terjual = p.terjual || (Math.floor(Math.random() * 800) + 100);
+                const imgUrl = pilihGambarProduk(p);
+                const hargaStr = "Rp " + harga.toLocaleString("id-ID");
+                const namaSafe = (p.nama || "Produk Cetak").replace(/'/g, "\\'");
+
+                // 1. Dinding Hero 3D
+                const tile3D = `
+                    <div class="v2-tile">
+                        <div class="v2-tile-img">
+                            <img src="${imgUrl}" alt="${p.nama}" loading="lazy" decoding="async">
+                        </div>
+                        <div class="flex items-center justify-between gap-3 px-1.5 pb-1 pt-3">
+                            <span class="truncate text-sm font-semibold">${p.nama}</span>
+                            <span class="v2-accent-dark flex-none text-sm font-bold">${hargaStr}</span>
+                        </div>
+                    </div>`;
+                if (idx % 2 === 0) htmlCol1 += tile3D;
+                else htmlCol2 += tile3D;
+
+                // 2. Marquee Mobile
+                htmlMobile += `
+                    <div class="v2-tile mr-3 w-36">
+                        <div class="v2-tile-img">
+                            <img src="${imgUrl}" alt="${p.nama}" loading="lazy" decoding="async">
+                        </div>
+                        <div class="px-1 pb-0.5 pt-2.5">
+                            <span class="block truncate text-xs font-semibold">${p.nama}</span>
+                            <span class="v2-accent-dark text-xs font-bold">${hargaStr}</span>
+                        </div>
+                    </div>`;
+
+                // 3. Pita Berjalan (Band)
+                const outlineCls = idx % 2 === 1 ? "is-outline" : "";
+                htmlBand += `
+                    <span class="v2-band-item ${outlineCls} flex items-center">
+                        ${p.nama}
+                        <i class="fas fa-star-of-life mx-6 text-[0.5em] opacity-70 sm:mx-8" style="-webkit-text-stroke: 0; color: var(--on-brand)"></i>
+                    </span>`;
+
+                // 4. Grid Katalog Utama
+                const btnHtml = stok > 0
+                    ? `<button type="button" onclick="bukaModalCheckout('${p.id}', '${namaSafe}', ${harga})" class="v2-buy mt-2">
+                           <i class="fas fa-shopping-cart text-[10px]"></i> Beli
+                       </button>`
+                    : `<span class="v2-buy is-off mt-2">Stok habis</span>`;
+
+                htmlGrid += `
+                    <article class="v2-card v2-pcard">
+                        <a href="javascript:void(0)" onclick="bukaModalCheckout('${p.id}', '${namaSafe}', ${harga})" class="v2-product-img block" tabindex="-1">
+                            <img src="${imgUrl}" alt="${p.nama}" loading="lazy" decoding="async">
+                        </a>
+                        <div class="flex flex-1 flex-col px-1 pb-1 pt-3">
+                            <p class="v2-accent truncate text-[10px] font-bold uppercase tracking-[0.12em]">${p.kategori || 'Cetak Custom'}</p>
+                            <h3 class="v2-pname mt-0.5 line-clamp-2 text-[13px] font-bold tracking-tight sm:text-sm">
+                                <a href="javascript:void(0)" onclick="bukaModalCheckout('${p.id}', '${namaSafe}', ${harga})">${p.nama}</a>
+                            </h3>
+                            <p class="mt-1 text-[11px] text-slate-500">${terjual.toLocaleString('id-ID')} terjual</p>
+                            <div class="mt-auto pt-2.5">
+                                <p class="truncate text-sm font-extrabold tracking-tight sm:text-[15px]">
+                                    <span class="text-[10px] font-medium text-slate-500">Mulai</span>
+                                    ${hargaStr}
+                                </p>
+                                ${btnHtml}
+                            </div>
+                        </div>
+                    </article>`;
+            });
+
+            // Duplikasi untuk marquee agar putaran menyambung tanpa celah
+            if (wallCol1) wallCol1.innerHTML = htmlCol1 + htmlCol1;
+            if (wallCol2) wallCol2.innerHTML = htmlCol2 + htmlCol2;
+            if (mqMobile) mqMobile.innerHTML = htmlMobile + htmlMobile;
+            if (bandTrack) bandTrack.innerHTML = htmlBand + htmlBand;
+            if (rotGrid) rotGrid.innerHTML = htmlGrid;
+
+            if (typeof window.__reinitRotator === "function") {
+                window.__reinitRotator();
+            }
+        }
+
+        async function muatProdukDariSupabase() {
+            // Render fallback lebih dulu agar halaman instan terisi dan tidak pernah kosong
+            renderSeluruhKatalog(FALLBACK_PRODUK_DIGIPRINT);
+
+            // Jika config.js sudah diisi URL Supabase yang valid, ambil dari database
+            if (typeof SUPABASE_URL !== "undefined" && SUPABASE_URL.startsWith("https://") && !SUPABASE_URL.includes("ISI_URL")) {
+                try {
+                    const dataDb = await fetchSupabase("produk?select=*&order=id.asc");
+                    if (Array.isArray(dataDb) && dataDb.length > 0) {
+                        renderSeluruhKatalog(dataDb);
+                    }
+                } catch (e) {
+                    console.warn("Menggunakan katalog bawaan karena koneksi Supabase belum aktif:", e);
+                }
+            }
+        }
+
+        // =========================================================================
+        // 4. RENDER TESTIMONI PELANGGAN DIGIPRINT
+        // =========================================================================
+        const DATA_TESTIMONI = [
+            { inisial: "B", nama: "Toko Berkah***", prod: "Nota NCR 2 Ply", teks: "Cetakan nota rapi banget, tembusannya jelas dan kertasnya gak gampang sobek. Langganan terus!" },
+            { inisial: "R", nama: "Rizky Panitia***", prod: "Lanyard Sublimasi", teks: "Warna lanyard tajam sesuai file Canva yang dikirim. Stopper kuat, pengiriman ke Surabaya cepat." },
+            { inisial: "A", nama: "Kopi Senja***", prod: "Stiker & Nota NCR", teks: "Bayar pakai QRIS langsung terverifikasi otomatis, gak pakai ribet nunggu admin balas chat." },
+            { inisial: "D", nama: "Dinda Komunitas***", prod: "Ganci Akrilik 2 Sisi", teks: "Pesan 50 pcs buat acara kampus hasilnya bening dan potongannya halus banget. Mantap DIGIPRINT!" },
+            { inisial: "H", nama: "Hendra Corp***", prod: "ID Card PVC + Lanyard", teks: "Kualitas ID Card tebal persis kartu ATM, gak luntur. Cocok buat kartu karyawan kantor kami." },
+            { inisial: "S", nama: "Siti Olshop***", prod: "Paket 1 Rim Nota", teks: "Ambil paket 1 rim jauh lebih hemat buat stok nota toko setahun. Packing aman banget." },
+            { inisial: "M", nama: "Putri***", prod: "Cetak Polaroid 25 Foto", teks: "Kertasnya tebal glossy, warnanya cerah gak gelap. Bakal order lagi buat kado teman!" },
+            { inisial: "F", nama: "Fajar Bengkel***", prod: "Nota NCR 3 Ply", teks: "Admin ramah, dibantu cek desain sebelum naik cetak. Hasil memuaskan dan presisi." }
+        ];
+
+        function renderTestimoni() {
+            const r1 = document.getElementById("testi-row-1");
+            const r2 = document.getElementById("testi-row-2");
+            let html = "";
+            DATA_TESTIMONI.forEach(t => {
+                html += `
+                    <figure class="v2-testi">
+                        <figcaption class="v2-testi-top">
+                            <span class="v2-testi-ava"><span>${t.inisial}</span></span>
+                            <span class="min-w-0 flex-1">
+                                <span class="v2-testi-n">${t.nama}</span>
+                                <span class="v2-testi-r">${t.prod}</span>
+                            </span>
+                            <i class="fas fa-quote-right v2-testi-q" aria-hidden="true"></i>
+                        </figcaption>
+                        <blockquote class="v2-testi-text">${t.teks}</blockquote>
+                        <div class="v2-testi-stars" aria-label="5 dari 5 bintang">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                    </figure>`;
+            });
+            if (r1) r1.innerHTML = html + html;
+            if (r2) r2.innerHTML = html + html;
+        }
+
+        // =========================================================================
+        // 5. ARAHKAN TOMBOL BELI KE LOGIN (JIKA BELUM LOGIN) ATAU KE DASHBOARD
+        // =========================================================================
+        function bukaModalCheckout(id, nama, harga) {
+            const sesiMember = localStorage.getItem("digiprint_member");
+            const targetDashboard = `customer.html?produk_id=${encodeURIComponent(id)}&produk_nama=${encodeURIComponent(nama)}&produk_harga=${encodeURIComponent(harga)}`;
+
+            if (!sesiMember) {
+                // Belum login -> Arahkan ke login.html sambil membawa tujuan produk
+                window.location.href = `login.html?redirect=${encodeURIComponent(targetDashboard)}`;
+            } else {
+                // Sudah login -> Langsung masuk ke form pemesanan di customer.html
+                window.location.href = targetDashboard;
+            }
+        }
+
+        // Ubah semua tombol "Portal Member" (href="login.html") menjadi ke customer.html jika sudah login
+        function sinkronisasiTombolMember() {
+            const sesiStr = localStorage.getItem("digiprint_member");
+            if (!sesiStr) return;
+            try {
+                const member = JSON.parse(sesiStr);
+                document.querySelectorAll('a[href="login.html"]').forEach(link => {
+                    link.setAttribute("href", "customer.html");
+                    if (link.classList.contains("v2-btn")) {
+                        link.innerHTML = `<i class="fas fa-user-check"></i> Dashboard (${member.nama.split(' ')[0]})`;
+                    }
+                });
+            } catch (e) {}
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            sinkronisasiTombolMember();
+            renderTestimoni();
+            muatProdukDariSupabase();
+        });
+
+        function tutupModalCheckout() {
+            const modal = document.getElementById("checkout-modal");
+            modal.classList.add("hidden");
+            modal.classList.remove("flex");
+        }
+
+        function hitungTotalCheckout() {
+            const qty = Math.max(1, parseInt(document.getElementById("co-qty").value) || 1);
+            const total = qty * itemCheckoutAktif.harga;
+            document.getElementById("co-total-label").textContent = "Rp " + total.toLocaleString("id-ID");
+            return total;
+        }
+
+        async function eksekusiCheckoutPayinAja() {
+            const nama = document.getElementById("co-nama").value.trim();
+            const wa = document.getElementById("co-wa").value.trim();
+            const qty = Math.max(1, parseInt(document.getElementById("co-qty").value) || 1);
+            const catatan = document.getElementById("co-catatan").value.trim();
+            const alamat = document.getElementById("co-alamat").value.trim();
+            const totalBayar = hitungTotalCheckout();
+
+            if (!nama || !wa || !alamat) {
+                window.alert("Mohon lengkapi Nama, Nomor WhatsApp, dan Alamat Pengiriman!");
+                return;
+            }
+
+            const btn = document.getElementById("btn-submit-co");
+            const teksAsli = btn.innerHTML;
+            btn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> Memproses QRIS...`;
+            btn.disabled = true;
+
+            const idTrx = "DP" + Date.now().toString().slice(-7);
+            const detailPesanan = `${itemCheckoutAktif.nama} (${qty}x)` + (catatan ? ` - Catatan: ${catatan}` : "");
+
+            // 1. Simpan pesanan ke Supabase jika sudah dikonfigurasi
+            if (typeof SUPABASE_URL !== "undefined" && SUPABASE_URL.startsWith("https://") && !SUPABASE_URL.includes("ISI_URL")) {
+                try {
+                    await fetchSupabase("pesanan", "POST", {
+                        id_trx: idTrx,
+                        tanggal: new Date().toISOString(),
+                        nama_penerima: nama,
+                        wa: wa,
+                        alamat: alamat,
+                        detail_pesanan: detailPesanan,
+                        total_bayar: totalBayar,
+                        status: "Menunggu Pembayaran"
+                    });
+                } catch (err) {
+                    console.warn("Gagal menyimpan ke Supabase:", err);
+                }
+            }
+
+            // 2. Request QRIS ke PayinAja (Atau tampilkan QRIS Dinamis)
+            let qrisImageUrl = `https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=DIGIPRINT-${idTrx}-${totalBayar}`;
+            if (typeof PAYINAJA_API_KEY !== "undefined" && !PAYINAJA_API_KEY.includes("ISI_API_KEY")) {
+                try {
+                    const resPay = await fetch(PAYINAJA_ENDPOINT, {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "Authorization": `Bearer ${PAYINAJA_API_KEY}`
+                        },
+                        body: JSON.stringify({
+                            merchant_id: PAYINAJA_MERCHANT_ID,
+                            order_id: idTrx,
+                            amount: totalBayar,
+                            customer_name: nama,
+                            customer_phone: wa,
+                            item_details: detailPesanan
+                        })
+                    });
+                    const jsonPay = await resPay.json();
+                    if (jsonPay && (jsonPay.qris_url || jsonPay.qr_image || jsonPay.payment_url)) {
+                        qrisImageUrl = jsonPay.qris_url || jsonPay.qr_image || jsonPay.payment_url;
+                    }
+                } catch (err) {
+                    console.warn("Endpoint PayinAja belum merespons, menampilkan QRIS standar:", err);
+                }
+            }
+
+            // 3. Tampilkan QRIS di Modal
+            document.getElementById("co-trx-id").textContent = idTrx;
+            document.getElementById("co-qris-img").src = qrisImageUrl;
+            document.getElementById("co-qris-amount").textContent = "Rp " + totalBayar.toLocaleString("id-ID");
+
+            const pesanWa = `Halo Admin DIGIPRINT, saya sudah melakukan pemesanan:\n\n*ID Transaksi:* ${idTrx}\n*Nama:* ${nama}\n*Pesanan:* ${detailPesanan}\n*Total:* Rp ${totalBayar.toLocaleString("id-ID")}\n*Alamat:* ${alamat}\n\nMohon diproses ya!`;
+            document.getElementById("co-wa-confirm").href = `https://wa.me/6283143152613?text=${encodeURIComponent(pesanWa)}`;
+
+            document.getElementById("co-step-form").classList.add("hidden");
+            document.getElementById("co-step-qris").classList.remove("hidden");
+
+            btn.innerHTML = teksAsli;
+            btn.disabled = false;
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            renderTestimoni();
+            muatProdukDariSupabase();
+        });
+    </script>
+
+    <!-- ══ Script Live Order Popup (Diambil dari Supabase / Simulasi Real-time DIGIPRINT) ══ -->
+    <script>
+        (function () {
+            var box = document.getElementById('lo2');
+            if (!box) return;
+            var SHOW_MS = 6500, EVERY_MS = 11000;
+            var orders = [
+                { type: 'premium', product: 'Nota NCR Custom 2 Ply (10 Buku)', buyer: 'Toko Sinar***', time: '2 menit lalu', image: GAMBAR_TOKO.nota_ncr },
+                { type: 'premium', product: 'Lanyard Tisu Sublimasi (25 Pcs)', buyer: 'Panitia BEM***', time: '5 menit lalu', image: GAMBAR_TOKO.lanyard },
+                { type: 'premium', product: 'Ganci Akrilik Custom (50 Pcs)', buyer: 'Rizky***', time: '9 menit lalu', image: GAMBAR_TOKO.ganci },
+                { type: 'premium', product: 'Cetak Polaroid 2 Pak', buyer: 'Aulia***', time: '14 menit lalu', image: GAMBAR_TOKO.polaroid },
+                { type: 'premium', product: 'Nota NCR Paket 1 Rim', buyer: 'CV Mandiri***', time: '18 menit lalu', image: GAMBAR_TOKO.nota_ncr }
+            ];
+            var index = 0, cycle = null, hideTimer = null, off = false;
+            var $ = function (id) { return document.getElementById(id); };
+            var put = function (id, text) { var n = $(id); if (n && n.firstChild) n.firstChild.nodeValue = text; };
+
+            function hide() {
+                box.removeAttribute('data-show');
+                clearTimeout(hideTimer);
+                hideTimer = setTimeout(function () { box.hidden = true; }, 450);
+            }
+            function show(o) {
+                if (off || !o) return;
+                put('lo2-label', 'Pesanan Cetak Masuk');
+                put('lo2-name', String(o.product || 'Produk'));
+                put('lo2-buyer', String(o.buyer || 'Pelanggan'));
+                put('lo2-time', String(o.time || 'baru saja'));
+                var img = $('lo2-img'), ph = $('lo2-ph');
+                if (o.image) {
+                    img.onerror = function () { img.hidden = true; ph.hidden = false; };
+                    img.setAttribute('src', String(o.image));
+                    img.hidden = false;
+                    ph.hidden = true;
+                } else {
+                    img.hidden = true;
+                    ph.hidden = false;
+                }
+                clearTimeout(hideTimer);
+                box.removeAttribute('data-show');
+                box.hidden = false;
+                void box.offsetWidth;
+                requestAnimationFrame(function () { box.setAttribute('data-show', ''); });
+                hideTimer = setTimeout(hide, SHOW_MS);
+            }
+            function next() {
+                if (off || !orders.length || document.hidden) return;
+                show(orders[index]);
+                index = (index + 1) % orders.length;
+            }
+            $('lo2-x').addEventListener('click', function (ev) {
+                ev.stopPropagation();
+                off = true;
+                clearInterval(cycle);
+                hide();
+            });
+            setTimeout(function () {
+                next();
+                cycle = setInterval(next, EVERY_MS);
+            }, 3500);
+        })();
+    </script>
+
+    <!-- ══ Script UI Dialog Bawaan ══ -->
+    <script>
+        (function () {
+            if (window.uiConfirm) return;
+            const overlay = document.getElementById('ui-dialog-overlay');
+            const card = document.getElementById('ui-dialog-card');
+            const iconEl = document.getElementById('ui-dialog-icon');
+            const titleEl = document.getElementById('ui-dialog-title');
+            const msgEl = document.getElementById('ui-dialog-message');
+            const actions = document.getElementById('ui-dialog-actions');
+            let resolver = null;
+
+            const types = {
+                info: { icon: 'fa-circle-info', cls: 'bg-blue-50 text-blue-500', btn: 'bg-rose-600 hover:bg-rose-700' },
+                success: { icon: 'fa-circle-check', cls: 'bg-green-50 text-green-500', btn: 'bg-green-600 hover:bg-green-700' },
+                warning: { icon: 'fa-triangle-exclamation', cls: 'bg-amber-50 text-amber-500', btn: 'bg-amber-600 hover:bg-amber-700' },
+                error: { icon: 'fa-circle-xmark', cls: 'bg-red-50 text-red-500', btn: 'bg-red-600 hover:bg-red-700' },
+                danger: { icon: 'fa-triangle-exclamation', cls: 'bg-red-50 text-red-500', btn: 'bg-red-600 hover:bg-red-700' }
+            };
+
+            function open() {
+                overlay.classList.remove('hidden');
+                overlay.classList.add('flex');
+                requestAnimationFrame(() => card.classList.remove('scale-95', 'opacity-0'));
+                document.body.style.overflow = 'hidden';
+            }
+            function close(result) {
+                card.classList.add('scale-95', 'opacity-0');
+                setTimeout(() => {
+                    overlay.classList.add('hidden');
+                    overlay.classList.remove('flex');
+                    document.body.style.overflow = '';
+                }, 150);
+                const r = resolver;
+                resolver = null;
+                if (r) r(result);
+            }
+            function render(opts, isConfirm) {
+                const t = types[opts.type] || types.info;
+                iconEl.className = 'mx-auto w-14 h-14 rounded-full flex items-center justify-center mb-4 text-2xl ' + t.cls;
+                iconEl.innerHTML = '<i class="fas ' + t.icon + '"></i>';
+                titleEl.textContent = opts.title || (isConfirm ? 'Konfirmasi' : 'Pemberitahuan');
+                msgEl.textContent = opts.message || '';
+                actions.innerHTML = '';
+
+                if (isConfirm) {
+                    const cancel = document.createElement('button');
+                    cancel.type = 'button';
+                    cancel.className = 'flex-1 py-2.5 rounded-xl bg-gray-100 text-gray-700 font-bold text-sm hover:bg-gray-200 transition';
+                    cancel.textContent = opts.cancelText || 'Batal';
+                    cancel.onclick = () => close(false);
+                    actions.appendChild(cancel);
+                }
+                const ok = document.createElement('button');
+                ok.type = 'button';
+                ok.className = 'flex-1 py-2.5 rounded-xl text-white font-bold text-sm transition ' + t.btn;
+                ok.textContent = opts.okText || (isConfirm ? 'Ya, Lanjut' : 'OK');
+                ok.onclick = () => close(isConfirm ? true : undefined);
+                actions.appendChild(ok);
+                ok.focus();
+            }
+            function normalize(arg) { return (typeof arg === 'string') ? { message: arg } : (arg || {}); }
+            window.uiAlert = function (message, opts) {
+                const o = Object.assign(normalize(message), opts || {});
+                return new Promise((resolve) => { resolver = resolve; render(o, false); open(); });
+            };
+            window.uiConfirm = function (message, opts) {
+                const o = Object.assign(normalize(message), opts || {});
+                return new Promise((resolve) => { resolver = resolve; render(o, true); open(); });
+            };
+            window.alert = function (message) {
+                const m = String(message == null ? '' : message);
+                const type = /gagal|error|tidak valid|tidak boleh|maksimal|minimal|salah|invalid|wajib|kesalahan|lengkapi/i.test(m) ? 'error' : 'info';
+                return window.uiAlert(m, { type });
+            };
+            overlay.addEventListener('click', (e) => { if (e.target === overlay) close(false); });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && !overlay.classList.contains('hidden')) close(false);
+            });
+        })();
+    </script>
+
+    <!-- ══ Script Animasi & Interaksi Landing (Utuh 100%) ══ -->
+    <script>
+        window.V2Page = {
+            setup: function (ctx) {
+                var finePointer = ctx.finePointer;
+                var reduce = ctx.reduce;
+
+                // ── Cara order: garis terisi mengikuti scroll ──
+                var stepsWrap = document.getElementById('v2-steps');
+                var stepEls = stepsWrap ? stepsWrap.querySelectorAll('.v2-step') : [];
+                if (stepsWrap && stepEls.length) {
+                    var stepsTop = 0, stepsH = 0, lastP = '';
+                    stepsWrap.classList.add('js-steps');
+                    ctx.onMeasure(function () {
+                        var r = stepsWrap.getBoundingClientRect();
+                        stepsTop = r.top + (window.scrollY || 0);
+                        stepsH = r.height;
+                    });
+                    ctx.onFrame(function (y, geo) {
+                        var p = (geo.vh * 0.8 - (stepsTop - y)) / (stepsH + geo.vh * 0.25);
+                        p = Math.max(0, Math.min(1, p));
+                        var ps = p.toFixed(3);
+                        if (ps === lastP) return;
+                        lastP = ps;
+                        stepsWrap.style.setProperty('--p', ps);
+                        var n = stepEls.length;
+                        for (var i = 0; i < n; i++) {
+                            var need = n > 1 ? i / (n - 1) : 0;
+                            stepEls[i].classList.toggle('is-on', p > 0.02 && p >= need - 0.03);
+                        }
+                    });
+                }
+
+                // ── Produk bergantian (Mendukung re-init saat data Supabase masuk) ──
+                window.__reinitRotator = function () {
+                    var wrap = document.getElementById('v2-rot-wrap');
+                    var grid = document.getElementById('v2-rot');
+                    var dotsBox = document.getElementById('v2-dots');
+                    if (!wrap || !grid) return;
+
+                    var cards = Array.prototype.slice.call(grid.querySelectorAll('.v2-pcard'));
+                    var n = cards.length;
+                    if (!n) return;
+                    var STAGGER = 50, FADE = 400;
+                    var per = 0, pages = 1, page = 0, busy = false, shown = [];
+
+                    function columns() {
+                        var mq = function (px) {
+                            return window.matchMedia
+                                ? window.matchMedia('(min-width: ' + px + 'px)').matches
+                                : window.innerWidth >= px;
+                        };
+                        return mq(1024) ? 5 : mq(768) ? 4 : mq(640) ? 3 : 2;
+                    }
+
+                    function pick(p) {
+                        var out = [];
+                        for (var i = 0; i < per && i < n; i++) {
+                            out.push(cards[(p * per + i) % n]);
+                        }
+                        return out;
+                    }
+
+                    function paint(list) {
+                        cards.forEach(function (c) { c.classList.remove('is-shown', 'is-out'); c.style.transitionDelay = ''; });
+                        list.forEach(function (c, i) { c.style.order = i; c.classList.add('is-shown'); });
+                        shown = list;
+                    }
+
+                    function markDot() {
+                        if (!dotsBox) return;
+                        var btns = dotsBox.querySelectorAll('.v2-dot-btn');
+                        for (var i = 0; i < btns.length; i++) {
+                            btns[i].classList.remove('is-active');
+                            btns[i].setAttribute('aria-current', 'false');
+                        }
+                        if (btns[page]) {
+                            void btns[page].offsetWidth;
+                            btns[page].classList.add('is-active');
+                            btns[page].setAttribute('aria-current', 'true');
+                        }
+                    }
+
+                    function buildDots() {
+                        if (!dotsBox) return;
+                        dotsBox.innerHTML = '';
+                        if (pages < 2) return;
+                        for (var i = 0; i < pages; i++) {
+                            var b = document.createElement('button');
+                            b.type = 'button';
+                            b.className = 'v2-dot-btn';
+                            b.setAttribute('aria-label', 'Tampilkan kelompok produk ' + (i + 1) + ' dari ' + pages);
+                            b.innerHTML = '<span class="v2-dot-pill"><span class="v2-dot-fill"></span></span>';
+                            (function (idx) { b.addEventListener('click', function () { go(idx); }); })(i);
+                            dotsBox.appendChild(b);
+                        }
+                    }
+
+                    var gen = 0;
+                    function layout() {
+                        var first = shown.length ? cards.indexOf(shown[0]) : 0;
+                        gen++;
+                        busy = false;
+                        var cols = columns();
+                        per = cols === 2 ? 4 : cols;
+                        grid.style.setProperty('--cols', String(cols));
+                        pages = n > per ? Math.ceil(n / per) : 1;
+                        page = Math.min(pages - 1, Math.floor(Math.max(0, first) / per));
+                        buildDots();
+                        paint(pick(page));
+                        markDot();
+                    }
+
+                    function go(target) {
+                        if (busy || pages < 2) return;
+                        target = ((target % pages) + pages) % pages;
+                        if (target === page) { markDot(); return; }
+                        busy = true;
+                        page = target;
+                        markDot();
+
+                        var out = shown;
+                        var next = pick(page);
+                        var g = gen;
+                        out.forEach(function (c, i) { c.style.transitionDelay = (i * STAGGER) + 'ms'; c.classList.add('is-out'); });
+
+                        setTimeout(function () {
+                            if (g !== gen) return;
+                            out.forEach(function (c) { c.classList.remove('is-shown', 'is-out'); c.style.transitionDelay = ''; });
+                            next.forEach(function (c, i) {
+                                c.style.order = i;
+                                c.style.transitionDelay = (i * STAGGER) + 'ms';
+                                c.classList.add('is-shown', 'is-out');
+                            });
+                            shown = next;
+                            void grid.offsetWidth;
+                            requestAnimationFrame(function () {
+                                next.forEach(function (c) { c.classList.remove('is-out'); });
+                            });
+                            setTimeout(function () {
+                                if (g !== gen) return;
+                                next.forEach(function (c) { c.style.transitionDelay = ''; });
+                                busy = false;
+                            }, next.length * STAGGER + FADE + 60);
+                        }, out.length * STAGGER + FADE);
+                    }
+
+                    grid.classList.add('is-js');
+                    layout();
+
+                    if (!wrap.__rotBound) {
+                        wrap.__rotBound = true;
+                        wrap.addEventListener('animationend', function (ev) {
+                            if (ev.animationName === 'v2-dotfill') go(page + 1);
+                        });
+                        var hovering = false, focused = false, offscreen = false;
+                        function syncPause() { wrap.classList.toggle('is-paused', hovering || focused || offscreen); }
+                        if (finePointer) {
+                            wrap.addEventListener('pointerenter', function () { hovering = true; syncPause(); });
+                            wrap.addEventListener('pointerleave', function () { hovering = false; syncPause(); });
+                        }
+                        if ('IntersectionObserver' in window) {
+                            new IntersectionObserver(function (entries) {
+                                offscreen = !entries[0].isIntersecting;
+                                syncPause();
+                            }, { threshold: 0.2 }).observe(wrap);
+                        }
+                        var resizeTimer = null;
+                        window.addEventListener('resize', function () {
+                            clearTimeout(resizeTimer);
+                            resizeTimer = setTimeout(function () {
+                                if (columns() !== per) layout();
+                            }, 150);
+                        });
+                    }
+                };
+                window.__reinitRotator();
+
+                // ── Dinding produk di hero: miring mengikuti kursor (desktop) ──
+                if (finePointer && !reduce) {
+                    var wall = document.getElementById('v2-wall');
+                    var wallInner = document.getElementById('v2-wall-inner');
+                    var hero = document.getElementById('top');
+                    if (wall && wallInner && hero) {
+                        var px = 0, py = 0, tiltQueued = false;
+                        var applyTilt = function () {
+                            tiltQueued = false;
+                            var r = hero.getBoundingClientRect();
+                            if (!r.width || !r.height) return;
+                            var nx = (px - r.left) / r.width - 0.5;
+                            var ny = (py - r.top) / r.height - 0.5;
+                            wallInner.style.transform = 'rotateX(' + (13 - ny * 6).toFixed(2) + 'deg) rotateY('
+                                + (-17 + nx * 8).toFixed(2) + 'deg) rotateZ(4deg)';
+                        };
+                        hero.addEventListener('pointermove', function (ev) {
+                            px = ev.clientX;
+                            py = ev.clientY;
+                            if (!tiltQueued) { tiltQueued = true; requestAnimationFrame(applyTilt); }
+                        }, { passive: true });
+                        hero.addEventListener('pointerleave', function () {
+                            wallInner.style.transform = '';
+                        });
+                    }
+                }
+            }
+        };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/motion@12.43.0/dist/motion.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js"></script>
+    <script>
+        (function () {
+            var root = document.documentElement;
+            function reveal() {
+                clearTimeout(window.__v2Failsafe);
+                root.classList.remove('anim');
+            }
+            document.addEventListener('DOMContentLoaded', function () {
+                var page = window.V2Page || {};
+                var M = window.Motion;
+                var reduce = !!(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches);
+                var finePointer = !!(window.matchMedia && matchMedia('(hover: hover) and (pointer: fine)').matches);
+                var EASE = [0.22, 1, 0.36, 1];
+
+                var header = document.getElementById('v2-header');
+                var bar = document.getElementById('v2-progress');
+
+                // ── Smooth scroll (Lenis) ──
+                var lenis = null;
+                if (typeof window.Lenis === 'function') {
+                    try {
+                        lenis = new window.Lenis({
+                            lerp: 0.1,
+                            prevent: function (node) {
+                                if (!(node instanceof Element) || node === document.body || node === root) return false;
+                                var oy = getComputedStyle(node).overflowY;
+                                return (oy === 'auto' || oy === 'scroll') && node.scrollHeight > node.clientHeight + 1;
+                            }
+                        });
+                        var raf = function (t) { lenis.raf(t); requestAnimationFrame(raf); };
+                        requestAnimationFrame(raf);
+                    } catch (err) { lenis = null; }
+                }
+
+                function scrollToTarget(target) {
+                    var barH = parseFloat(getComputedStyle(root).getPropertyValue('--v2-bar-h')) || 0;
+                    var offset = -(header ? header.offsetHeight : 72) - barH + 1;
+                    if (lenis) {
+                        lenis.scrollTo(target, { offset: offset, duration: reduce ? 0.6 : 1.2 });
+                    } else {
+                        var y = target.getBoundingClientRect().top + window.scrollY + offset;
+                        window.scrollTo({ top: y, behavior: 'smooth' });
+                    }
+                }
+
+                // ── Menu mobile ──
+                var menu = document.getElementById('v2-menu');
+                var menuBtn = document.getElementById('v2-menu-btn');
+                var menuClose = document.getElementById('v2-menu-close');
+
+                function setMenu(open) {
+                    if (!menu) return;
+                    menu.classList.toggle('is-open', open);
+                    menu.setAttribute('aria-hidden', open ? 'false' : 'true');
+                    if (menuBtn) menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+                    document.body.style.overflow = open ? 'hidden' : '';
+                    if (lenis) { open ? lenis.stop() : lenis.start(); }
+                    if (open && M && M.animate) {
+                        try {
+                            var links = menu.querySelectorAll('.v2-menu-link');
+                            links.forEach(function (el, i) {
+                                M.animate(el, { opacity: [0, 1], transform: ['translateY(18px)', 'translateY(0px)'] },
+                                    { duration: 0.5, delay: 0.06 + i * 0.05, ease: EASE });
+                            });
+                        } catch (err) {}
+                    }
+                }
+                if (menuBtn) menuBtn.addEventListener('click', function () { setMenu(true); });
+                if (menuClose) menuClose.addEventListener('click', function () { setMenu(false); });
+                document.addEventListener('keydown', function (ev) { if (ev.key === 'Escape') setMenu(false); });
+
+                // ── Dropdown "Lainnya" ──
+                document.querySelectorAll('[data-dd]').forEach(function (dd) {
+                    var btn = dd.querySelector('.v2-dd-btn');
+                    if (!btn) return;
+                    var refocusing = false;
+                    function setOpen(open) {
+                        dd.toggleAttribute('data-open', open);
+                        dd.toggleAttribute('data-closed', !open);
+                        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+                    }
+                    function isShown() {
+                        return dd.hasAttribute('data-open') || (!dd.hasAttribute('data-closed') && dd.matches(':hover, :focus-within'));
+                    }
+                    btn.addEventListener('click', function () { setOpen(!dd.hasAttribute('data-open')); });
+                    dd.addEventListener('pointerenter', function () { dd.removeAttribute('data-closed'); btn.setAttribute('aria-expanded', 'true'); });
+                    dd.addEventListener('pointerleave', function () { if (!dd.hasAttribute('data-open')) btn.setAttribute('aria-expanded', 'false'); });
+                    dd.addEventListener('focusin', function () { if (!refocusing && !dd.hasAttribute('data-open')) { dd.removeAttribute('data-closed'); btn.setAttribute('aria-expanded', 'true'); } });
+                    dd.addEventListener('focusout', function (ev) {
+                        if (dd.contains(ev.relatedTarget)) return;
+                        dd.removeAttribute('data-open');
+                        btn.setAttribute('aria-expanded', 'false');
+                    });
+                    document.addEventListener('click', function (ev) {
+                        if (!dd.contains(ev.target) && dd.hasAttribute('data-open')) setOpen(false);
+                    });
+                    document.addEventListener('keydown', function (ev) {
+                        if (ev.key !== 'Escape' || !isShown()) return;
+                        setOpen(false);
+                        refocusing = true;
+                        btn.focus();
+                        refocusing = false;
+                    });
+                });
+
+                // ── Tautan jangkar ──
+                document.addEventListener('click', function (ev) {
+                    var a = ev.target.closest ? ev.target.closest('a[href^="#"]') : null;
+                    if (!a) return;
+                    var href = a.getAttribute('href');
+                    if (!href || href === '#') return;
+                    var target = null;
+                    try { target = document.querySelector(href); } catch (err) { target = null; }
+                    if (!target) return;
+                    ev.preventDefault();
+                    ev.stopPropagation();
+                    setMenu(false);
+                    scrollToTarget(target);
+                }, true);
+
+                // ── FAQ (buka-tutup) ──
+                document.querySelectorAll('.v2-faq-btn').forEach(function (btn) {
+                    btn.addEventListener('click', function () {
+                        var item = btn.closest('.v2-faq');
+                        if (!item) return;
+                        var open = !item.classList.contains('is-open');
+                        item.classList.toggle('is-open', open);
+                        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+                    });
+                });
+
+                // ── Efek scroll & ukuran halaman ──
+                var geo = { max: 0, vh: 0 };
+                var measureFns = [], frameFns = [];
+                function measure() {
+                    geo.vh = window.innerHeight;
+                    geo.max = document.documentElement.scrollHeight - geo.vh;
+                    for (var i = 0; i < measureFns.length; i++) {
+                        try { measureFns[i](geo); } catch (err) {}
+                    }
+                }
+
+                var ticking = false, lastBar = '';
+                function update() {
+                    ticking = false;
+                    var y = window.scrollY || 0;
+                    var bt = 'scaleX(' + (geo.max > 0 ? Math.min(1, y / geo.max) : 0).toFixed(4) + ')';
+                    if (bar && bt !== lastBar) { lastBar = bt; bar.style.transform = bt; }
+                    if (header) header.classList.toggle('is-scrolled', y > 24);
+                    for (var i = 0; i < frameFns.length; i++) {
+                        try { frameFns[i](y, geo); } catch (err) {}
+                    }
+                }
+                function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
+                function remeasure() { measure(); onScroll(); }
+
+                var ctx = {
+                    M: M, reduce: reduce, finePointer: finePointer, EASE: EASE, lenis: lenis, header: header, geo: geo,
+                    scrollToTarget: scrollToTarget, setMenu: setMenu, remeasure: remeasure,
+                    onMeasure: function (fn) { measureFns.push(fn); },
+                    onFrame: function (fn) { frameFns.push(fn); },
+                    enter: null
+                };
+
+                // ── Bilah promo di atas header ──
+                (function () {
+                    var promo = document.getElementById('v2-promo');
+                    var barEl = document.getElementById('v2-promo-bar');
+                    if (!promo || !barEl) return;
+                    var closing = false, lastH = -1;
+                    function setH(h) {
+                        if (h === lastH) return;
+                        lastH = h;
+                        root.style.setProperty('--v2-bar-h', h + 'px');
+                    }
+                    measureFns.push(function () {
+                        if (!closing && !promo.hidden) setH(barEl.offsetHeight);
+                    });
+                    var x = document.getElementById('v2-promo-x');
+                    if (!x) return;
+                    x.addEventListener('click', function () {
+                        if (closing) return;
+                        closing = true;
+                        promo.setAttribute('data-closing', '');
+                        setH(0);
+                        setTimeout(function () {
+                            promo.hidden = true;
+                            promo.removeAttribute('data-closing');
+                            measure();
+                            update();
+                        }, 520);
+                    });
+                })();
+
+                if (typeof page.setup === 'function') {
+                    try { page.setup(ctx); } catch (err) { if (window.console) console.error('V2Page.setup:', err); }
+                }
+
+                window.addEventListener('scroll', onScroll, { passive: true });
+                window.addEventListener('resize', remeasure);
+                window.addEventListener('load', remeasure);
+                if ('ResizeObserver' in window) {
+                    try { new ResizeObserver(remeasure).observe(document.body); } catch (err) {}
+                }
+                measure();
+                update();
+
+                // ── Hentikan animasi berulang di bagian yang sedang tidak terlihat ──
+                if ('IntersectionObserver' in window) {
+                    var offIO = new IntersectionObserver(function (entries) {
+                        entries.forEach(function (en) { en.target.classList.toggle('is-offscreen', !en.isIntersecting); });
+                    }, { rootMargin: '120px 0px 120px 0px' });
+                    document.querySelectorAll('[data-pause-offscreen]').forEach(function (el) { offIO.observe(el); });
+                }
+
+                // ── Interaksi kursor (desktop) ──
+                if (finePointer) {
+                    document.querySelectorAll('.v2-spot').forEach(function (card) {
+                        card.addEventListener('pointermove', function (ev) {
+                            var r = card.getBoundingClientRect();
+                            card.style.setProperty('--mx', (ev.clientX - r.left) + 'px');
+                            card.style.setProperty('--my', (ev.clientY - r.top) + 'px');
+                        });
+                    });
+                    if (!reduce) {
+                        document.querySelectorAll('[data-magnetic]').forEach(function (btn) {
+                            btn.addEventListener('pointermove', function (ev) {
+                                var r = btn.getBoundingClientRect();
+                                var dx = (ev.clientX - (r.left + r.width / 2)) / r.width;
+                                var dy = (ev.clientY - (r.top + r.height / 2)) / r.height;
+                                btn.style.transform = 'translate(' + (dx * 14).toFixed(1) + 'px,' + (dy * 10).toFixed(1) + 'px)';
+                            });
+                            btn.addEventListener('pointerleave', function () { btn.style.transform = ''; });
+                        });
+                    }
+                }
+
+                // ── Animasi masuk (Motion) ──
+                if (!M || typeof M.animate !== 'function' || typeof M.inView !== 'function') {
+                    reveal();
+                    return;
+                }
+
+                try {
+                    var DIST = reduce ? 10 : 30;
+                    var DUR = reduce ? 0.5 : 0.85;
+                    var REST = 'translate3d(0px, 0px, 0px) scale(1)';
+                    var VIEW = { margin: '0px 0px -12% 0px' };
+
+                    var enter = function (el, delay, from) {
+                        delay = delay || 0;
+                        M.animate(el, { opacity: [0, 1], transform: [from || 'translate3d(0px, ' + DIST + 'px, 0px) scale(1)', REST] },
+                            { duration: DUR, delay: delay, ease: EASE });
+                        setTimeout(function () {
+                            el.removeAttribute('data-reveal');
+                            el.removeAttribute('data-stagger-item');
+                            el.classList.remove('v2-in');
+                            el.style.opacity = '';
+                            el.style.transform = '';
+                        }, (delay + DUR) * 1000 + 160);
+                    };
+                    ctx.enter = enter;
+
+                    var words = document.querySelectorAll('.v2-word > span');
+                    var WORD_DUR = reduce ? 0.6 : 0.95;
+                    words.forEach(function (w, i) {
+                        var d = 0.12 + i * 0.07;
+                        M.animate(w, { transform: [reduce ? 'translateY(0%)' : 'translateY(115%)', 'translateY(0%)'], opacity: [reduce ? 0 : 1, 1] },
+                            { duration: WORD_DUR, delay: d, ease: EASE });
+                        setTimeout(function () {
+                            w.style.transform = 'translateY(0%)';
+                            w.style.opacity = '1';
+                        }, (d + WORD_DUR) * 1000 + 120);
+                    });
+                    var heroDelay = 0.12 + words.length * 0.07;
+                    document.querySelectorAll('.v2-in').forEach(function (el, i) {
+                        var first = el.classList.contains('v2-pill');
+                        enter(el, first ? 0.05 : heroDelay + (i - 1) * 0.1);
+                    });
+
+                    document.querySelectorAll('[data-reveal]').forEach(function (el) {
+                        var from = el.getAttribute('data-reveal') === 'scale'
+                            ? 'translate3d(0px, ' + DIST + 'px, 0px) scale(' + (reduce ? 0.99 : 0.95) + ')'
+                            : null;
+                        M.inView(el, function () { enter(el, 0, from); }, VIEW);
+                    });
+
+                    document.querySelectorAll('[data-stagger]').forEach(function (group) {
+                        var items = group.querySelectorAll('[data-stagger-item]');
+                        M.inView(group, function () {
+                            items.forEach(function (el, i) { enter(el, Math.min(i, 8) * 0.07); });
+                        }, VIEW);
+                    });
+
+                    var fmt = new Intl.NumberFormat('id-ID');
+                    document.querySelectorAll('[data-count]').forEach(function (el) {
+                        var to = parseInt(el.getAttribute('data-count'), 10);
+                        if (!isFinite(to) || to <= 0) return;
+                        var node = el.firstChild;
+                        if (!node || node.nodeType !== 3) return;
+                        var finalText = node.nodeValue;
+                        var last = '';
+                        try {
+                            node.nodeValue = '0';
+                            M.animate(0, to, {
+                                duration: 1.6, delay: heroDelay + 0.2, ease: EASE,
+                                onUpdate: function (v) {
+                                    var t = fmt.format(Math.round(v));
+                                    if (t !== last) { last = t; node.nodeValue = t; }
+                                },
+                                onComplete: function () { node.nodeValue = finalText; }
+                            });
+                            setTimeout(function () { node.nodeValue = finalText; }, (heroDelay + 2.2) * 1000);
+                        } catch (err) { node.nodeValue = finalText; }
+                    });
+
+                    clearTimeout(window.__v2Failsafe);
+                } catch (err) {
+                    reveal();
+                }
+            });
+            window.addEventListener('load', function () {
+                if (!window.Motion) reveal();
+            });
+        })();
+    </script>
+</body>
+</html>
