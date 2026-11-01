@@ -53,7 +53,7 @@ async function buatQrisPayinAja(amount, referenceId, customerName) {
 
         if (res.ok && (json.success || json.data || json.qr_image || json.qr_string)) {
             const d = json.data || json;
-            let qrImg = d.qr_image || d.qris_url || d.qr_url || d.qris_image;
+            let qrImg = d.qr_image || d.qris_image_url || d.qr_image_url || d.image_url || d.qris_url || d.qr_url || d.qris_image;
             const qrStr = d.qr_string || d.qris_string || d.qr_content || d.qris_data;
 
             if (!qrImg && qrStr) {
