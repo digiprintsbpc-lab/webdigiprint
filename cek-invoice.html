@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lacak Resi & Cek Invoice – DIGIPRINT</title>
+    <!-- CELAH LINK GAMBAR FAVICON -->
+    <link id="dynamic-favicon" rel="icon" type="image/png" href="https://placehold.co/100x100/45a2f2/ffffff?text=DP">
+    <meta name="description" content="Lacak status produksi, pengiriman SPX Express, dan unduh Invoice Digital pesanan cetak Anda di DIGIPRINT.">
+    <meta name="theme-color" content="#061327">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Lacak Resi & Cek Invoice – DIGIPRINT">
+    <meta property="og:description" content="Lacak status produksi dan lihat detail pesanan cetak di DIGIPRINT dengan Nomor Transaksi (TRX) atau Nomor WhatsApp.">
+    <meta property="og:image" content="https://placehold.co/1200x630/061327/45a2f2?text=DIGIPRINT+Tracking">
+
+    <script>
+        document.documentElement.classList.add('anim');
+        window.__v2Failsafe = setTimeout(function () {
+            document.documentElement.classList.remove('anim');
+        }, 4000);
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        rose: {"50":"#f0f7fe","100":"#ddedfd","200":"#c2e0fb","300":"#98cbf8","400":"#68adf4","500":"#45a2f2","600":"#257fd9","700":"#1d65b0","800":"#1c548f","900":"#1c4774","950":"#123049"},
+                        primary: {"50":"#f0f7fe","100":"#ddedfd","200":"#c2e0fb","300":"#98cbf8","400":"#68adf4","500":"#45a2f2","600":"#257fd9","700":"#1d65b0","800":"#1c548f","900":"#1c4774","950":"#123049"},
+                        brand: {"50":"#f0f7fe","100":"#ddedfd","200":"#c2e0fb","300":"#98cbf8","400":"#68adf4","500":"#45a2f2","600":"#257fd9","700":"#1d65b0","800":"#1c548f","900":"#1c4774","950":"#123049"},
+                        ink: "#061327"
+                    },
+                    fontFamily: { sans: ['Outfit', 'ui-sans-serif', 'system-ui', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Pustaka html2canvas untuk Unduh Invoice Resmi -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <style>
+        :root {
+            --brand: #45a2f2;
+            --brand-600: #257fd9;
+            --brand-700: #1d65b0;
+            --brand-rgb: 69, 162, 242;
+            --brand-text: #257fd9;
+            --brand-on-dark: #68adf4;
+            --on-brand: #ffffff;
+            --ink: #061327;
+            --ease: cubic-bezier(.22, 1, .36, 1);
+            --slow: 1;
+        }
+
+        html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+        body { font-family: 'Outfit', ui-sans-serif, system-ui, sans-serif; }
+        [id] { scroll-margin-top: calc(88px + var(--v2-bar-h, 0px)); }
+
+        .is-offscreen, .is-offscreen * , .is-offscreen *::before, .is-offscreen *::after { animation-play-state: paused !important; }
+        .v2-mq, .v2-wall { contain: layout paint; }
+
+        html.lenis, html.lenis body { height: auto; }
+        .lenis.lenis-smooth { scroll-behavior: auto !important; }
+        .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+        .lenis.lenis-stopped { overflow: clip; }
+
+        .anim [data-reveal], .anim [data-stagger-item], .anim .v2-in { opacity: 0; }
+        .v2-word { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: .14em; margin-bottom: -.14em; }
+        .v2-word > span { display: inline-block; }
+        .anim .v2-word > span { transform: translateY(115%); }
+
+        .v2-accent { color: var(--brand-text); }
+        .v2-accent-dark { color: var(--brand-on-dark); }
+
+        /* ── Tombol ── */
+        .v2-btn { display: inline-flex; align-items: center; justify-content: center; gap: .6rem; padding: .95rem 1.6rem; border-radius: 999px; font-weight: 700; font-size: .95rem; background: var(--brand-600); color: var(--on-brand); box-shadow: 0 10px 30px -10px rgba(var(--brand-rgb), .7); transition: transform .25s var(--ease), box-shadow .25s var(--ease), background-color .2s; will-change: transform; }
+        .v2-btn:hover { background: var(--brand-700); box-shadow: 0 16px 40px -12px rgba(var(--brand-rgb), .85); }
+        .v2-btn:active { transform: scale(.97); }
+        .v2-btn-ghost { display: inline-flex; align-items: center; justify-content: center; gap: .6rem; padding: .95rem 1.6rem; border-radius: 999px; font-weight: 700; font-size: .95rem; color: #fff; border: 1px solid rgba(255, 255, 255, .22); background: rgba(255, 255, 255, .08); transition: background-color .2s, border-color .2s, transform .25s var(--ease); }
+        .v2-btn-ghost:hover { background: rgba(255, 255, 255, .14); border-color: rgba(255, 255, 255, .4); }
+        .v2-btn .fa-arrow-right, .v2-link .fa-arrow-right { transition: transform .25s var(--ease); }
+        .v2-btn:hover .fa-arrow-right, .v2-link:hover .fa-arrow-right { transform: translateX(4px); }
+        :focus-visible { outline: 2px solid var(--brand); outline-offset: 3px; }
+        .v2-iconbtn { display: flex; align-items: center; justify-content: center; width: 2.75rem; height: 2.75rem; border-radius: 50%; border: 1px solid rgba(127, 127, 127, .4); border: 1px solid color-mix(in srgb, currentColor 24%, transparent); }
+
+        /* ── Header & Promo ── */
+        #v2-promo { height: var(--v2-bar-h, 0px); }
+        #v2-header { top: var(--v2-bar-h, 0px); transition: background-color .3s, box-shadow .3s; color: #fff; }
+        #v2-header.is-scrolled { background: rgba(255, 255, 255, .95); color: #0f172a; box-shadow: 0 1px 0 rgba(15, 23, 42, .06), 0 10px 30px -18px rgba(15, 23, 42, .25); }
+        .v2-promo { position: fixed; left: 0; right: 0; top: 0; z-index: 9991; overflow: hidden; color: #fff; background: linear-gradient(100deg, var(--brand-700), var(--brand-600) 45%, #0ea5e9); transition: transform .5s var(--ease); }
+        #v2-promo[data-closing] { transition: height .5s var(--ease); }
+        #v2-promo[data-closing] .v2-promo { transform: translate3d(0, -100%, 0); }
+        #v2-promo[data-closing] ~ #v2-header { transition: top .5s var(--ease), background-color .3s, box-shadow .3s; }
+        .v2-promo-link { position: relative; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 4px 12px; max-width: 80rem; margin: 0 auto; padding: 9px 48px 9px 16px; font-size: .8125rem; line-height: 1.35; text-align: center; }
+        .v2-promo-main { display: inline-flex; align-items: center; gap: 8px; }
+        .v2-promo-ic { font-size: .8rem; animation: v2-promo-bob calc(2.4s * var(--slow)) ease-in-out infinite alternate; }
+        @keyframes v2-promo-bob { from { transform: translate3d(0, 1px, 0) rotate(-8deg); } to { transform: translate3d(0, -2px, 0) rotate(8deg); } }
+        .v2-promo-title { font-weight: 800; letter-spacing: -.01em; }
+        .v2-promo-text { color: rgba(255, 255, 255, .85); }
+        .v2-promo-wide { display: none; }
+        .v2-promo-price { font-weight: 800; color: #fde047; white-space: nowrap; }
+        .v2-promo-per { font-weight: 600; }
+        .v2-promo-cta { display: inline-flex; align-items: center; gap: 6px; padding: 3px 11px; border-radius: 999px; white-space: nowrap; font-size: .75rem; font-weight: 800; background: #fff; color: var(--brand-text); transition: transform .25s var(--ease); }
+        .v2-promo-link:hover .v2-promo-cta { transform: scale(1.05); }
+        .v2-promo-x { position: absolute; right: 8px; top: 50%; display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; margin-top: -16px; border-radius: 50%; color: rgba(255, 255, 255, .85); transition: background-color .2s, color .2s, transform .3s var(--ease); }
+        .v2-promo-x:hover { background: rgba(255, 255, 255, .18); color: #fff; transform: rotate(90deg); }
+        @media (min-width: 1024px) { .v2-promo-link { flex-wrap: nowrap; padding-top: 10px; padding-bottom: 10px; font-size: .875rem; } .v2-promo-wide { display: inline; } .v2-promo-narrow { display: none; } }
+
+        /* ── Navigasi ── */
+        .v2-navlink { position: relative; font-size: .9rem; font-weight: 600; opacity: .82; transition: opacity .2s; white-space: nowrap; }
+        .v2-navlink:hover { opacity: 1; }
+        .v2-navlink::after { content: ''; position: absolute; left: 0; right: 0; bottom: -6px; height: 2px; border-radius: 2px; background: currentColor; transform: scaleX(0); transform-origin: 0 50%; transition: transform .3s var(--ease); }
+        .v2-navlink:hover::after, .v2-navlink.is-current::after { transform: scaleX(1); }
+        .v2-navlink.is-current { opacity: 1; }
+        .v2-dd { position: relative; }
+        .v2-dd-btn { display: inline-flex; align-items: center; gap: .4rem; }
+        .v2-dd-caret { font-size: .6rem; transition: transform .3s var(--ease); }
+        .v2-dd-panel { position: absolute; right: -12px; top: calc(100% + 16px); z-index: 5; width: 17rem; padding: 8px; border-radius: 22px; background: #fff; color: #0f172a; border: 1px solid rgba(15, 23, 42, .08); box-shadow: 0 30px 60px -20px rgba(15, 23, 42, .35); opacity: 0; visibility: hidden; transform: translateY(8px) scale(.97); transform-origin: 100% 0; transition: opacity .2s, transform .3s var(--ease), visibility .2s; }
+        .v2-dd:hover .v2-dd-panel, .v2-dd:focus-within .v2-dd-panel, .v2-dd[data-open] .v2-dd-panel { opacity: 1; visibility: visible; transform: none; }
+        .v2-dd:hover .v2-dd-caret, .v2-dd:focus-within .v2-dd-caret, .v2-dd[data-open] .v2-dd-caret { transform: rotate(180deg); }
+        .v2-dd:hover .v2-dd-btn, .v2-dd[data-open] .v2-dd-btn { opacity: 1; }
+        .v2-dd-item { display: flex; align-items: center; gap: 12px; padding: 9px 10px; border-radius: 14px; font-size: .9rem; font-weight: 600; white-space: nowrap; opacity: 0; transform: translateY(6px); transition: background-color .2s, color .2s, opacity .25s, transform .35s var(--ease); }
+        .v2-dd:hover .v2-dd-item, .v2-dd:focus-within .v2-dd-item, .v2-dd[data-open] .v2-dd-item { opacity: 1; transform: none; }
+        .v2-dd-item:hover { background: rgba(var(--brand-rgb), .08); color: var(--brand-text); }
+        .v2-dd-ic { display: flex; flex: none; align-items: center; justify-content: center; width: 2.1rem; height: 2.1rem; border-radius: 11px; font-size: .85rem; background: rgba(var(--brand-rgb), .1); color: var(--brand-text); transition: transform .3s var(--ease); }
+        .v2-dd-item:hover .v2-dd-ic { transform: scale(1.1) rotate(-6deg); }
+        #v2-menu { position: fixed; inset: 0; z-index: 9995; background: var(--ink); color: #fff; opacity: 0; visibility: hidden; transition: opacity .3s, visibility .3s; overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
+        #v2-menu.is-open { opacity: 1; visibility: visible; }
+        [hidden] { display: none !important; }
+
+        /* ── Hero ── */
+        .v2-hero { background: var(--ink); }
+        .v2-grid-bg { position: absolute; inset: 0; pointer-events: none; background-image: linear-gradient(rgba(255, 255, 255, .055) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .055) 1px, transparent 1px); background-size: 56px 56px; -webkit-mask-image: radial-gradient(ellipse 75% 65% at 50% 0%, #000 30%, transparent 78%); mask-image: radial-gradient(ellipse 75% 65% at 50% 0%, #000 30%, transparent 78%); }
+        .v2-blob { position: absolute; border-radius: 50%; pointer-events: none; will-change: transform; }
+        .v2-blob-a { width: 58rem; height: 58rem; left: -20rem; top: -24rem; background: radial-gradient(circle closest-side, rgba(var(--brand-rgb), .46) 0%, rgba(var(--brand-rgb), .36) 22%, rgba(var(--brand-rgb), .2) 46%, rgba(var(--brand-rgb), .07) 72%, rgba(var(--brand-rgb), 0) 100%); animation: v2-drift-a calc(22s * var(--slow)) ease-in-out infinite alternate; }
+        .v2-blob-b { width: 50rem; height: 50rem; right: -18rem; bottom: -22rem; background: radial-gradient(circle closest-side, rgba(var(--brand-rgb), .32) 0%, rgba(var(--brand-rgb), .25) 22%, rgba(var(--brand-rgb), .14) 46%, rgba(var(--brand-rgb), .05) 72%, rgba(var(--brand-rgb), 0) 100%); animation: v2-drift-b calc(26s * var(--slow)) ease-in-out infinite alternate; }
+        @keyframes v2-drift-a { to { transform: translate3d(9rem, 6rem, 0) scale(1.12); } }
+        @keyframes v2-drift-b { to { transform: translate3d(-7rem, -5rem, 0) scale(1.08); } }
+
+        .v2-pill { display: inline-flex; align-items: center; gap: .6rem; padding: .45rem .95rem; border-radius: 999px; font-size: .8rem; font-weight: 600; color: rgba(255, 255, 255, .85); border: 1px solid rgba(255, 255, 255, .16); background: rgba(255, 255, 255, .06); }
+        .v2-dot { position: relative; width: .5rem; height: .5rem; border-radius: 50%; background: var(--brand-on-dark); }
+        .v2-dot::after { content: ''; position: absolute; inset: 0; border-radius: 50%; background: inherit; animation: v2-ping calc(1.8s * var(--slow)) cubic-bezier(0, 0, .2, 1) infinite; }
+        @keyframes v2-ping { 75%, 100% { transform: scale(2.6); opacity: 0; } }
+
+        /* ── Kartu Spot ── */
+        .v2-card { position: relative; overflow: hidden; border-radius: 28px; background: #fff; border: 1px solid rgba(15, 23, 42, .08); transition: transform .4s var(--ease), box-shadow .4s var(--ease), border-color .3s; }
+        .v2-card:hover { transform: translateY(-4px); border-color: rgba(var(--brand-rgb), .35); box-shadow: 0 30px 60px -30px rgba(var(--brand-rgb), .45); }
+        .v2-spot::before { content: ''; position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity .3s; background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(var(--brand-rgb), .16), transparent 62%); }
+        .v2-spot:hover::before { opacity: 1; }
+        .v2-icon { display: inline-flex; align-items: center; justify-content: center; width: 3rem; height: 3rem; border-radius: 16px; background: rgba(var(--brand-rgb), .12); color: var(--brand-text); font-size: 1.15rem; }
+        .v2-badge { display: inline-flex; align-items: center; padding: .4rem 1rem; border-radius: 999px; font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; background: rgba(var(--brand-rgb), .1); color: var(--brand-text); }
+        @media (prefers-reduced-motion: reduce) { :root { --slow: 1.8; } }
+    </style>
+
+    <style>
+        /* ══ Gaya khusus halaman Cek Invoice & Lacak Resi ══ */
+        .ci-hero-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 40px; align-items: center; }
+        .ci-hero-grid > * { min-width: 0; }
+        @media (min-width: 1024px) { .ci-hero-grid { grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: 64px; } }
+        .ci-h1 { font-size: clamp(2.1rem, 5vw, 3.6rem); line-height: 1.05; letter-spacing: -.035em; font-weight: 800; }
+
+        /* ── Kolom pencarian ── */
+        .ci-search { display: flex; align-items: center; gap: 8px; padding: 7px 7px 7px 20px; border-radius: 999px; background: #fff; color: #0f172a; box-shadow: 0 24px 60px -24px rgba(0, 0, 0, .6); transition: box-shadow .25s; }
+        .ci-search:focus-within { box-shadow: 0 0 0 3px rgba(var(--brand-rgb), .55), 0 24px 60px -24px rgba(0, 0, 0, .6); }
+        .ci-search > i { flex: none; color: #94a3b8; }
+        .ci-search input { flex: 1 1 0%; min-width: 0; padding: 10px 6px; background: transparent; border: 0; outline: 0; font-size: 16px; font-weight: 600; letter-spacing: .01em; }
+        .ci-search input::placeholder { color: #94a3b8; font-weight: 500; }
+        .ci-go { display: inline-flex; flex: none; align-items: center; justify-content: center; gap: 8px; height: 46px; padding: 0 22px; border-radius: 999px; font-size: .9rem; font-weight: 700; background: var(--brand-600); color: var(--on-brand); transition: background-color .2s, transform .2s var(--ease); cursor: pointer; }
+        .ci-go:hover { background: var(--brand-700); }
+        .ci-go:active { transform: scale(.96); }
+        .ci-go[disabled] { opacity: .7; cursor: default; }
+        .ci-go-spin { display: none; animation: ci-spin calc(.8s * var(--slow)) linear infinite; }
+        .ci-go[disabled] .ci-go-spin { display: inline-block; }
+        .ci-go[disabled] .ci-go-arrow { display: none; }
+        @keyframes ci-spin { to { transform: rotate(360deg); } }
+
+        .ci-alert { display: flex; align-items: flex-start; gap: 12px; padding: 14px 16px; border-radius: 18px; font-size: .9rem; line-height: 1.5; }
+        .ci-alert > i { margin-top: 3px; flex: none; }
+        .ci-alert-bad { background: rgba(239, 68, 68, .14); border: 1px solid rgba(248, 113, 113, .45); color: #fecaca; }
+
+        /* ── ANIMASI STRUK Bouncing & Stamping (Diadaptasi dari Warung Rebahan) ── */
+        .iv-ticket-wrap { position: relative; max-width: 380px; width: 100%; margin: 0 auto; justify-self: center; }
+        .iv-ticket-wrap::before { content: ''; position: absolute; inset: 10% -8% -6%; border-radius: 40px; background: radial-gradient(closest-side, rgba(var(--brand-rgb), .45), transparent); filter: blur(10px); }
+        .iv-ticket { position: relative; padding: 22px 22px 18px; border-radius: 26px; background: #fff; color: #0f172a; transform: rotate(2deg); box-shadow: 0 40px 70px -30px rgba(0, 0, 0, .75); animation: iv-tk-float 6s ease-in-out infinite; will-change: transform; }
+        .iv-ticket-top { display: flex; align-items: center; gap: 12px; }
+        .iv-ticket-ic { display: flex; flex: none; align-items: center; justify-content: center; width: 48px; height: 48px; border-radius: 15px; font-size: 1.1rem; background: rgba(var(--brand-rgb), .12); color: var(--brand-text); overflow: hidden; }
+        .iv-ticket-name { display: block; font-size: 1.02rem; font-weight: 800; letter-spacing: -.01em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .iv-ticket-var { display: block; font-size: .78rem; color: #64748b; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .iv-ticket-cut { position: relative; height: 0; margin: 18px -22px; border-top: 2px dashed #e2e8f0; }
+        /* Warna latar bulatan disesuaikan lewat variabel --ticket-bg supaya blending mulus */
+        .iv-ticket-cut::before, .iv-ticket-cut::after { content: ''; position: absolute; top: -12px; width: 22px; height: 22px; border-radius: 50%; background: var(--ticket-bg, var(--ink)); }
+        .iv-ticket-cut::before { left: -11px; }
+        .iv-ticket-cut::after { right: -11px; }
+        .iv-ticket-rows { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 8px 12px; font-size: .82rem; }
+        .iv-ticket-rows span { color: #94a3b8; font-weight: 600; }
+        .iv-ticket-rows b { text-align: right; font-weight: 700; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .iv-ticket-total { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; margin-top: 14px; padding: 12px 14px; border-radius: 16px; background: rgba(var(--brand-rgb), .08); }
+        .iv-ticket-total span { font-size: .78rem; font-weight: 700; color: #64748b; }
+        .iv-ticket-total b { font-size: 1.35rem; font-weight: 800; letter-spacing: -.02em; color: var(--brand-text); }
+        .iv-ticket-bar { display: block; height: 30px; margin-top: 14px; border-radius: 6px; opacity: .8; background: repeating-linear-gradient(90deg, #0f172a 0 2px, transparent 2px 4px, #0f172a 4px 5px, transparent 5px 8px, #0f172a 8px 11px, transparent 11px 13px); }
+        .iv-stamp { position: absolute; right: 22px; bottom: 26px; display: inline-flex; align-items: center; gap: 6px; padding: .35rem .8rem; border-radius: 10px; font-size: .95rem; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; border: 3px solid currentColor; background: rgba(255, 255, 255, .9); transform: rotate(-12deg); opacity: 0; }
+        
+        .iv-stamp.show-stamp { animation: iv-stamp .6s cubic-bezier(.34, 1.7, .5, 1) forwards; }
+        
+        @keyframes iv-tk-float { 0%, 100% { transform: rotate(2deg) translateY(0); } 50% { transform: rotate(1deg) translateY(-8px); } }
+        @keyframes iv-stamp { from { opacity: 0; transform: rotate(-12deg) scale(2.2); } to { opacity: 1; transform: rotate(-12deg) scale(1); } }
+
+        .ci-find { display: flex; align-items: flex-start; gap: 16px; padding: 20px; border-radius: 24px; background: #fff; border: 1px solid rgba(15, 23, 42, .08); }
+
+        /* ── Stepper Pelacakan DIGIPRINT ── */
+        .dp-stepper { display: flex; justify-content: space-between; position: relative; margin: 22px 0 12px; }
+        .dp-stepper::before { content: ''; position: absolute; top: 15px; left: 12.5%; width: 75%; height: 3px; background: #e2e8f0; z-index: 1; }
+        .dp-stepper-fill { position: absolute; top: 15px; left: 12.5%; height: 3px; background: var(--brand-600); z-index: 2; transition: width .5s var(--ease); }
+        .dp-step { position: relative; z-index: 3; text-align: center; flex: 1; display: flex; flex-direction: column; align-items: center; }
+        .dp-step-ic { width: 32px; height: 32px; border-radius: 50%; background: #f8fafc; border: 2px solid #cbd5e1; display: flex; align-items: center; justify-content: center; margin-bottom: 6px; font-size: 11px; color: #94a3b8; font-weight: 800; transition: .3s; }
+        .dp-step.is-active .dp-step-ic { border-color: var(--brand-600); color: var(--brand-600); background: #fff; box-shadow: 0 0 0 4px rgba(var(--brand-rgb), .18); }
+        .dp-step.is-done .dp-step-ic { background: #10b981; border-color: #10b981; color: #fff; }
+        .dp-step-lbl { font-size: 11px; color: #64748b; font-weight: 700; }
+    </style>
+</head>
+<body class="bg-white text-slate-900 antialiased">
+
+    <div hidden aria-hidden="true" class="anim is-scrolled is-open is-offscreen lenis lenis-smooth lenis-scrolling lenis-stopped lenis-locked lenis-autoToggle is-active is-done show-stamp"></div>
+
+    <style>:root { --v2-bar-h: 62px; } @media (min-width: 1024px) { :root { --v2-bar-h: 42px; } }</style>
+
+    <!-- ══ Bilah Promo Atas ══ -->
+    <div id="v2-promo" role="region" aria-label="Promo">
+      <div class="v2-promo" id="v2-promo-bar">
+        <a href="index.html#produk" class="v2-promo-link">
+            <span class="v2-promo-main">
+                <i class="fas fa-print v2-promo-ic" aria-hidden="true"></i>
+                <span class="v2-promo-title">Promo Cetak Spesial UMKM</span>
+            </span>
+            <span class="v2-promo-text v2-promo-wide">Cetak Nota NCR, Lanyard &amp; Ganci Custom — Pembayaran QRIS Otomatis 24 Jam!</span>
+            <span class="v2-promo-text v2-promo-narrow">Cetak Nota, Lanyard &amp; Ganci — QRIS Otomatis!</span>
+            <span class="v2-promo-price">Mulai Rp3.500<span class="v2-promo-per">/pcs</span></span>
+            <span class="v2-promo-cta">Lihat Katalog <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+        </a>
+        <button type="button" class="v2-promo-x" id="v2-promo-x" aria-label="Tutup promo">
+            <i class="fas fa-xmark" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- ══ Header ══ -->
+    <header id="v2-header" class="fixed inset-x-0 top-0 z-[9990]">
+        <div id="v2-progress" aria-hidden="true"></div>
+        <div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 md:h-20 lg:px-8">
+            <a href="index.html" class="flex min-w-0 items-center gap-3">
+                <img id="img-logo-header" src="https://placehold.co/100x100/45a2f2/ffffff?text=DP" alt="DIGIPRINT Logo" class="h-11 w-11 rounded-xl object-cover md:h-12 md:w-12">
+                <span class="flex min-w-0 flex-col leading-none">
+                    <span class="whitespace-nowrap text-lg font-extrabold tracking-tight">DIGIPRINT</span>
+                    <span class="v2-tagline mt-1 block max-w-[46vw] truncate text-[8.5px] font-bold uppercase tracking-[0.14em] sm:max-w-none sm:text-[10px] sm:tracking-[0.2em]">Percetakan Modern Terpadu</span>
+                </span>
+            </a>
+
+            <nav class="hidden items-center gap-7 lg:flex xl:gap-8" aria-label="Navigasi utama">
+                <a class="v2-navlink" href="index.html#produk">Katalog Produk</a>
+                <a class="v2-navlink is-current" href="cek-invoice.html" aria-current="page">Lacak Resi &amp; Invoice</a>
+                <a class="v2-navlink" href="index.html#cara-order">Cara Order</a>
+                <a class="v2-navlink" href="index.html#keunggulan">Keunggulan</a>
+                <div class="v2-dd" data-dd>
+                    <button type="button" class="v2-navlink v2-dd-btn" aria-expanded="false" aria-haspopup="true" aria-controls="v2-dd-4">
+                        Lainnya <i class="fas fa-chevron-down v2-dd-caret" aria-hidden="true"></i>
+                    </button>
+                    <div class="v2-dd-panel" id="v2-dd-4">
+                        <a class="v2-dd-item" href="customer.html">
+                            <span class="v2-dd-ic"><i class="fas fa-sliders" aria-hidden="true"></i></span>
+                            <span>Hitung Spesifikasi Custom</span>
+                        </a>
+                        <a class="v2-dd-item" href="index.html#ulasan">
+                            <span class="v2-dd-ic"><i class="fas fa-star" aria-hidden="true"></i></span>
+                            <span>Testimoni Pelanggan</span>
+                        </a>
+                        <a class="v2-dd-item" href="index.html#faq">
+                            <span class="v2-dd-ic"><i class="fas fa-circle-question" aria-hidden="true"></i></span>
+                            <span>Pusat Bantuan (FAQ)</span>
+                        </a>
+                        <a class="v2-dd-item" href="admin.html">
+                            <span class="v2-dd-ic"><i class="fas fa-user-shield" aria-hidden="true"></i></span>
+                            <span>Panel Admin</span>
+                        </a>
+                        <a class="v2-dd-item" href="https://wa.me/6283143152613" target="_blank">
+                            <span class="v2-dd-ic"><i class="fas fa-headset" aria-hidden="true"></i></span>
+                            <span>Kontak WhatsApp</span>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="flex items-center gap-3">
+                <div class="hidden lg:block">
+                    <a href="login.html" class="v2-btn" style="padding: .65rem 1.25rem; font-size: .875rem">
+                        <i class="fas fa-user-circle"></i>
+                        Portal Member
+                    </a>
+                </div>
+                <div class="lg:hidden">
+                    <button type="button" id="v2-menu-btn" class="v2-iconbtn" aria-label="Buka menu" aria-expanded="false" aria-controls="v2-menu">
+                        <i class="fas fa-bars-staggered"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ══ Menu Mobile ══ -->
+    <div id="v2-menu" aria-hidden="true" data-lenis-prevent>
+        <div class="flex h-16 items-center justify-between px-4 sm:px-6">
+            <span class="text-lg font-extrabold tracking-tight">DIGIPRINT</span>
+            <button type="button" id="v2-menu-close" class="v2-iconbtn" aria-label="Tutup menu">
+                <i class="fas fa-xmark"></i>
+            </button>
+        </div>
+        <nav class="flex flex-col gap-1 px-6 pb-10 pt-4" aria-label="Navigasi mobile">
+            <a href="index.html#produk" class="v2-menu-link border-b border-white/10 py-3.5 text-2xl font-extrabold tracking-tight">Katalog Produk</a>
+            <a href="cek-invoice.html" class="v2-menu-link border-b border-white/10 py-3.5 text-2xl font-extrabold tracking-tight" aria-current="page">Lacak Resi &amp; Invoice</a>
+            <a href="index.html#cara-order" class="v2-menu-link border-b border-white/10 py-3.5 text-2xl font-extrabold tracking-tight">Cara Order</a>
+            <a href="index.html#keunggulan" class="v2-menu-link border-b border-white/10 py-3.5 text-2xl font-extrabold tracking-tight">Keunggulan</a>
+            <p class="v2-menu-link mt-6 text-xs font-bold uppercase tracking-[0.18em] text-white/45">Lainnya</p>
+            <a href="customer.html" class="v2-menu-link flex items-center gap-3 py-2.5 text-lg font-bold tracking-tight text-white/85">
+                <i class="fas fa-sliders w-5 text-center text-sm text-white/45" aria-hidden="true"></i> Hitung Spesifikasi Custom
+            </a>
+            <a href="index.html#ulasan" class="v2-menu-link flex items-center gap-3 py-2.5 text-lg font-bold tracking-tight text-white/85">
+                <i class="fas fa-star w-5 text-center text-sm text-white/45" aria-hidden="true"></i> Testimoni Pelanggan
+            </a>
+            <a href="index.html#faq" class="v2-menu-link flex items-center gap-3 py-2.5 text-lg font-bold tracking-tight text-white/85">
+                <i class="fas fa-circle-question w-5 text-center text-sm text-white/45" aria-hidden="true"></i> Pusat Bantuan (FAQ)
+            </a>
+            <a href="https://wa.me/6283143152613" target="_blank" class="v2-menu-link flex items-center gap-3 py-2.5 text-lg font-bold tracking-tight text-white/85">
+                <i class="fas fa-headset w-5 text-center text-sm text-white/45" aria-hidden="true"></i> Kontak WhatsApp
+            </a>
+            <a href="login.html" class="v2-btn v2-menu-link mt-8">
+                <i class="fas fa-user-circle"></i>
+                Portal Member / Login
+            </a>
+        </nav>
+    </div>
+
+    <div class="overflow-x-clip">
+        <main>
+            <!-- ══ Hero: Kolom Pencarian Resi / Invoice ══ -->
+            <section id="top" class="v2-hero relative isolate overflow-hidden text-white" data-pause-offscreen>
+                <div class="v2-blob v2-blob-a" aria-hidden="true"></div>
+                <div class="v2-blob v2-blob-b" aria-hidden="true"></div>
+                <div class="v2-grid-bg" aria-hidden="true"></div>
+
+                <div class="relative mx-auto max-w-7xl px-4 pb-20 pt-24 sm:px-6 md:pb-28 md:pt-36 lg:px-8">
+                    <div class="ci-hero-grid">
+                        <div class="min-w-0">
+                            <div class="v2-in v2-pill"><span class="v2-dot"></span> Pelacakan Real-time Supabase</div>
+                            <h1 class="ci-h1 mt-5">
+                                <span class="v2-word"><span>Lacak</span></span> <span class="v2-word"><span>resi</span></span> <span class="v2-word"><span>&amp;</span></span> <span class="v2-word"><span class="v2-accent-dark">unduh</span></span> <span class="v2-word"><span class="v2-accent-dark">invoice</span></span> <span class="v2-word"><span class="v2-accent-dark">resmi.</span></span>
+                            </h1>
+                            <p class="v2-in mt-5 max-w-xl text-base text-white/70 sm:text-lg">
+                                Masukkan Nomor Transaksi (TRX) atau Nomor WhatsApp Anda untuk memantau proses cetak, resi SPX Express, dan mengunduh struk digital.
+                            </p>
+
+                            <div class="v2-in mt-8 max-w-xl">
+                                <form action="javascript:void(0)" class="ci-search" id="ci-form" role="search">
+                                    <i class="fas fa-receipt" aria-hidden="true"></i>
+                                    <label for="ci-q" class="sr-only">Nomor Transaksi atau WhatsApp</label>
+                                    <input type="text" id="ci-q" name="order_number" value="" placeholder="Ketik No. WhatsApp atau ID TRX..." required
+                                        autocomplete="off" autocorrect="off" spellcheck="false" enterkeyhint="search">
+                                    <button type="submit" class="ci-go" id="ci-go">
+                                        <span id="ci-go-t">Lacak</span>
+                                        <i class="fas fa-arrow-right ci-go-arrow text-xs" aria-hidden="true"></i>
+                                        <i class="fas fa-circle-notch ci-go-spin text-xs" aria-hidden="true"></i>
+                                    </button>
+                                </form>
+
+                                <!-- Kotak Alert jika tidak ditemukan -->
+                                <div id="ci-alert-box" class="mt-4 hidden"></div>
+
+                                <p class="mt-4 flex items-start gap-2 text-sm text-white/55">
+                                    <i class="fas fa-circle-info mt-1 flex-none" aria-hidden="true"></i>
+                                    <span>Tips: Masukkan ID contoh <b>DP202601</b> untuk melihat simulasi hasil dan animasi struk.</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- ══ Animasi Struk Mengambang di Hero (Adaptasi Warung Rebahan) ══ -->
+                        <div class="v2-in iv-ticket-wrap hidden lg:block" aria-hidden="true" style="--ticket-bg: var(--ink);">
+                            <div class="iv-ticket">
+                                <div class="iv-ticket-top">
+                                    <span class="iv-ticket-ic"><i class="fas fa-print"></i></span>
+                                    <span class="min-w-0">
+                                        <span class="iv-ticket-name">Invoice Cetak</span>
+                                        <span class="iv-ticket-var">TRX-DP2026••••</span>
+                                    </span>
+                                </div>
+                                <div class="iv-ticket-cut"></div>
+                                <div class="iv-ticket-rows">
+                                    <span>Penerima</span><b>Toko Berkah Jaya</b>
+                                    <span>Item</span><b>Nota NCR Custom...</b>
+                                    <span>Tanggal</span><b>28 Okt 2026 10:30</b>
+                                </div>
+                                <div class="iv-ticket-total"><span>Total Tagihan</span><b>Rp 150.000</b></div>
+                                <span class="iv-stamp show-stamp" style="color: #10b981; border-color: #10b981; animation-delay: 1.5s;"><i class="fas fa-check"></i> SELESAI</span>
+                                <span class="iv-ticket-bar"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ══ Area Hasil Pelacakan Pesanan ══ -->
+            <section id="hasil-lacak-section" class="bg-slate-100 py-14 hidden">
+                <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+                        <div>
+                            <span class="v2-badge">Hasil Pencarian Database</span>
+                            <h2 class="mt-2 text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900">Detail Status Pesanan Anda</h2>
+                        </div>
+                        <button type="button" onclick="tutupHasilLacak()" class="self-start sm:self-auto px-4 py-2 rounded-full bg-white border border-slate-200 text-xs font-bold text-slate-600 hover:bg-slate-50">
+                            <i class="fas fa-xmark mr-1"></i> Bersihkan Hasil
+                        </button>
+                    </div>
+
+                    <div id="hasil-lacak-container" class="space-y-6">
+                        <!-- Kartu hasil pencarian beserta animasi struk dirender di sini -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- ══ Tiga keunggulan ══ -->
+            <section class="bg-slate-50 py-16 sm:py-24">
+                <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                    <div class="grid grid-cols-1 gap-4 md:grid-cols-3" data-stagger>
+                        <article class="v2-card v2-spot p-7" data-stagger-item>
+                            <div class="relative">
+                                <span class="v2-icon"><i class="fas fa-file-invoice" aria-hidden="true"></i></span>
+                                <h2 class="mt-5 text-xl font-extrabold tracking-tight">Invoice B2B Resmi</h2>
+                                <p class="mt-2 text-slate-600">Unduh struk dan invoice digital beresolusi tinggi (PNG/PDF) untuk keperluan laporan pembukuan kantor atau toko Anda.</p>
+                            </div>
+                        </article>
+                        <article class="v2-card v2-spot p-7" data-stagger-item>
+                            <div class="relative">
+                                <span class="v2-icon"><i class="fas fa-bolt" aria-hidden="true"></i></span>
+                                <h2 class="mt-5 text-xl font-extrabold tracking-tight">Pantau Tahap Produksi</h2>
+                                <p class="mt-2 text-slate-600">Status diperbarui langsung dari meja produksi DIGIPRINT: mulai dari antrean cetak, finishing, hingga penyerahan ke kurir.</p>
+                            </div>
+                        </article>
+                        <article class="v2-card v2-spot p-7" data-stagger-item>
+                            <div class="relative">
+                                <span class="v2-icon"><i class="fas fa-qrcode" aria-hidden="true"></i></span>
+                                <h2 class="mt-5 text-xl font-extrabold tracking-tight">Bayar Ulang Instan</h2>
+                                <p class="mt-2 text-slate-600">Belum sempat scan QRIS saat checkout? Buka kembali kode QRIS PayinAja Anda langsung dari halaman pelacakan ini.</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ══ Di mana nomor invoice? ══ -->
+            <section class="bg-white py-20 sm:py-28">
+                <div class="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-12 lg:px-8">
+                    <div class="lg:col-span-4" data-reveal>
+                        <p class="v2-accent text-sm font-bold uppercase tracking-[0.18em]">Lupa Nomor TRX?</p>
+                        <h2 class="mt-3 text-4xl font-extrabold tracking-tight sm:text-5xl">Di mana nomor resi pesanan saya?</h2>
+                        <p class="mt-4 text-slate-600">Kalau tetap tidak ditemukan, cukup gunakan Nomor WhatsApp yang Anda pakai saat memesan atau hubungi admin kami.</p>
+                        <div class="mt-5 flex flex-col gap-3">
+                            <a href="https://wa.me/6283143152613" target="_blank" rel="noopener" class="v2-link v2-accent inline-flex items-center gap-2 font-bold">
+                                <i class="fab fa-whatsapp text-lg"></i> Hubungi Admin DIGIPRINT <i class="fas fa-arrow-right text-xs"></i>
+                            </a>
+                            <a href="index.html#cara-order" class="v2-link v2-accent inline-flex items-center gap-2 font-bold">
+                                Lihat panduan cara order <i class="fas fa-arrow-right text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4 lg:col-span-8" data-stagger>
+                        <div class="ci-find" data-stagger-item>
+                            <span class="v2-icon flex-none"><i class="fab fa-whatsapp" aria-hidden="true"></i></span>
+                            <div class="min-w-0">
+                                <h3 class="text-lg font-extrabold tracking-tight">Cari Pakai Nomor WhatsApp</h3>
+                                <p class="mt-1 text-slate-600">Tidak perlu menghafal kode TRX! Ketik saja nomor WhatsApp Anda (diawali 08...) pada kolom pencarian di atas untuk menampilkan seluruh riwayat pesanan Anda.</p>
+                            </div>
+                        </div>
+                        <div class="ci-find" data-stagger-item>
+                            <span class="v2-icon flex-none"><i class="fas fa-comment-dots" aria-hidden="true"></i></span>
+                            <div class="min-w-0">
+                                <h3 class="text-lg font-extrabold tracking-tight">Notifikasi Chat WhatsApp Otomatis</h3>
+                                <p class="mt-1 text-slate-600">Setiap kali Anda membuat pesanan atau saat admin memperbarui resi pengiriman SPX Express, bot kami mengirimkan nomor TRX ke WhatsApp Anda.</p>
+                            </div>
+                        </div>
+                        <div class="ci-find" data-stagger-item>
+                            <span class="v2-icon flex-none"><i class="fas fa-user-circle" aria-hidden="true"></i></span>
+                            <div class="min-w-0">
+                                <h3 class="text-lg font-extrabold tracking-tight">Dashboard Pelanggan (Member)</h3>
+                                <p class="mt-1 text-slate-600">Seluruh riwayat transaksi, jumlah poin reward, dan tombol unduh invoice tersimpan rapi di akun member Anda.</p>
+                                <a href="login.html" class="v2-link v2-accent mt-2 inline-flex items-center gap-2 text-sm font-bold">
+                                    Masuk Portal Member <i class="fas fa-arrow-right text-xs"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- ══ Footer ══ -->
+        <style>
+            .ft { position: relative; overflow: hidden; isolation: isolate; background: var(--ink); color: rgba(255, 255, 255, .62); }
+            .ft::before { content: ''; position: absolute; right: -160px; top: -200px; z-index: -1; width: 520px; height: 520px; border-radius: 50%; background: radial-gradient(closest-side, rgba(var(--brand-rgb), .32), rgba(var(--brand-rgb), 0)); }
+            .ft::after { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(var(--brand-rgb), .7), transparent); }
+            .ft-grid { display: grid; gap: 36px 24px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            @media (min-width: 1024px) { .ft-grid { grid-template-columns: minmax(0, 1.6fr) repeat(3, minmax(0, 1fr)); gap: 48px; } }
+            .ft-brand { grid-column: 1 / -1; }
+            @media (min-width: 1024px) { .ft-brand { grid-column: auto; } }
+            .ft-logo { display: inline-flex; align-items: center; gap: 12px; font-size: 1.2rem; font-weight: 800; letter-spacing: -.02em; color: #fff; }
+            .ft-logo .brand-t { display: flex; flex-direction: column; line-height: 1; }
+            .ft-logo small { margin-top: 5px; font-size: .64rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: rgba(255, 255, 255, .85); }
+            .ft-logo img { width: 52px; height: 52px; border-radius: 15px; object-fit: cover; background: #fff; }
+            .ft-desc { max-width: 24rem; margin-top: 14px; font-size: .9rem; line-height: 1.7; }
+            .ft-social { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+            .ft-social a { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 13px; color: #fff; background: rgba(255, 255, 255, .07); border: 1px solid rgba(255, 255, 255, .1); transition: background-color .25s, transform .25s var(--ease), border-color .25s; }
+            .ft-social a:hover { background: var(--brand-600); color: var(--on-brand); border-color: transparent; transform: translateY(-3px); }
+            .ft-h { font-size: .74rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: #fff; }
+            .ft-links { display: grid; gap: 11px; margin-top: 16px; font-size: .9rem; }
+            .ft-links a { display: inline-flex; align-items: center; gap: 8px; transition: color .2s, transform .2s var(--ease); }
+            .ft-links a::before { content: ''; width: 0; height: 2px; border-radius: 2px; background: var(--brand-on-dark); transition: width .25s var(--ease); }
+            .ft-links a:hover { color: #fff; }
+            .ft-links a:hover::before { width: 10px; }
+            .ft-mail { display: inline-flex; align-items: center; gap: 8px; margin-top: 18px; font-size: .86rem; color: rgba(255, 255, 255, .75); overflow-wrap: anywhere; }
+            .ft-mail:hover { color: #fff; }
+            .ft-bottom { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; margin-top: 48px; padding-top: 24px; border-top: 1px solid rgba(255, 255, 255, .08); font-size: .8rem; }
+            .ft-pay { display: flex; flex-wrap: wrap; gap: 6px; }
+            .ft-pay span { display: inline-flex; align-items: center; gap: 6px; padding: .3rem .7rem; border-radius: 999px; font-size: .72rem; font-weight: 700; color: rgba(255, 255, 255, .78); background: rgba(255, 255, 255, .06); border: 1px solid rgba(255, 255, 255, .1); }
+            .ft-pay i { color: var(--brand-on-dark); }
+        </style>
+        <footer class="ft" aria-label="Footer">
+            <div class="mx-auto max-w-7xl px-4 pb-10 pt-16 sm:px-6 sm:pt-20 lg:px-8">
+                <div class="ft-grid">
+                    <div class="ft-brand">
+                        <a href="index.html" class="ft-logo">
+                            <img id="img-logo-footer" src="https://placehold.co/100x100/45a2f2/ffffff?text=DP" alt="DIGIPRINT">
+                            <span class="brand-t"><span>DIGIPRINT</span><small>Percetakan Modern</small></span>
+                        </a>
+                        <p class="ft-desc">Pusat cetak online untuk administrasi dan identitas bisnis Anda. Melayani cetak Nota NCR, Lanyard, Ganci, dan ID Card ke seluruh Indonesia didukung pembayaran QRIS otomatis.</p>
+                        <div class="ft-social">
+                            <a href="https://wa.me/6283143152613" target="_blank" rel="noopener" aria-label="WhatsApp" title="WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+                            <a href="https://tiktok.com/@digiprinnt" target="_blank" rel="noopener" aria-label="TikTok" title="TikTok"><i class="fab fa-tiktok" aria-hidden="true"></i></a>
+                            <a href="#" aria-label="Instagram" title="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                        </div>
+                        <a href="mailto:admin@digiprint.id" class="ft-mail"><i class="fas fa-envelope" aria-hidden="true"></i> <span>Jl. Arah Kebonklopo RT23 RW06, Sumberpucung, Malang</span></a>
+                    </div>
+                    <nav aria-label="Layanan Cetak">
+                        <p class="ft-h">Layanan Cetak</p>
+                        <ul class="ft-links">
+                            <li><a href="index.html#produk">Cetak Nota NCR</a></li>
+                            <li><a href="index.html#produk">Lanyard Sublimasi</a></li>
+                            <li><a href="index.html#produk">Gantungan Kunci Akrilik</a></li>
+                            <li><a href="index.html#produk">ID Card PVC</a></li>
+                            <li><a href="index.html#produk">Cetak Foto Polaroid</a></li>
+                        </ul>
+                    </nav>
+                    <nav aria-label="Akses Cepat">
+                        <p class="ft-h">Akses Cepat</p>
+                        <ul class="ft-links">
+                            <li><a href="cek-invoice.html">Lacak Resi Pesanan</a></li>
+                            <li><a href="customer.html">Dashboard Pelanggan</a></li>
+                            <li><a href="admin.html">Panel Admin</a></li>
+                            <li><a href="index.html#cara-order">Panduan Pemesanan</a></li>
+                            <li><a href="index.html#faq">Tanya Jawab (FAQ)</a></li>
+                        </ul>
+                    </nav>
+                    <nav aria-label="Informasi">
+                        <p class="ft-h">Informasi</p>
+                        <ul class="ft-links">
+                            <li><a href="index.html#keunggulan">Keunggulan Sistem</a></li>
+                            <li><a href="index.html#ulasan">Testimoni Pembeli</a></li>
+                            <li><a href="https://wa.me/6283143152613" target="_blank">Bantuan CS Admin</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="ft-bottom">
+                    <p>&copy; 2026 DIGIPRINT Corp. Semua hak dilindungi.</p>
+                    <div class="ft-pay" aria-label="Pembayaran">
+                        <span><i class="fas fa-qrcode" aria-hidden="true"></i> QRIS PayinAja</span>
+                        <span><i class="fas fa-truck" aria-hidden="true"></i> SPX Express</span>
+                        <span><i class="fas fa-bolt" aria-hidden="true"></i> Otomatis 24 Jam</span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- ══ MODAL: INVOICE DIGITAL RESMI DIGIPRINT (B2B Friendly) ══ -->
+        <div id="strukModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-[99990] hidden items-center justify-center p-4 overflow-y-auto">
+            <div class="bg-white p-6 sm:p-8 rounded-3xl w-full max-w-lg shadow-2xl relative flex flex-col items-center my-8">
+                <div id="areaStruk" class="w-full bg-white text-black p-4 relative" style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">
+                    <div class="flex justify-between items-start border-b-2 border-slate-800 pb-4 mb-4">
+                        <div>
+                            <h2 class="text-2xl font-black text-[#1d65b0] uppercase tracking-tight m-0">INVOICE RESMI</h2>
+                            <p class="text-xs text-slate-500 font-bold mt-1" id="strukNoBadge">INV-...</p>
+                        </div>
+                        <div class="text-right">
+                            <h3 class="m-0 text-lg font-black text-slate-800">DIGIPRINT Corp.</h3>
+                            <p class="text-[10px] m-0 text-slate-500 leading-relaxed mt-1">Jl. Arah Kebonklopo RT23 RW 06<br>Sumberpucung, Malang<br>WA: 083143152613</p>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-between text-[11px] mb-6">
+                        <div>
+                            <span class="text-slate-400 font-bold block mb-1">DITAGIHKAN KEPADA:</span>
+                            <strong class="text-slate-800 text-sm" id="strukNamaPemesan">Pelanggan</strong>
+                            <div id="strukAlamat" class="text-slate-500 max-w-[220px] mt-0.5 leading-relaxed">...</div>
+                        </div>
+                        <div class="text-right">
+                            <table class="ml-auto">
+                                <tr><td class="text-slate-400 font-bold pr-3 py-1 text-right">Tanggal:</td><td class="text-slate-800 font-bold" id="strukTgl">...</td></tr>
+                                <tr><td class="text-slate-400 font-bold pr-3 py-1 text-right">Status:</td><td class="text-emerald-600 font-black uppercase" id="strukStatus">...</td></tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <table class="w-full text-[11px] mb-6 border-collapse">
+                        <thead>
+                            <tr class="bg-[#f0f7fe] text-[#1d65b0]">
+                                <th class="py-2.5 px-3 text-left font-bold border-b-2 border-[#1d65b0]">Deskripsi Pesanan Cetak</th>
+                                <th class="py-2.5 px-3 text-right font-bold border-b-2 border-[#1d65b0] w-1/4">Subtotal</th>
+                            </tr>
+                        </thead>
+                        <tbody id="strukItem" class="text-slate-700"></tbody>
+                    </table>
+
+                    <div class="flex justify-end border-t-2 border-slate-200 pt-3">
+                        <div class="w-1/2 sm:w-2/5 text-[11px]">
+                            <div class="flex justify-between py-1 border-b border-slate-100"><span class="text-slate-500 font-bold">Subtotal</span><span class="text-slate-800 font-bold" id="strukSubtotal">Rp 0</span></div>
+                            <div class="flex justify-between py-2 mt-1"><span class="text-slate-800 font-black text-sm">TOTAL BAYAR</span><span class="text-[#1d65b0] font-black text-sm" id="strukTotal">Rp 0</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex w-full gap-3 mt-6">
+                    <button type="button" onclick="unduhStrukGambar()" id="btnUnduhStruk" class="v2-btn flex-1 py-3 text-xs">
+                        <i class="fas fa-download"></i> Unduh Invoice (PNG)
+                    </button>
+                    <button type="button" onclick="tutupStrukModal()" class="w-1/3 bg-slate-100 text-slate-700 py-3 rounded-full text-xs font-bold hover:bg-slate-200">
+                        Tutup
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ══ MODAL: BAYAR ULANG QRIS PAYINAJA ══ -->
+        <div id="qrisModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-[99990] hidden items-center justify-center p-4">
+            <div class="bg-white p-6 rounded-3xl w-full max-w-sm shadow-2xl text-center">
+                <span class="text-[10px] font-extrabold uppercase tracking-widest text-brand-600">Pembayaran Instan PayinAja</span>
+                <h3 class="font-extrabold text-xl text-slate-900 mt-1 mb-1" id="qrisTrxTitle">TRX-...</h3>
+                <p class="text-xs text-slate-500 mb-4">Scan QR Code di bawah menggunakan aplikasi M-Banking atau E-Wallet Anda:</p>
+                <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 mb-4 inline-block mx-auto">
+                    <img id="qrisImgModal" src="" alt="QRIS PayinAja" class="w-48 h-48 object-contain mx-auto">
+                </div>
+                <div class="text-sm font-bold text-slate-800 mb-5">
+                    Total Tagihan: <span id="qrisTotalModal" class="text-brand-600 text-lg font-extrabold block">Rp 0</span>
+                </div>
+                <button type="button" onclick="document.getElementById('qrisModal').classList.add('hidden'); document.getElementById('qrisModal').classList.remove('flex');" class="v2-btn w-full py-3 text-xs">
+                    Selesai / Tutup
+                </button>
+            </div>
+        </div>
+
+        <!-- Dialog UI Bawaan -->
+        <div id="ui-dialog-overlay" class="fixed inset-0 z-[100000] hidden items-center justify-center bg-black/50 backdrop-blur-sm p-4">
+            <div id="ui-dialog-card" class="bg-white rounded-2xl shadow-2xl w-full max-w-sm overflow-hidden transform transition-all duration-150 scale-95 opacity-0">
+                <div class="p-6 text-center">
+                    <div id="ui-dialog-icon" class="mx-auto w-14 h-14 rounded-full flex items-center justify-center mb-4 text-2xl"></div>
+                    <h3 id="ui-dialog-title" class="text-lg font-bold text-gray-900 mb-1"></h3>
+                    <p id="ui-dialog-message" class="text-sm text-gray-500 leading-relaxed whitespace-pre-line"></p>
+                </div>
+                <div id="ui-dialog-actions" class="flex gap-2 p-4 pt-0"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══ EFEK KONFETI (Confetti) ══ -->
+    <script>
+        window.V2Confetti = function (o) {
+            o = o || {};
+            var c = document.createElement('canvas'), g = null;
+            try { g = c.getContext && c.getContext('2d'); } catch (err) { g = null; }
+            if (!g) return null;
+            c.setAttribute('data-v2-confetti', '');
+            c.setAttribute('aria-hidden', 'true');
+            c.style.cssText = 'position:fixed;inset:0;width:100%;height:100%;z-index:100001;pointer-events:none';
+            var W = c.width = window.innerWidth, H = c.height = window.innerHeight;
+            document.body.appendChild(c);
+            var reduce = !!o.reduce, cannons = !!o.cannons;
+            var colors = cannons ? ['#257fd9', '#45a2f2', '#68adf4', '#98cbf8', '#fbbf24', '#34d399', o.color || '#257fd9']
+                : [o.color || '#257fd9', '#ffffff', '#fbbf24', '#34d399', '#45a2f2'];
+            var LIFE = reduce ? (cannons ? 2200 : 1700) : (cannons ? 2800 : 3400), parts = [], t0 = Date.now(), made = 0;
+            var EMIT = cannons ? (reduce ? 2000 : 3000) : 0, RATE = reduce ? 2 : 5;
+            function add(x, y, a, sp, born) {
+                parts.push({ x: x, y: y, vx: Math.cos(a) * sp, vy: Math.sin(a) * sp, w: 5 + Math.random() * 7, h: 3 + Math.random() * 5, r: Math.random() * 6.28, vr: (Math.random() - 0.5) * 0.4, c: colors[made % colors.length], b: born, o: cannons && made % 3 === 0 });
+                made++;
+            }
+            function shoot(now) {
+                var base = reduce ? 7 : 10, extra = reduce ? 8 : 14;
+                for (var k = 0; k < RATE; k++) {
+                    add(0, H * 0.55, -Math.PI / 3 + (Math.random() - 0.5) * 0.95, base + Math.random() * extra, now);
+                    add(W, H * 0.55, -2 * Math.PI / 3 + (Math.random() - 0.5) * 0.95, base + Math.random() * extra, now);
+                }
+            }
+            if (!cannons) {
+                var N = o.count || (reduce ? 40 : 170);
+                var ox = W * (typeof o.x === 'number' ? o.x : 0.5), oy = H * (typeof o.y === 'number' ? o.y : 0.42);
+                for (var i = 0; i < N; i++) {
+                    var side = o.sides ? i % 3 : 0, a, sp = (reduce ? 4 : 7) + Math.random() * (reduce ? 5 : 11);
+                    var x = ox, y = oy;
+                    if (side === 1 && i % 2) { x = 0; y = H * 0.6; a = -Math.PI / 4 + (Math.random() - 0.5) * 0.9; }
+                    else if (side === 2 && i % 2) { x = W; y = H * 0.6; a = -3 * Math.PI / 4 + (Math.random() - 0.5) * 0.9; }
+                    else { a = -Math.PI / 2 + (Math.random() - 0.5) * 2.6; }
+                    add(x, y, a, sp, t0);
+                }
+            }
+            (function frame() {
+                var now = Date.now(), age = now - t0;
+                g.clearRect(0, 0, W, H);
+                if (!c.parentNode) return;
+                if (age < EMIT) shoot(now);
+                for (var i = parts.length - 1; i >= 0; i--) {
+                    var p = parts[i], left = LIFE - (now - p.b);
+                    if (left <= 0) { parts.splice(i, 1); continue; }
+                    p.vx *= 0.985; p.vy = p.vy * 0.985 + 0.3; p.x += p.vx; p.y += p.vy; p.r += p.vr;
+                    g.globalAlpha = Math.min(1, left / 700);
+                    g.save();
+                    g.translate(p.x, p.y);
+                    g.rotate(p.r);
+                    g.fillStyle = p.c;
+                    if (p.o && g.arc) { g.beginPath(); g.arc(0, 0, p.w / 2.4, 0, 6.2832); g.fill(); }
+                    else g.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+                    g.restore();
+                }
+                if (age >= EMIT && !parts.length) { c.parentNode.removeChild(c); return; }
+                window.requestAnimationFrame(frame);
+            })();
+            return c;
+        };
+    </script>
+
+    <!-- KONFIGURASI SUPABASE & PAYINAJA -->
+    <script src="config.js"></script>
+    <script>
+        const GAMBAR_TOKO = {
+            logo_toko: "https://placehold.co/120x120/45a2f2/ffffff?text=DP"
+        };
+        document.getElementById('img-logo-header').src = GAMBAR_TOKO.logo_toko;
+        document.getElementById('img-logo-footer').src = GAMBAR_TOKO.logo_toko;
+        document.getElementById('dynamic-favicon').href = GAMBAR_TOKO.logo_toko;
+
+        const FALLBACK_PESANAN_DEMO = [
+            {
+                id_trx: "DP202601", tanggal: "2026-10-28T10:30:00Z", nama_penerima: "Toko Berkah Jaya",
+                wa: "081234567890", alamat: "Jl. Soekarno Hatta No. 45, Malang",
+                detail_pesanan: "Nota NCR Custom 1/2 Folio 2 Ply (10 Buku) | Lanyard (20 Pcs)",
+                total_bayar: 412000, status: "Selesai", link_lacak: "https://spx.co.id/"
+            },
+            {
+                id_trx: "DP202602", tanggal: "2026-10-28T13:15:00Z", nama_penerima: "Panitia Dies Natalis",
+                wa: "081234567890", alamat: "Jl. Veteran No. 12, Malang",
+                detail_pesanan: "Gantungan Kunci Akrilik 2 Sisi (50 Pcs)",
+                total_bayar: 197000, status: "Diproses", link_lacak: "-"
+            }
+        ];
+
+        window.petaStrukAktif = {};
+
+        function formatTglIndo(str) {
+            if (!str) return "-";
+            const d = new Date(str);
+            if (isNaN(d.getTime())) return str;
+            return d.toLocaleDateString("id-ID", { day: "numeric", month: "short", year: "numeric", hour: "2-digit", minute: "2-digit" });
+        }
+
+        function bangunStepperHtml(statusStr) {
+            const s = (statusStr || "").toLowerCase();
+            let idx = 0, selesai = false;
+            if (s.includes("menunggu")) idx = 0;
+            else if (s.includes("proses") || s.includes("cetak") || s.includes("terima")) idx = 1;
+            else if (s.includes("kirim")) idx = 2;
+            else if (s.includes("selesai") || s.includes("lunas")) { idx = 3; selesai = true; }
+
+            const lebar = selesai ? 75 : (idx / 3) * 75;
+            const st = (stepNum) => selesai ? "is-done" : (idx > stepNum ? "is-done" : (idx === stepNum ? "is-active" : ""));
+
+            return `
+                <div class="dp-stepper">
+                    <div class="dp-stepper-fill" style="width: ${lebar}%;"></div>
+                    <div class="dp-step ${st(0)}"><div class="dp-step-ic"><i class="fas fa-qrcode"></i></div><div class="dp-step-lbl">Bayar</div></div>
+                    <div class="dp-step ${st(1)}"><div class="dp-step-ic"><i class="fas fa-print"></i></div><div class="dp-step-lbl">Diproses Cetak</div></div>
+                    <div class="dp-step ${st(2)}"><div class="dp-step-ic"><i class="fas fa-truck-fast"></i></div><div class="dp-step-lbl">Dikirim</div></div>
+                    <div class="dp-step ${st(3)}"><div class="dp-step-ic"><i class="fas fa-check"></i></div><div class="dp-step-lbl">Selesai</div></div>
+                </div>`;
+        }
+
+        async function cariPesananSupabase(kataKunci) {
+            const bersih = kataKunci.replace(/^TRX-/i, "").trim();
+            let hasil = [];
+            if (typeof SUPABASE_URL !== "undefined" && SUPABASE_URL.startsWith("https://") && !SUPABASE_URL.includes("ISI_URL")) {
+                try {
+                    const queryUrl = `pesanan?or=(id_trx.ilike.*${encodeURIComponent(bersih)}*,wa.ilike.*${encodeURIComponent(bersih)}*)&order=tanggal.desc`;
+                    const resDb = await fetchSupabase(queryUrl);
+                    if (Array.isArray(resDb) && resDb.length > 0) hasil = resDb;
+                } catch (e) {}
+            }
+            if (hasil.length === 0) {
+                hasil = FALLBACK_PESANAN_DEMO.filter(o => o.id_trx.toLowerCase().includes(bersih.toLowerCase()) || o.wa.includes(bersih));
+            }
+            return hasil;
+        }
+
+        function renderHasilPencarian(daftarPesanan, kataKunci) {
+            const alertBox = document.getElementById("ci-alert-box");
+            const secHasil = document.getElementById("hasil-lacak-section");
+            const container = document.getElementById("hasil-lacak-container");
+
+            if (!daftarPesanan || daftarPesanan.length === 0) {
+                secHasil.classList.add("hidden");
+                alertBox.innerHTML = `
+                    <div class="ci-alert ci-alert-bad" role="alert">
+                        <i class="fas fa-circle-exclamation"></i>
+                        <div>
+                            <strong class="block font-bold">Pesanan "${kataKunci}" tidak ditemukan.</strong>
+                            <span>Pastikan Nomor Transaksi (TRX) atau Nomor WhatsApp (08...) sudah benar, atau coba ketik <b>DP202601</b> untuk melihat simulasi.</span>
+                        </div>
+                    </div>`;
+                alertBox.classList.remove("hidden");
+                if (window.V2Page && typeof window.V2Page.shake === "function") window.V2Page.shake();
+                return;
+            }
+
+            alertBox.classList.add("hidden");
+            container.innerHTML = "";
+            window.petaStrukAktif = {};
+            let adaSelesai = false;
+
+            daftarPesanan.forEach((order, indexItem) => {
+                const stLower = (order.status || "Menunggu").toLowerCase();
+                const nominal = parseInt(order.total_bayar) || 0;
+                const formatRp = "Rp " + nominal.toLocaleString("id-ID");
+
+                let stampColor = "#f59e0b"; let stampText = "MENUNGGU"; let stampIcon = "fa-clock";
+                if (stLower.includes("selesai")) { stampColor = "#10b981"; stampText = "SELESAI"; stampIcon = "fa-check"; adaSelesai = true; }
+                else if (stLower.includes("batal")) { stampColor = "#ef4444"; stampText = "BATAL"; stampIcon = "fa-xmark"; }
+                else if (stLower.includes("kirim")) { stampColor = "#0ea5e9"; stampText = "DIKIRIM"; stampIcon = "fa-truck-fast"; }
+                else if (stLower.includes("proses") || stLower.includes("cetak")) { stampColor = "#257fd9"; stampText = "DIPROSES"; stampIcon = "fa-print"; }
+
+                const itemPertama = (order.detail_pesanan || "-").split("|")[0].trim();
+
+                let barisItemHtml = "";
+                (order.detail_pesanan || "-").split("|").forEach(raw => {
+                    if (raw.trim()) barisItemHtml += `<tr class="border-b border-slate-100"><td class="py-2.5 px-3 font-semibold text-slate-800">${raw.trim()}</td><td class="py-2.5 px-3 text-right font-bold text-slate-700">-</td></tr>`;
+                });
+
+                window.petaStrukAktif[order.id_trx] = { no: order.id_trx, tgl: formatTglIndo(order.tanggal), nama: order.nama_penerima || "Pelanggan", alamat: order.alamat || "-", status: order.status || "Diproses", itemsHTML: barisItemHtml, total: formatRp };
+
+                const tombolBayar = stLower.includes("menunggu") ? `<button type="button" onclick="bukaModalQrisUlang('${order.id_trx}', ${nominal})" class="px-5 py-2.5 rounded-full bg-brand-600 hover:bg-brand-700 text-white text-xs font-bold"><i class="fas fa-qrcode mr-1"></i> QRIS PayinAja</button>` : `<button type="button" onclick="bukaStrukModal('${order.id_trx}')" class="px-5 py-2.5 rounded-full bg-slate-800 hover:bg-slate-900 text-white text-xs font-bold"><i class="fas fa-file-invoice mr-1"></i> Invoice</button>`;
+                const tombolResi = (order.link_lacak && order.link_lacak !== "-" && order.link_lacak !== "") ? `<a href="${order.link_lacak}" target="_blank" rel="noopener" class="px-5 py-2.5 rounded-full border border-slate-300 text-slate-700 hover:bg-slate-50 text-xs font-bold"><i class="fas fa-truck-fast mr-1"></i> Lacak Pengiriman</a>` : "";
+
+                container.innerHTML += `
+                    <article class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-xl shadow-slate-200/50">
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                            
+                            <!-- Animasi Struk Mengambang pada Hasil (Kiri) -->
+                            <div class="lg:col-span-5 flex justify-center w-full">
+                                <div class="iv-ticket-wrap" style="--ticket-bg: #f8fafc;">
+                                    <div class="iv-ticket border border-slate-100">
+                                        <div class="iv-ticket-top">
+                                            <span class="iv-ticket-ic"><i class="fas fa-print"></i></span>
+                                            <span class="min-w-0">
+                                                <span class="iv-ticket-name">${itemPertama}</span>
+                                                <span class="iv-ticket-var">TRX-${order.id_trx}</span>
+                                            </span>
+                                        </div>
+                                        <div class="iv-ticket-cut before:bg-white after:bg-white"></div>
+                                        <div class="iv-ticket-rows">
+                                            <span>Penerima</span><b>${order.nama_penerima || "-"}</b>
+                                            <span>WhatsApp</span><b>${order.wa || "-"}</b>
+                                            <span>Tanggal</span><b>${formatTglIndo(order.tanggal)}</b>
+                                        </div>
+                                        <div class="iv-ticket-total"><span>Total Tagihan</span><b>${formatRp}</b></div>
+                                        <span class="iv-stamp show-stamp" style="color: ${stampColor}; border-color: ${stampColor}; animation-delay: ${(indexItem * 0.2) + 0.3}s;"><i class="fas ${stampIcon}"></i> ${stampText}</span>
+                                        <span class="iv-ticket-bar"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Rincian Status dan Alur Pelacakan (Kanan) -->
+                            <div class="lg:col-span-7 space-y-6">
+                                <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+                                    <div>
+                                        <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Status Pesanan</span>
+                                        <h3 class="text-2xl font-black text-slate-900 mt-1">${order.status || "Menunggu Konfirmasi"}</h3>
+                                    </div>
+                                    <span class="px-3.5 py-1.5 rounded-full text-[10px] font-extrabold uppercase tracking-widest text-white shadow-md" style="background-color: ${stampColor}">
+                                        ${stampText}
+                                    </span>
+                                </div>
+
+                                ${bangunStepperHtml(order.status)}
+
+                                <div class="bg-slate-50 p-4 sm:p-5 rounded-2xl border border-slate-200 mt-6">
+                                    <span class="text-xs font-bold text-slate-400 uppercase block mb-1">Rincian Lengkap Cetak</span>
+                                    <p class="text-slate-800 font-semibold text-sm leading-relaxed">${(order.detail_pesanan || "-").replace(/\|/g, "<br>• ")}</p>
+                                    <p class="text-slate-500 text-xs mt-3 pt-3 border-t border-slate-200 leading-relaxed"><i class="fas fa-location-dot mr-1"></i> ${order.alamat || "-"}</p>
+                                </div>
+
+                                <div class="flex flex-wrap items-center gap-3 pt-2">
+                                    ${tombolBayar}
+                                    ${tombolResi}
+                                </div>
+                            </div>
+                        </div>
+                    </article>`;
+            });
+
+            secHasil.classList.remove("hidden");
+            secHasil.scrollIntoView({ behavior: "smooth", block: "start" });
+
+            // Memicu Confetti jika ada pesanan berstatus Selesai
+            if (adaSelesai && typeof window.V2Confetti === "function") {
+                setTimeout(function () {
+                    window.V2Confetti({ color: '#45a2f2', cannons: true });
+                }, 450);
+            }
+        }
+
+        function tutupHasilLacak() {
+            document.getElementById("hasil-lacak-section").classList.add("hidden");
+            document.getElementById("ci-q").value = "";
+        }
+
+        function bukaStrukModal(idTrx) {
+            const d = window.petaStrukAktif[idTrx];
+            if (!d) return;
+            document.getElementById("strukNoBadge").innerText = "INV-" + d.no;
+            document.getElementById("strukTgl").innerText = d.tgl;
+            document.getElementById("strukStatus").innerText = d.status;
+            document.getElementById("strukNamaPemesan").innerText = d.nama;
+            document.getElementById("strukAlamat").innerText = d.alamat;
+            document.getElementById("strukItem").innerHTML = d.itemsHTML;
+            document.getElementById("strukSubtotal").innerText = d.total;
+            document.getElementById("strukTotal").innerText = d.total;
+
+            const m = document.getElementById("strukModal");
+            m.classList.remove("hidden");
+            m.classList.add("flex");
+        }
+
+        function tutupStrukModal() {
+            const m = document.getElementById("strukModal");
+            m.classList.add("hidden");
+            m.classList.remove("flex");
+        }
+
+        function unduhStrukGambar() {
+            const btn = document.getElementById("btnUnduhStruk");
+            const teksAwal = btn.innerHTML;
+            btn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> Memproses...`;
+            html2canvas(document.getElementById("areaStruk"), { scale: 3, backgroundColor: "#ffffff" }).then(canvas => {
+                const a = document.createElement("a");
+                a.href = canvas.toDataURL("image/png");
+                a.download = "Invoice_DIGIPRINT_" + document.getElementById("strukNoBadge").innerText + ".png";
+                a.click();
+                btn.innerHTML = teksAwal;
+            });
+        }
+
+        async function bukaModalQrisUlang(idTrx, totalBayar) {
+            document.getElementById("qrisTrxTitle").innerText = "TRX-" + idTrx;
+            document.getElementById("qrisTotalModal").innerText = "Memuat QRIS PayinAja...";
+            document.getElementById("qrisImgModal").src = "https://placehold.co/240x240/f8fafc/257fd9?text=Loading+QRIS...";
+
+            const m = document.getElementById("qrisModal");
+            m.classList.remove("hidden");
+            m.classList.add("flex");
+
+            const hasilQris = await buatQrisPayinAja(totalBayar, idTrx, "Pelanggan DIGIPRINT");
+            document.getElementById("qrisTotalModal").innerText = "Rp " + (hasilQris.total_amount || totalBayar).toLocaleString("id-ID");
+            document.getElementById("qrisImgModal").src = hasilQris.qr_image;
+        }
+    </script>
+
+    <!-- ══ Script UI Dialog Bawaan ══ -->
+    <script>
+        (function () {
+            if (window.uiConfirm) return;
+            const overlay = document.getElementById('ui-dialog-overlay');
+            const card = document.getElementById('ui-dialog-card');
+            const iconEl = document.getElementById('ui-dialog-icon');
+            const titleEl = document.getElementById('ui-dialog-title');
+            const msgEl = document.getElementById('ui-dialog-message');
+            const actions = document.getElementById('ui-dialog-actions');
+            let resolver = null;
+
+            const types = { info: { icon: 'fa-circle-info', cls: 'bg-blue-50 text-blue-500', btn: 'bg-rose-600 hover:bg-rose-700' }, success: { icon: 'fa-circle-check', cls: 'bg-green-50 text-green-500', btn: 'bg-green-600 hover:bg-green-700' }, warning: { icon: 'fa-triangle-exclamation', cls: 'bg-amber-50 text-amber-500', btn: 'bg-amber-600 hover:bg-amber-700' }, error: { icon: 'fa-circle-xmark', cls: 'bg-red-50 text-red-500', btn: 'bg-red-600 hover:bg-red-700' } };
+            function open() { overlay.classList.remove('hidden'); overlay.classList.add('flex'); requestAnimationFrame(() => card.classList.remove('scale-95', 'opacity-0')); document.body.style.overflow = 'hidden'; }
+            function close(result) { card.classList.add('scale-95', 'opacity-0'); setTimeout(() => { overlay.classList.add('hidden'); overlay.classList.remove('flex'); document.body.style.overflow = ''; }, 150); const r = resolver; resolver = null; if (r) r(result); }
+            function render(opts, isConfirm) {
+                const t = types[opts.type] || types.info; iconEl.className = 'mx-auto w-14 h-14 rounded-full flex items-center justify-center mb-4 text-2xl ' + t.cls; iconEl.innerHTML = '<i class="fas ' + t.icon + '"></i>'; titleEl.textContent = opts.title || (isConfirm ? 'Konfirmasi' : 'Pemberitahuan'); msgEl.textContent = opts.message || ''; actions.innerHTML = '';
+                if (isConfirm) { const cancel = document.createElement('button'); cancel.type = 'button'; cancel.className = 'flex-1 py-2.5 rounded-xl bg-gray-100 text-gray-700 font-bold text-sm hover:bg-gray-200 transition'; cancel.textContent = opts.cancelText || 'Batal'; cancel.onclick = () => close(false); actions.appendChild(cancel); }
+                const ok = document.createElement('button'); ok.type = 'button'; ok.className = 'flex-1 py-2.5 rounded-xl text-white font-bold text-sm transition ' + t.btn; ok.textContent = opts.okText || (isConfirm ? 'Ya, Lanjut' : 'OK'); ok.onclick = () => close(isConfirm ? true : undefined); actions.appendChild(ok); ok.focus();
+            }
+            window.uiAlert = function (message, opts) { const o = Object.assign((typeof message === 'string') ? { message: message } : (message || {}), opts || {}); return new Promise((resolve) => { resolver = resolve; render(o, false); open(); }); };
+            window.alert = function (message) { const m = String(message == null ? '' : message); const type = /gagal|error/i.test(m) ? 'error' : 'info'; return window.uiAlert(m, { type }); };
+            overlay.addEventListener('click', (e) => { if (e.target === overlay) close(false); });
+            document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !overlay.classList.contains('hidden')) close(false); });
+        })();
+    </script>
+
+    <!-- ══ Script Animasi Struk & Form Pencarian ══ -->
+    <script>
+        window.V2Page = {
+            setup: function (ctx) {
+                var form = document.getElementById('ci-form');
+                var input = document.getElementById('ci-q');
+                var go = document.getElementById('ci-go');
+                var goText = document.getElementById('ci-go-t');
+                if (!form || !input) return;
+
+                form.addEventListener('submit', async function (ev) {
+                    ev.preventDefault();
+                    input.value = input.value.trim();
+                    if (input.value === '') {
+                        input.focus();
+                        shake();
+                        return;
+                    }
+                    go.disabled = true;
+                    if (goText && goText.firstChild) goText.firstChild.nodeValue = 'Mencari…';
+
+                    try {
+                        var hasil = await cariPesananSupabase(input.value);
+                        renderHasilPencarian(hasil, input.value);
+                    } finally {
+                        go.disabled = false;
+                        if (goText && goText.firstChild) goText.firstChild.nodeValue = 'Lacak';
+                    }
+                });
+
+                function shake() {
+                    var M = ctx.M;
+                    if (!M || !M.animate) return;
+                    var d = ctx.reduce ? 3 : 9;
+                    try { M.animate(form, { transform: ['translateX(0px)', 'translateX(-' + d + 'px)', 'translateX(' + d + 'px)', 'translateX(-' + (d / 2) + 'px)', 'translateX(0px)'] }, { duration: 0.42, ease: 'easeOut' }); } catch (err) {}
+                }
+                this.shake = shake;
+
+                var params = new URLSearchParams(window.location.search);
+                var qParam = params.get('id') || params.get('trx') || params.get('wa');
+                if (qParam) {
+                    input.value = qParam;
+                    form.dispatchEvent(new Event('submit'));
+                }
+            }
+        };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/motion@12.43.0/dist/motion.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js"></script>
+    <script>
+        (function () {
+            var root = document.documentElement;
+            function reveal() { clearTimeout(window.__v2Failsafe); root.classList.remove('anim'); }
+            document.addEventListener('DOMContentLoaded', function () {
+                var page = window.V2Page || {};
+                var M = window.Motion;
+                var reduce = !!(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches);
+                var finePointer = !!(window.matchMedia && matchMedia('(hover: hover) and (pointer: fine)').matches);
+                var EASE = [0.22, 1, 0.36, 1];
+
+                var header = document.getElementById('v2-header');
+                var bar = document.getElementById('v2-progress');
+
+                var lenis = null;
+                if (typeof window.Lenis === 'function') {
+                    try { lenis = new window.Lenis({ lerp: 0.1, prevent: function (node) { if (!(node instanceof Element) || node === document.body || node === root) return false; var oy = getComputedStyle(node).overflowY; return (oy === 'auto' || oy === 'scroll') && node.scrollHeight > node.clientHeight + 1; } }); var raf = function (t) { lenis.raf(t); requestAnimationFrame(raf); }; requestAnimationFrame(raf); } catch (err) { lenis = null; }
+                }
+
+                function scrollToTarget(target) {
+                    var barH = parseFloat(getComputedStyle(root).getPropertyValue('--v2-bar-h')) || 0;
+                    var offset = -(header ? header.offsetHeight : 72) - barH + 1;
+                    if (lenis) { lenis.scrollTo(target, { offset: offset, duration: reduce ? 0.6 : 1.2 }); } else { var y = target.getBoundingClientRect().top + window.scrollY + offset; window.scrollTo({ top: y, behavior: 'smooth' }); }
+                }
+
+                var menu = document.getElementById('v2-menu'); var menuBtn = document.getElementById('v2-menu-btn'); var menuClose = document.getElementById('v2-menu-close');
+                function setMenu(open) { if (!menu) return; menu.classList.toggle('is-open', open); menu.setAttribute('aria-hidden', open ? 'false' : 'true'); if (menuBtn) menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false'); document.body.style.overflow = open ? 'hidden' : ''; if (lenis) { open ? lenis.stop() : lenis.start(); } if (open && M && M.animate) { try { var links = menu.querySelectorAll('.v2-menu-link'); links.forEach(function (el, i) { M.animate(el, { opacity: [0, 1], transform: ['translateY(18px)', 'translateY(0px)'] }, { duration: 0.5, delay: 0.06 + i * 0.05, ease: EASE }); }); } catch (err) {} } }
+                if (menuBtn) menuBtn.addEventListener('click', function () { setMenu(true); });
+                if (menuClose) menuClose.addEventListener('click', function () { setMenu(false); });
+                document.addEventListener('keydown', function (ev) { if (ev.key === 'Escape') setMenu(false); });
+
+                document.querySelectorAll('[data-dd]').forEach(function (dd) {
+                    var btn = dd.querySelector('.v2-dd-btn'); if (!btn) return; var refocusing = false;
+                    function setOpen(open) { dd.toggleAttribute('data-open', open); dd.toggleAttribute('data-closed', !open); btn.setAttribute('aria-expanded', open ? 'true' : 'false'); }
+                    function isShown() { return dd.hasAttribute('data-open') || (!dd.hasAttribute('data-closed') && dd.matches(':hover, :focus-within')); }
+                    btn.addEventListener('click', function () { setOpen(!dd.hasAttribute('data-open')); });
+                    dd.addEventListener('pointerenter', function () { dd.removeAttribute('data-closed'); btn.setAttribute('aria-expanded', 'true'); });
+                    dd.addEventListener('pointerleave', function () { if (!dd.hasAttribute('data-open')) btn.setAttribute('aria-expanded', 'false'); });
+                    dd.addEventListener('focusin', function () { if (!refocusing && !dd.hasAttribute('data-open')) { dd.removeAttribute('data-closed'); btn.setAttribute('aria-expanded', 'true'); } });
+                    dd.addEventListener('focusout', function (ev) { if (dd.contains(ev.relatedTarget)) return; dd.removeAttribute('data-open'); btn.setAttribute('aria-expanded', 'false'); });
+                    document.addEventListener('click', function (ev) { if (!dd.contains(ev.target) && dd.hasAttribute('data-open')) setOpen(false); });
+                    document.addEventListener('keydown', function (ev) { if (ev.key !== 'Escape' || !isShown()) return; setOpen(false); refocusing = true; btn.focus(); refocusing = false; });
+                });
+
+                var geo = { max: 0, vh: 0 }; var measureFns = [], frameFns = [];
+                function measure() { geo.vh = window.innerHeight; geo.max = document.documentElement.scrollHeight - geo.vh; for (var i = 0; i < measureFns.length; i++) { try { measureFns[i](geo); } catch (err) {} } }
+                var ticking = false, lastBar = '';
+                function update() { ticking = false; var y = window.scrollY || 0; var bt = 'scaleX(' + (geo.max > 0 ? Math.min(1, y / geo.max) : 0).toFixed(4) + ')'; if (bar && bt !== lastBar) { lastBar = bt; bar.style.transform = bt; } if (header) header.classList.toggle('is-scrolled', y > 24); for (var i = 0; i < frameFns.length; i++) { try { frameFns[i](y, geo); } catch (err) {} } }
+                function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
+                function remeasure() { measure(); onScroll(); }
+
+                var ctx = { M: M, reduce: reduce, finePointer: finePointer, EASE: EASE, lenis: lenis, header: header, geo: geo, scrollToTarget: scrollToTarget, setMenu: setMenu, remeasure: remeasure, onMeasure: function (fn) { measureFns.push(fn); }, onFrame: function (fn) { frameFns.push(fn); }, enter: null };
+
+                if (typeof page.setup === 'function') { try { page.setup(ctx); } catch (err) {} }
+
+                window.addEventListener('scroll', onScroll, { passive: true });
+                window.addEventListener('resize', remeasure);
+                window.addEventListener('load', remeasure);
+                if ('ResizeObserver' in window) { try { new ResizeObserver(remeasure).observe(document.body); } catch (err) {} }
+                measure(); update();
+
+                if (finePointer) {
+                    document.querySelectorAll('.v2-spot').forEach(function (card) {
+                        card.addEventListener('pointermove', function (ev) { var r = card.getBoundingClientRect(); card.style.setProperty('--mx', (ev.clientX - r.left) + 'px'); card.style.setProperty('--my', (ev.clientY - r.top) + 'px'); });
+                    });
+                }
+
+                if (!M || typeof M.animate !== 'function' || typeof M.inView !== 'function') { reveal(); return; }
+
+                try {
+                    var DIST = reduce ? 10 : 30, DUR = reduce ? 0.5 : 0.85, REST = 'translate3d(0px, 0px, 0px) scale(1)', VIEW = { margin: '0px 0px -12% 0px' };
+                    var enter = function (el, delay, from) { delay = delay || 0; M.animate(el, { opacity: [0, 1], transform: [from || 'translate3d(0px, ' + DIST + 'px, 0px) scale(1)', REST] }, { duration: DUR, delay: delay, ease: EASE }); setTimeout(function () { el.removeAttribute('data-reveal'); el.removeAttribute('data-stagger-item'); el.classList.remove('v2-in'); el.style.opacity = ''; el.style.transform = ''; }, (delay + DUR) * 1000 + 160); };
+                    ctx.enter = enter;
+
+                    var words = document.querySelectorAll('.v2-word > span'), WORD_DUR = reduce ? 0.6 : 0.95;
+                    words.forEach(function (w, i) { var d = 0.12 + i * 0.07; M.animate(w, { transform: [reduce ? 'translateY(0%)' : 'translateY(115%)', 'translateY(0%)'], opacity: [reduce ? 0 : 1, 1] }, { duration: WORD_DUR, delay: d, ease: EASE }); setTimeout(function () { w.style.transform = 'translateY(0%)'; w.style.opacity = '1'; }, (d + WORD_DUR) * 1000 + 120); });
+                    var heroDelay = 0.12 + words.length * 0.07;
+                    document.querySelectorAll('.v2-in').forEach(function (el, i) { var first = el.classList.contains('v2-pill'); enter(el, first ? 0.05 : heroDelay + (i - 1) * 0.1); });
+                    document.querySelectorAll('[data-reveal]').forEach(function (el) { M.inView(el, function () { enter(el, 0, null); }, VIEW); });
+                    document.querySelectorAll('[data-stagger]').forEach(function (group) { var items = group.querySelectorAll('[data-stagger-item]'); M.inView(group, function () { items.forEach(function (el, i) { enter(el, Math.min(i, 8) * 0.07); }); }, VIEW); });
+
+                    if (typeof page.motion === 'function') { try { page.motion(ctx); } catch (err) {} }
+                    clearTimeout(window.__v2Failsafe);
+                } catch (err) { reveal(); }
+            });
+            window.addEventListener('load', function () { if (!window.Motion) reveal(); });
+        })();
+    </script>
+</body>
+</html>
