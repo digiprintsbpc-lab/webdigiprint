@@ -34,6 +34,7 @@ async function fetchSupabase(table, method = "GET", body = null) {
 }
 
 // 2. Fungsi Membuat QRIS Resmi via Backend Vercel (/api/payinaja)
+// 2. Fungsi Membuat QRIS Resmi via Backend Vercel (/api/payinaja)
 async function buatQrisPayinAja(amount, referenceId, customerName) {
     const payload = {
         amount: Math.max(1000, parseInt(amount) || 0),
@@ -50,20 +51,24 @@ async function buatQrisPayinAja(amount, referenceId, customerName) {
 
         const json = await res.json();
 
-        if (res.ok && (json.success || json.data)) {
+        if (res.ok && (json.success || json.data || json.qr_image || json.qr_string)) {
             const d = json.data || json;
-            let qrImg = d.qr_image || d.qris_image_url || d.qr_image_url || d.image_url || d.qris_url || d.qr_url || d.qris_image;
+            let qrImg = d.qr_image || d.qris_url || d.qr_url || d.qris_image;
             const qrStr = d.qr_string || d.qris_string || d.qr_content || d.qris_data;
 
             if (!qrImg && qrStr) {
                 qrImg = `https://api.qrserver.com/v1/create-qr-code/?size=280x280&data=${encodeURIComponent(qrStr)}`;
             }
 
+            // Ambil ID transaksi asli dari PayinAja (cek semua kemungkinan nama field)
+            const realTrxId = d.trx_id || d.transaction_id || d.payinaja_trx_id || d.id || d.reference_id || referenceId;
+
             if (qrImg) {
                 return {
                     success: true,
-                    payinaja_trx_id: d.payinaja_trx_id || d.trx_id || d.id || referenceId,
-                    total_amount: d.total_amount || d.amount || payload.amount,
+                    payinaja_trx_id: String(realTrxId),
+                    reference_id: String(referenceId),
+                    total_amount: parseInt(d.total_amount || d.amount || payload.amount) || payload.amount,
                     qr_image: qrImg
                 };
             }
@@ -74,37 +79,46 @@ async function buatQrisPayinAja(amount, referenceId, customerName) {
         console.warn("Gagal memanggil /api/payinaja:", err);
     }
 
-    // Fallback QRIS jika dijalankan lokal tanpa vercel dev
     return {
         success: false,
-        payinaja_trx_id: referenceId,
+        payinaja_trx_id: String(referenceId),
+        reference_id: String(referenceId),
         total_amount: payload.amount,
         qr_image: `https://api.qrserver.com/v1/create-qr-code/?size=280x280&data=DIGIPRINT-${referenceId}-${payload.amount}`
     };
 }
 
-// 3. Fungsi Cek Status Pembayaran Otomatis via Backend Vercel
-async function cekStatusPayinAja(payinajaTrxId) {
-    if (!payinajaTrxId) return null;
+// 3. Fungsi Cek Status Pembayaran Otomatis via Backend Vercel (Anti-Cache & Multi-Field)
+async function cekStatusPayinAja(payinajaTrxId, referenceId = "") {
+    if (!payinajaTrxId && !referenceId) return { isPaid: false, raw: null };
     try {
-        const res = await fetch(`/api/payinaja?action=status&trx_id=${encodeURIComponent(payinajaTrxId)}`, {
-            method: "GET"
+        const url = `/api/payinaja?action=status&trx_id=${encodeURIComponent(payinajaTrxId || "")}&ref_id=${encodeURIComponent(referenceId || "")}&_t=${Date.now()}`;
+        const res = await fetch(url, {
+            method: "GET",
+            cache: "no-store"
         });
-        if (!res.ok) return null;
+        if (!res.ok) return { isPaid: false, raw: null };
+
         const json = await res.json();
-        return json.data || json;
+        const d = json.data || json.transaction || json;
+
+        // Cek semua kemungkinan field status dari PayinAja
+        const rawStatus = String(
+            d?.status ||
+            d?.transaction_status ||
+            d?.payment_status ||
+            d?.state ||
+            json?.status ||
+            ""
+        ).toLowerCase().trim();
+
+        const isPaid =
+            ["paid", "success", "settlement", "settled", "completed", "complete", "berhasil", "lunas", "selesai", "1", "true"].includes(rawStatus) ||
+            d?.is_paid === true ||
+            Boolean(d?.paid_at);
+
+        return { isPaid, statusText: rawStatus, raw: d };
     } catch (e) {
-        return null;
+        return { isPaid: false, raw: null };
     }
-    // 4. Fungsi Hash PIN / Password dengan SHA-256 (Web Crypto API)
-async function hashPinSHA256(plainText) {
-    const text = String(plainText || "");
-    if (window.crypto && window.crypto.subtle) {
-        const msgBuffer = new TextEncoder().encode(text);
-        const hashBuffer = await window.crypto.subtle.digest("SHA-256", msgBuffer);
-        const hashArray = Array.from(new Uint8Array(hashBuffer));
-        return hashArray.map(b => b.toString(16).padStart(2, "0")).join("");
-    }
-    return text;
-}
 }

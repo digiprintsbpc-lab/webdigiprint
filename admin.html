@@ -1126,41 +1126,11 @@
     <script>
         const GAMBAR_DEFAULT = "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=500&q=80";
 
-        let stateKategori = [
-            { nama_kategori: "Nota NCR", deskripsi: "Cetak buku nota rangkap 1-3 ply" },
-            { nama_kategori: "Lanyard", deskripsi: "Tali ID card tisu & polyester sublimasi" },
-            { nama_kategori: "Merchandise", deskripsi: "Gantungan kunci akrilik & souvenir" },
-            { nama_kategori: "ID Card", deskripsi: "Kartu PVC tebal standar ATM" }
-        ];
-
-        // Fallback awal agar dashboard tidak pernah kosong
-        let stateProduk = [
-            { id: "PROD-01", nama: "Nota NCR Custom 1/4 Folio", kategori: "Nota NCR", harga: 5550, stok: 100, gambar: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=500&q=80" },
-            { id: "PROD-02", nama: "Lanyard Tisu Sublimasi + Stopper", kategori: "Lanyard", harga: 15000, stok: 200, gambar: "https://images.unsplash.com/photo-1603899122858-a53c39d8924b?auto=format&fit=crop&w=500&q=80" },
-            { id: "PROD-03", nama: "Gantungan Kunci Akrilik 2 Sisi", kategori: "Merchandise", harga: 3500, stok: 500, gambar: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=500&q=80" }
-        ];
-
-        let statePesanan = [
-            {
-                id_trx: "DP202601",
-                tanggal: new Date().toISOString(),
-                nama_penerima: "Toko Berkah Jaya",
-                wa: "081234567890",
-                alamat: "Jl. Soekarno Hatta No. 45, Kota Malang",
-                detail_pesanan: "Nota NCR Custom 1/2 Folio 2 Ply (10 Buku) | Lanyard Sublimasi (20 Pcs)",
-                total_bayar: 412000,
-                status: "Diproses",
-                link_lacak: "-"
-            }
-        ];
-
-        let statePelanggan = [
-            { nama: "Toko Berkah Jaya", wa: "081234567890", role: "customer", poin: 600 }
-        ];
-
-        let stateVoucher = [
-            { kode: "UMKMHEMAT", diskon: 10000, min_order: 50000, expired_date: "2027-12-31" }
-        ];
+        let stateKategori = [];
+        let stateProduk = [];
+        let statePesanan = [];
+        let statePelanggan = [];
+        let stateVoucher = [];
 
         let chartInstance = null;
 
@@ -1204,11 +1174,11 @@
                         fetchSupabase("voucher?select=*"),
                         fetchSupabase("kategori?select=*&order=id.asc")
                     ]);
-                    if (Array.isArray(resPesanan) && resPesanan.length > 0) statePesanan = resPesanan;
-                    if (Array.isArray(resProduk) && resProduk.length > 0) stateProduk = resProduk;
-                    if (Array.isArray(resPelanggan) && resPelanggan.length > 0) statePelanggan = resPelanggan;
-                    if (Array.isArray(resVoucher) && resVoucher.length > 0) stateVoucher = resVoucher;
-                    if (Array.isArray(resKategori) && resKategori.length > 0) stateKategori = resKategori;
+                    if (Array.isArray(resPesanan)) statePesanan = resPesanan;
+                    if (Array.isArray(resProduk)) stateProduk = resProduk;
+                    if (Array.isArray(resPelanggan)) statePelanggan = resPelanggan;
+                    if (Array.isArray(resVoucher)) stateVoucher = resVoucher;
+                    if (Array.isArray(resKategori)) stateKategori = resKategori;
                 } catch (e) {
                     console.warn("Error sinkronisasi Supabase:", e);
                 }

@@ -1307,21 +1307,17 @@
         }
 
         async function muatProdukDariSupabase() {
-            // Render fallback lebih dulu agar halaman instan terisi dan tidak pernah kosong
-            renderSeluruhKatalog(FALLBACK_PRODUK_DIGIPRINT);
-
-            // Jika config.js sudah diisi URL Supabase yang valid, ambil dari database
-            if (typeof SUPABASE_URL !== "undefined" && SUPABASE_URL.startsWith("https://") && !SUPABASE_URL.includes("ISI_URL")) {
-                try {
-                    const dataDb = await fetchSupabase("produk?select=*&order=id.asc");
-                    if (Array.isArray(dataDb) && dataDb.length > 0) {
-                        renderSeluruhKatalog(dataDb);
-                    }
-                } catch (e) {
-                    console.warn("Menggunakan katalog bawaan karena koneksi Supabase belum aktif:", e);
-                }
-            }
-        }
+         if (typeof SUPABASE_URL !== "undefined" && SUPABASE_URL.startsWith("https://")) {
+             try {
+                 const dataDb = await fetchSupabase("produk?select=*&order=id.asc");
+                 if (Array.isArray(dataDb)) {
+                     renderSeluruhKatalog(dataDb);
+                 }
+             } catch (e) {
+                 console.warn("Gagal memuat katalog dari Supabase:", e);
+             }
+         }
+     }
 
         // =========================================================================
         // 4. RENDER TESTIMONI PELANGGAN DIGIPRINT

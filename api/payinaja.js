@@ -3,6 +3,8 @@ export default async function handler(req, res) {
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
     res.setHeader("Access-Control-Allow-Headers", "Content-Type, x-api-key");
+    // WAJIB: Matikan cache agar cek status pembayaran selalu real-time
+    res.setHeader("Cache-Control", "no-store, no-cache, must-revalidate, proxy-revalidate");
 
     if (req.method === "OPTIONS") {
         return res.status(200).end();
@@ -58,26 +60,40 @@ export default async function handler(req, res) {
             return res.status(response.status).json(data);
         }
 
-        // 2. CEK STATUS TRANSAKSI (GET /api/payinaja?action=status&trx_id=...)
+        // 2. CEK STATUS TRANSAKSI REAL-TIME (GET /api/payinaja?action=status&trx_id=...&ref_id=...)
         if (req.method === "GET" && action === "status") {
-            const { trx_id } = req.query;
-            if (!trx_id) {
+            const { trx_id, ref_id } = req.query;
+            if (!trx_id && !ref_id) {
                 return res.status(400).json({ success: false, message: "Parameter trx_id wajib diisi" });
             }
 
-            const response = await fetch(`${BASE_URL}/transaction/${encodeURIComponent(trx_id)}`, {
+            const targetId = trx_id || ref_id;
+            let response = await fetch(`${BASE_URL}/transaction/${encodeURIComponent(targetId)}`, {
                 method: "GET",
                 headers: {
                     "x-api-key": API_KEY,
-                    "Accept": "application/json"
+                    "Accept": "application/json",
+                    "Cache-Control": "no-cache"
                 }
             });
+
+            // Fallback: jika dicari pakai trx_id belum ketemu dan ada ref_id berbeda, cek pakai ref_id
+            if (!response.ok && ref_id && ref_id !== targetId) {
+                response = await fetch(`${BASE_URL}/transaction/${encodeURIComponent(ref_id)}`, {
+                    method: "GET",
+                    headers: {
+                        "x-api-key": API_KEY,
+                        "Accept": "application/json",
+                        "Cache-Control": "no-cache"
+                    }
+                });
+            }
 
             const data = await response.json();
             return res.status(response.status).json(data);
         }
 
-        // 3. BATALKAN TRANSAKSI (POST /api/payinaja?action=cancel&trx_id=...)
+        // 3. BATALKAN TRANSAKSI
         if (req.method === "POST" && action === "cancel") {
             const { trx_id } = req.query;
             const response = await fetch(`${BASE_URL}/transaction/${encodeURIComponent(trx_id)}/cancel`, {

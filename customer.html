@@ -777,24 +777,45 @@
         </div>
     </div>
 
-    <!-- ══ MODAL QRIS PAYINAJA ══ -->
+    <!-- ══ MODAL QRIS PAYINAJA DENGAN OVERLAY CENTANG HIJAU OTOMATIS ══ -->
     <div id="qrisModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-[100010] hidden items-center justify-center p-4">
-        <div class="bg-white p-6 sm:p-8 rounded-3xl w-full max-w-sm shadow-2xl text-center">
-            <span class="px-3 py-1 rounded-full bg-emerald-50 text-emerald-600 text-[10px] font-extrabold uppercase tracking-widest">Pesanan Tercatat di Database</span>
+        <div class="bg-white p-6 sm:p-8 rounded-3xl w-full max-w-sm shadow-2xl text-center relative overflow-hidden">
+            <span id="qrisBadgeStatus" class="px-3 py-1 rounded-full bg-amber-50 text-amber-600 text-[10px] font-extrabold uppercase tracking-widest inline-flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-amber-500 animate-ping"></span>
+                Menunggu Pembayaran QRIS
+            </span>
+
             <h3 class="font-black text-xl text-slate-900 mt-2 font-mono" id="qrisTrxTitle">TRX-...</h3>
-            <p class="text-xs text-slate-500 mt-1 mb-4">Scan QRIS PayinAja di bawah ini menggunakan M-Banking atau E-Wallet Anda:</p>
-            <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 mb-4 inline-block mx-auto">
-                <img id="qrisImgModal" src="" alt="QRIS PayinAja" class="w-48 h-48 object-contain mx-auto">
+            <p id="qrisSubText" class="text-xs text-slate-500 mt-1 mb-4">Scan QRIS PayinAja di bawah ini menggunakan M-Banking atau E-Wallet Anda:</p>
+
+            <!-- Kotak QRIS + Overlay Centang Hijau di Tengah -->
+            <div class="relative bg-slate-50 p-4 rounded-2xl border border-slate-200 mb-4 inline-block mx-auto overflow-hidden">
+                <img id="qrisImgModal" src="" alt="QRIS PayinAja" class="w-52 h-52 object-contain mx-auto transition duration-300">
+
+                <!-- OVERLAY CENTANG HIJAU (Muncul Otomatis Saat Lunas) -->
+                <div id="qrisPaidOverlay" class="absolute inset-0 bg-emerald-950/85 backdrop-blur-[2px] hidden flex-col items-center justify-center text-white p-4 transition-all duration-300">
+                    <div class="w-20 h-20 rounded-full bg-emerald-500 text-white flex items-center justify-center text-4xl shadow-lg shadow-emerald-500/50 animate-bounce mb-3 border-4 border-white">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <span class="text-base font-black uppercase tracking-wider text-emerald-300">Pembayaran Berhasil!</span>
+                    <span class="text-[11px] font-semibold text-white/90 mt-1">Pesanan langsung masuk antrean cetak</span>
+                </div>
             </div>
-            <div class="text-sm font-bold text-slate-800 mb-5">
+
+            <div class="text-sm font-bold text-slate-800 mb-4">
                 Total Tagihan: <span id="qrisTotalModal" class="text-brand-600 text-xl font-black block">Rp 0</span>
             </div>
+
+            <button type="button" id="btnCekManualQris" onclick="cekManualPembayaranSekarang()" class="w-full mb-2.5 py-2.5 rounded-full bg-brand-50 hover:bg-brand-100 text-brand-700 text-xs font-extrabold transition">
+                <i class="fas fa-rotate mr-1"></i> Saya Sudah Bayar (Cek Status)
+            </button>
+
             <div class="flex gap-2">
-                <a id="qrisWaBtn" href="#" target="_blank" class="flex-1 py-3 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-extrabold">
-                    <i class="fab fa-whatsapp mr-1"></i> Konfirmasi WA
+                <a id="qrisWaBtn" href="#" target="_blank" class="flex-1 py-3 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-extrabold flex items-center justify-center gap-1">
+                    <i class="fab fa-whatsapp"></i> Konfirmasi WA
                 </a>
                 <button type="button" onclick="tutupModalQris()" class="px-5 py-3 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold">
-                    Selesai
+                    Tutup
                 </button>
             </div>
         </div>
@@ -817,14 +838,8 @@
     <script src="config.js"></script>
     <script>
         const GAMBAR_TOKO = {
-            logo_toko:    "https://placehold.co/120x120/45a2f2/ffffff?text=DP",
-            nota_ncr:     "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=500&q=80",
-            lanyard:      "https://images.unsplash.com/photo-1603899122858-a53c39d8924b?auto=format&fit=crop&w=500&q=80",
-            ganci:        "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=500&q=80",
-            id_card:      "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=500&q=80",
-            polaroid:     "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=500&q=80",
-            stempel:      "https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=500&q=80",
-            stiker:       "https://images.unsplash.com/photo-1572375992501-4b0892d50c69?auto=format&fit=crop&w=500&q=80"
+            logo_toko: "https://placehold.co/120x120/45a2f2/ffffff?text=DP",
+            default_prod: "https://placehold.co/500x500/f1f5f9/257fd9?text=DIGIPRINT"
         };
 
         document.getElementById('img-logo-header').src = GAMBAR_TOKO.logo_toko;
@@ -833,154 +848,36 @@
 
         let memberAktif = JSON.parse(localStorage.getItem('digiprint_member') || '{}');
 
-        // Data Fallback Lengkap dengan Variasi Default
-        const FALLBACK_PRODUK_DIGIPRINT = [
-            {
-                id: "PROD-01", nama: "Nota NCR Custom 1/4 Folio", kategori: "Nota NCR", harga: 5550, stok: 100, terjual: 1420, gambar: GAMBAR_TOKO.nota_ncr,
-                deskripsi: "Cetak buku nota NCR tembus warna tanpa karbon ukuran 1/4 Folio (10x16 cm). Isi 50 set per buku, bebas desain kop toko/perusahaan.",
-                varian_config: {
-                    mode: "varian", jumlahVariasi: 2, tampilanGambar: "kecil",
-                    dimensions: [
-                        { nama: "Jumlah Rangkap (Ply)", opsi: [{ teks: "1 Ply (50 Lembar)" }, { teks: "2 Ply (Putih-Merah)" }, { teks: "3 Ply (Putih-Merah-Kuning)" }] },
-                        { nama: "Finishing", opsi: [{ teks: "Jilid Lem Standar" }, { teks: "Jilid + Cacah Porporasi" }] }
-                    ],
-                    combinations: {
-                        "1 Ply (50 Lembar) / Jilid Lem Standar": { harga: 5550, coret: 7500 },
-                        "1 Ply (50 Lembar) / Jilid + Cacah Porporasi": { harga: 6500, coret: 8500 },
-                        "2 Ply (Putih-Merah) / Jilid Lem Standar": { harga: 8500, coret: 11000 },
-                        "2 Ply (Putih-Merah) / Jilid + Cacah Porporasi": { harga: 9500, coret: 12000 },
-                        "3 Ply (Putih-Merah-Kuning) / Jilid Lem Standar": { harga: 12500, coret: 15000 },
-                        "3 Ply (Putih-Merah-Kuning) / Jilid + Cacah Porporasi": { harga: 13500, coret: 16500 }
-                    }
-                }
-            },
-            {
-                id: "PROD-02", nama: "Nota NCR Custom 1/2 Folio (2 Ply)", kategori: "Nota NCR", harga: 11200, stok: 85, terjual: 980, gambar: GAMBAR_TOKO.nota_ncr,
-                deskripsi: "Buku nota ukuran 1/2 Folio (16x21 cm) cocok untuk surat jalan, invoice toko bangunan, dan grosir.",
-                varian_config: {
-                    mode: "varian", jumlahVariasi: 1, tampilanGambar: "kecil",
-                    singleItems: [
-                        { nama: "Satuan 1 Buku (2 Ply)", harga: 11200, coret: 15000 },
-                        { nama: "Paket Hemat 10 Buku (2 Ply)", harga: 105000, coret: 140000 },
-                        { nama: "Paket Grosir 1 Rim / 20 Buku", harga: 198000, coret: 260000 }
-                    ]
-                }
-            },
-            {
-                id: "PROD-03", nama: "Lanyard Tisu Sublimasi Full Color", kategori: "Lanyard", harga: 14000, stok: 200, terjual: 2150, gambar: GAMBAR_TOKO.lanyard,
-                deskripsi: "Tali lanyard bahan tisu lembut kualitas premium, cetak sublimasi 2 sisi full color anti luntur.",
-                varian_config: {
-                    mode: "varian", jumlahVariasi: 2, tampilanGambar: "kecil",
-                    dimensions: [
-                        { nama: "Lebar Bahan", opsi: [{ teks: "Lebar 2 cm" }, { teks: "Lebar 2.5 cm" }] },
-                        { nama: "Aksesoris Kait", opsi: [{ teks: "Kait Besi + Stopper" }, { teks: "Tanpa Stopper" }] }
-                    ],
-                    combinations: {
-                        "Lebar 2 cm / Kait Besi + Stopper": { harga: 15000, coret: 20000 },
-                        "Lebar 2 cm / Tanpa Stopper": { harga: 14000, coret: 18000 },
-                        "Lebar 2.5 cm / Kait Besi + Stopper": { harga: 17000, coret: 22000 },
-                        "Lebar 2.5 cm / Tanpa Stopper": { harga: 15500, coret: 19500 }
-                    }
-                }
-            },
-            {
-                id: "PROD-04", nama: "Gantungan Kunci Akrilik Custom 2 Sisi", kategori: "Merchandise", harga: 3500, stok: 500, terjual: 3410, gambar: GAMBAR_TOKO.ganci,
-                deskripsi: "Gantungan kunci akrilik bening tebal 3mm, potong laser presisi mengikuti bentuk desain (die-cut).",
-                varian_config: {
-                    mode: "varian", jumlahVariasi: 1, tampilanGambar: "kecil",
-                    singleItems: [
-                        { nama: "Ukuran Standar 4x4 cm (2 Sisi)", harga: 3500, coret: 5000 },
-                        { nama: "Ukuran Medium 5x5 cm (2 Sisi)", harga: 4500, coret: 6500 },
-                        { nama: "Paket Komunitas 50 Pcs", harga: 160000, coret: 225000 }
-                    ]
-                }
-            },
-            {
-                id: "PROD-05", nama: "ID Card PVC Tebal Standar ATM", kategori: "ID Card", harga: 7500, stok: 300, terjual: 1290, gambar: GAMBAR_TOKO.id_card,
-                deskripsi: "Cetak kartu karyawan, kartu pelajar, atau member card bahan PVC tebal 0.76mm standar kartu ATM.",
-                varian_config: {
-                    mode: "varian", jumlahVariasi: 1, tampilanGambar: "kecil",
-                    singleItems: [
-                        { nama: "Cetak 2 Sisi Glossy", harga: 7500, coret: 10000 },
-                        { nama: "ID Card + Casing Holder Kaku", harga: 10500, coret: 14000 },
-                        { nama: "Paket Lengkap ID Card + Lanyard", harga: 22000, coret: 28000 }
-                    ]
-                }
-            },
-            {
-                id: "PROD-06", nama: "Cetak Foto Polaroid (Pak 25 Foto)", kategori: "Fotografi", harga: 11000, stok: 120, terjual: 1840, gambar: GAMBAR_TOKO.polaroid,
-                deskripsi: "Cetak foto ala Polaroid ukuran 2R menggunakan kertas Art Cartoon 260gr tebal & mengkilap.",
-                varian_config: {
-                    mode: "varian", jumlahVariasi: 1, tampilanGambar: "kecil",
-                    singleItems: [
-                        { nama: "1 Pak (Isi 25 Foto)", harga: 11000, coret: 15000 },
-                        { nama: "2 Pak (Isi 50 Foto) + Laminasi", harga: 24000, coret: 32000 }
-                    ]
-                }
-            },
-            {
-                id: "PROD-07", nama: "Stempel Flash Otomatis Custom", kategori: "Administrasi", harga: 35000, stok: 45, terjual: 420, gambar: GAMBAR_TOKO.stempel,
-                deskripsi: "Stempel warna otomatis tanpa bantalan, praktis dan tinta tahan lama untuk legalitas toko/perusahaan.",
-                varian_config: {
-                    mode: "varian", jumlahVariasi: 1, tampilanGambar: "kecil",
-                    singleItems: [
-                        { nama: "Stempel 1 Warna (Bulat / Kotak)", harga: 35000, coret: 45000 },
-                        { nama: "Stempel 2 Warna + Tinta Refill", harga: 50000, coret: 65000 }
-                    ]
-                }
-            },
-            {
-                id: "PROD-08", nama: "Stiker Label Kemasan Chromo A3+", kategori: "Kemasan UMKM", harga: 6500, stok: 250, terjual: 1650, gambar: GAMBAR_TOKO.stiker,
-                deskripsi: "Stiker label kemasan produk makanan/minuman ukuran lembaran A3+ sudah termasuk potong Kiss-Cut tinggal tempel.",
-                varian_config: {
-                    mode: "varian", jumlahVariasi: 1, tampilanGambar: "kecil",
-                    singleItems: [
-                        { nama: "Stiker Chromo A3+ + Kiss Cut", harga: 6500, coret: 9000 },
-                        { nama: "Stiker Vinyl Tahan Air A3+ + Kiss Cut", harga: 11500, coret: 15000 }
-                    ]
-                }
-            }
-        ];
-
+        // 100% MURNI DARI DATABASE SUPABASE (Tidak ada produk buatan di kode)
         let katalogProduk = [];
         let stateFilter = { q: "", cat: "", sort: "default" };
         let produkModalAktif = null;
         let pilihanVarianUser = {};
+        let voucherTerpakaiModal = null;
+
+        // State transaksi QRIS yang sedang dipantau
+        let transaksiQrisAktif = null;
+        let intervalCekBayar = null;
 
         function formatRp(n) {
             return "Rp " + (parseInt(n) || 0).toLocaleString("id-ID");
         }
 
         function pilihGambarProduk(item) {
-            const url = item.image_url || item.gambar;
+            const url = item.gambar || item.image_url;
             if (url && (url.startsWith("http") || url.startsWith("data:image"))) return url;
-            const kat = ((item.kategori || "") + " " + (item.nama || "")).toLowerCase();
-            if (kat.includes("nota")) return GAMBAR_TOKO.nota_ncr;
-            if (kat.includes("lanyard")) return GAMBAR_TOKO.lanyard;
-            if (kat.includes("ganci") || kat.includes("gantungan")) return GAMBAR_TOKO.ganci;
-            if (kat.includes("polaroid") || kat.includes("foto")) return GAMBAR_TOKO.polaroid;
-            if (kat.includes("id card") || kat.includes("pvc")) return GAMBAR_TOKO.id_card;
-            if (kat.includes("stempel")) return GAMBAR_TOKO.stempel;
-            if (kat.includes("stiker")) return GAMBAR_TOKO.stiker;
-            return GAMBAR_TOKO.nota_ncr;
+            return GAMBAR_TOKO.default_prod;
         }
 
+        // MURNI MENGAMBIL VARIASI DARI DATABASE (Jika produk satuan / tidak punya variasi, jangan mengarang variasi)
         function ambilKonfigurasiVarian(prod) {
-            const kamusLokal = JSON.parse(localStorage.getItem("digiprint_varian_map") || "{}");
-            if (prod.varian_config) return prod.varian_config;
-            if (kamusLokal[prod.id] && kamusLokal[prod.id].varian_config) return kamusLokal[prod.id].varian_config;
-            // Cari apakah produk bawaan punya varian_config
-            const bawaan = FALLBACK_PRODUK_DIGIPRINT.find(x => x.id === prod.id || x.nama.toLowerCase() === (prod.nama || "").toLowerCase());
-            if (bawaan && bawaan.varian_config) return bawaan.varian_config;
-            return {
-                mode: "varian",
-                jumlahVariasi: 1,
-                tampilanGambar: "kecil",
-                singleItems: [
-                    { nama: "Paket Standar", harga: parseInt(prod.harga) || 15000, coret: "" },
-                    { nama: "Paket Spesial / 2 Ply", harga: (parseInt(prod.harga) || 15000) + 2500, coret: "" }
-                ]
-            };
+            if (prod.varian_config && typeof prod.varian_config === "object") {
+                return prod.varian_config;
+            }
+            if (typeof prod.varian_config === "string" && prod.varian_config.trim().startsWith("{")) {
+                try { return JSON.parse(prod.varian_config); } catch (e) {}
+            }
+            return { mode: "satuan" };
         }
 
         // 1. SINKRONISASI PROFIL & POIN MEMBER DARI SUPABASE
@@ -1016,20 +913,21 @@
             }
         }
 
-        // 2. MUAT KATALOG PRODUK DARI SUPABASE & RENDER SEMUA KOMPONEN VISUAL
+        // 2. MUAT KATALOG PRODUK MURNI DARI TABEL `produk` SUPABASE
         async function muatKatalogSupabase() {
-            katalogProduk = FALLBACK_PRODUK_DIGIPRINT;
+            katalogProduk = [];
             try {
                 const resProd = await fetchSupabase("produk?select=*&order=id.asc");
-                if (Array.isArray(resProd) && resProd.length > 0) {
+                if (Array.isArray(resProd)) {
                     katalogProduk = resProd;
                 }
-            } catch (e) {}
+            } catch (e) {
+                console.error("Gagal memuat produk dari Supabase:", e);
+            }
 
             renderKategoriDanMarquee();
             renderGridProduk();
 
-            // Jika pengunjung datang dari klik tombol "Beli" di index.html (?produk_id=... atau ?beli_id=...)
             const params = new URLSearchParams(window.location.search);
             const targetId = params.get("produk_id") || params.get("beli_id");
             const targetNama = params.get("produk_nama");
@@ -1045,7 +943,6 @@
         }
 
         function renderKategoriDanMarquee() {
-            // Kelompokkan jumlah produk per kategori
             const mapKat = {};
             katalogProduk.forEach(p => {
                 const k = (p.kategori || "Cetak Custom").trim();
@@ -1053,7 +950,6 @@
                 mapKat[k].push(p);
             });
 
-            // A. Render Chip Kategori di Sidebar Kiri
             const chipsBox = document.getElementById("pv2-chips");
             let chipsHtml = `
                 <button type="button" onclick="pilihKategoriFilter('')" class="pv2-chip" data-cat="" aria-pressed="${stateFilter.cat === '' ? 'true' : 'false'}">
@@ -1068,7 +964,6 @@
             });
             chipsBox.innerHTML = chipsHtml;
 
-            // B. Render Petak Kategori di Hero Kanan (Maksimal 4 petak)
             const ctilesBox = document.getElementById("pv2-ctiles");
             let tilesHtml = "";
             Object.keys(mapKat).slice(0, 4).forEach(k => {
@@ -1089,18 +984,23 @@
             });
             ctilesBox.innerHTML = tilesHtml;
 
-            // C. Render Pita Paling Laris (Marquee)
             const mqTrack = document.getElementById("pv2-marquee-track");
+            const dealsAside = document.getElementById("pv2-deals");
+            if (katalogProduk.length === 0) {
+                if (dealsAside) dealsAside.hidden = true;
+                return;
+            }
+            if (dealsAside) dealsAside.hidden = false;
+
             let mqHtml = "";
             katalogProduk.forEach(p => {
                 const img = pilihGambarProduk(p);
                 const harga = parseInt(p.harga) || 0;
-                const coret = Math.round(harga * 1.3);
                 const stok = p.stok !== undefined ? parseInt(p.stok) : 100;
                 mqHtml += `
                     <div onclick="bukaModalDetailProduk('${p.id}')" class="pv2-drow" title="${p.nama}">
                         <span class="pv2-dthumb">
-                            <span class="pv2-dpct">LARIS</span>
+                            <span class="pv2-dpct">PRODUK</span>
                             <img src="${img}" alt="${p.nama}" loading="lazy">
                         </span>
                         <span class="pv2-dname">${p.nama}</span>
@@ -1140,14 +1040,13 @@
                 return cocokQ && cocokCat;
             });
 
-            // Urutkan
             if (stateFilter.sort === "price-asc") hasil.sort((a, b) => (parseInt(a.harga) || 0) - (parseInt(b.harga) || 0));
             else if (stateFilter.sort === "price-desc") hasil.sort((a, b) => (parseInt(b.harga) || 0) - (parseInt(a.harga) || 0));
-            else if (stateFilter.sort === "sold") hasil.sort((a, b) => (parseInt(b.terjual) || 200) - (parseInt(a.terjual) || 200));
+            else if (stateFilter.sort === "sold") hasil.sort((a, b) => (parseInt(b.terjual) || 0) - (parseInt(a.terjual) || 0));
             else if (stateFilter.sort === "name") hasil.sort((a, b) => (a.nama || "").localeCompare(b.nama || "", "id"));
 
             titleEl.textContent = q ? `Hasil Pencarian: "${stateFilter.q}"` : (stateFilter.cat ? stateFilter.cat : "Semua Produk Cetak");
-            countEl.textContent = `${hasil.length} produk tersedia`;
+            countEl.textContent = `${hasil.length} produk tersedia di database`;
             statusEl.textContent = q ? `Menampilkan ${hasil.length} produk untuk "${stateFilter.q}"` : "";
 
             if (hasil.length === 0) {
@@ -1159,16 +1058,13 @@
             grid.hidden = false;
             emptyEl.hidden = true;
 
-            const kamusLokal = JSON.parse(localStorage.getItem("digiprint_varian_map") || "{}");
-
             grid.innerHTML = hasil.map(p => {
                 const img = pilihGambarProduk(p);
                 const harga = parseInt(p.harga) || 0;
-                const coret = Math.round(harga * 1.25);
                 const stok = p.stok !== undefined ? parseInt(p.stok) : 100;
-                const terjual = p.terjual || 250;
+                const terjual = parseInt(p.terjual) || 0;
                 const vCfg = ambilKonfigurasiVarian(p);
-                const infoVar = (vCfg && vCfg.mode === "varian") ? `${vCfg.jumlahVariasi} Variasi` : "Harga Satuan";
+                const infoVar = (vCfg && vCfg.mode === "varian") ? `${vCfg.jumlahVariasi || 1} Variasi` : "Satuan";
 
                 const tombolBeli = stok > 0
                     ? `<button type="button" onclick="bukaModalDetailProduk('${p.id}')" class="v2-buy">
@@ -1201,9 +1097,8 @@
 
                         <div class="pv2-foot">
                             <div class="min-w-0">
-                                <p class="pv2-strike h-4 truncate text-[11px] leading-4">${formatRp(coret)}</p>
                                 <p class="truncate text-[15px] font-extrabold leading-tight tracking-tight text-slate-900">
-                                    <span class="text-[10px] font-medium text-slate-500">Mulai</span>
+                                    <span class="text-[10px] font-medium text-slate-500">Harga</span>
                                     ${formatRp(harga)}
                                 </p>
                             </div>
@@ -1216,19 +1111,18 @@
             }).join("");
         }
 
-        // 3. MODAL DETAIL PRODUK, PEMILIH 1/2/3 VARIASI & KALKULATOR ORDER
+        // 3. MODAL DETAIL PRODUK & VARIASI MURNI DATABASE
         function bukaModalDetailProduk(idProd, tabAwal = "order") {
             const p = katalogProduk.find(x => String(x.id) === String(idProd));
             if (!p) return;
             produkModalAktif = p;
 
-            const kamusLokal = JSON.parse(localStorage.getItem("digiprint_varian_map") || "{}");
-            const desc = p.deskripsi || kamusLokal[p.id]?.deskripsi || "Produk cetak berkualitas tinggi dari DIGIPRINT. Bebas request desain custom dan ukuran sesuai kebutuhan bisnis Anda.";
+            const desc = p.deskripsi || "Produk cetak dari DIGIPRINT. Silakan tulis detail/link desain pada kolom catatan.";
 
             document.getElementById("pv2-m-name").textContent = p.nama;
             document.getElementById("pv2-m-cat").textContent = p.kategori || "Cetak Custom";
             document.getElementById("pv2-m-stock").textContent = (p.stok > 0) ? `Stok Tersedia (${p.stok})` : "Stok Habis";
-            document.getElementById("pv2-m-sold").textContent = `${(p.terjual || 250).toLocaleString("id-ID")} terjual`;
+            document.getElementById("pv2-m-sold").textContent = `${(parseInt(p.terjual) || 0).toLocaleString("id-ID")} terjual`;
             document.getElementById("pv2-m-desc").textContent = desc;
             document.getElementById("pv2-m-thumb").innerHTML = `<img src="${pilihGambarProduk(p)}" alt="${p.nama}" class="w-full h-full object-cover">`;
 
@@ -1263,7 +1157,13 @@
             wadah.innerHTML = "";
             pilihanVarianUser = { vCfg };
 
-            if (!vCfg || vCfg.mode === "satuan") {
+            // Jika di database produk diset mode 'satuan' atau belum punya variasi, tampilkan harga satuan asli dari database
+            if (!vCfg || vCfg.mode !== "varian") {
+                wadah.innerHTML = `
+                    <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-between">
+                        <span class="text-xs font-bold text-slate-600">Harga Satuan Produk</span>
+                        <span class="text-sm font-black text-brand-600">${formatRp(prod.harga)}</span>
+                    </div>`;
                 hitungTotalModal();
                 return;
             }
@@ -1329,7 +1229,6 @@
 
         function pilihVarianSingleModal(idx) {
             pilihanVarianUser.singleIdx = idx;
-            const items = pilihanVarianUser.vCfg?.singleItems || [];
             document.querySelectorAll(".btn-vsingle-modal").forEach((btn, i) => {
                 const aktif = i === idx;
                 btn.className = `btn-vsingle-modal w-full p-3 rounded-2xl border text-left transition flex items-center justify-between gap-3 ${aktif ? 'border-brand-600 bg-brand-50/70 ring-2 ring-brand-500/20' : 'border-slate-200 bg-white hover:border-brand-300'}`;
@@ -1348,11 +1247,10 @@
             hitungTotalModal();
         }
 
-        let voucherTerpakaiModal = null;
-
         async function terapkanVoucherModal() {
             const inputEl = document.getElementById("order-kode-voucher");
             const statusEl = document.getElementById("status-voucher-modal");
+            if (!inputEl || !statusEl) return;
             const kode = (inputEl.value || "").trim().toUpperCase();
 
             if (!kode) {
@@ -1368,15 +1266,11 @@
                 if (Array.isArray(res) && res.length > 0) dataVoucher = res[0];
             } catch (e) {}
 
-            if (!dataVoucher && kode === "UMKMHEMAT") {
-                dataVoucher = { kode: "UMKMHEMAT", diskon: 10000, min_order: 50000, expired_date: "2027-12-31" };
-            }
-
             statusEl.classList.remove("hidden");
             if (!dataVoucher) {
                 voucherTerpakaiModal = null;
                 statusEl.className = "text-[11px] font-bold text-red-600";
-                statusEl.textContent = "Kode voucher tidak ditemukan.";
+                statusEl.textContent = "Kode voucher tidak ditemukan di database.";
                 hitungTotalModal();
                 return;
             }
@@ -1394,11 +1288,11 @@
         }
 
         function hitungTotalModal() {
-            if (!produkModalAktif) return { totalAkhir: 0, labelVarian: "Standar", potonganPoin: 0, potonganVoucher: 0, kodeVoucher: null };
+            if (!produkModalAktif) return { totalAkhir: 0, labelVarian: "Satuan", potonganPoin: 0, potonganVoucher: 0, totalPotongan: 0, kodeVoucher: null };
             const vCfg = pilihanVarianUser.vCfg;
             let hargaSatuan = parseInt(produkModalAktif.harga) || 0;
             let hargaCoret = 0;
-            let labelVarian = "Standar";
+            let labelVarian = "Satuan";
 
             if (vCfg && vCfg.mode === "varian") {
                 if (vCfg.jumlahVariasi === 1) {
@@ -1423,7 +1317,6 @@
             const qty = Math.max(1, parseInt(document.getElementById("order-qty").value) || 1);
             const subtotal = hargaSatuan * qty;
 
-            // 1. Hitung diskon voucher jika ada
             let potonganVoucher = 0;
             let kodeVoucher = null;
             const statusEl = document.getElementById("status-voucher-modal");
@@ -1444,7 +1337,6 @@
                 }
             }
 
-            // 2. Hitung potongan poin member
             const sisaSetelahVoucher = Math.max(0, subtotal - potonganVoucher);
             let potonganPoin = 0;
             if (document.getElementById("order-pakai-poin").checked) {
@@ -1462,8 +1354,92 @@
             return { subtotal, potonganPoin, potonganVoucher, totalPotongan, kodeVoucher, totalAkhir, labelVarian };
         }
 
-        // 4. SIMPAN PESANAN KE SUPABASE & BUKA MODAL QRIS PAYINAJA
-        let intervalCekBayar = null;
+        // 4. FUNGSI MENAMPILKAN CENTANG HIJAU DI TENGAH QRIS SAAT LUNAS
+        async function tampilkanCentangHijauQris(idTrx) {
+            if (intervalCekBayar) {
+                clearInterval(intervalCekBayar);
+                intervalCekBayar = null;
+            }
+
+            // Update status pesanan di Supabase menjadi "Diproses"
+            await fetchSupabase(`pesanan?id_trx=eq.${encodeURIComponent(idTrx)}`, "PATCH", {
+                status: "Diproses"
+            });
+
+            // Munculkan Overlay Centang Hijau di tengah QRIS
+            const overlay = document.getElementById("qrisPaidOverlay");
+            if (overlay) {
+                overlay.classList.remove("hidden");
+                overlay.classList.add("flex");
+            }
+
+            // Ubah badge status di bagian atas modal QRIS
+            const badge = document.getElementById("qrisBadgeStatus");
+            if (badge) {
+                badge.className = "px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 text-[10px] font-extrabold uppercase tracking-widest inline-flex items-center gap-1.5";
+                badge.innerHTML = `<i class="fas fa-check-circle text-emerald-600"></i> Pembayaran Lunas Terverifikasi`;
+            }
+
+            const subText = document.getElementById("qrisSubText");
+            if (subText) {
+                subText.textContent = "Terima kasih! Pembayaran QRIS Anda telah masuk dan pesanan sedang diproses cetak.";
+            }
+
+            const btnManual = document.getElementById("btnCekManualQris");
+            if (btnManual) btnManual.classList.add("hidden");
+
+            muatRiwayatPesananMember();
+        }
+
+        // Fungsi ketika tombol "Saya Sudah Bayar (Cek Status)" diklik
+        async function cekManualPembayaranSekarang() {
+            if (!transaksiQrisAktif) return;
+            const btn = document.getElementById("btnCekManualQris");
+            const asli = btn.innerHTML;
+            btn.disabled = true;
+            btn.innerHTML = `<i class="fas fa-spinner fa-spin mr-1"></i> Mengecek ke Server PayinAja...`;
+
+            try {
+                const hasil = await cekStatusPayinAja(transaksiQrisAktif.payinajaTrxId, transaksiQrisAktif.idTrx);
+                // Cek juga di database Supabase barangkali sudah diupdate via webhook/admin
+                const resDb = await fetchSupabase(`pesanan?id_trx=eq.${encodeURIComponent(transaksiQrisAktif.idTrx)}&select=status&limit=1`);
+                const statusDb = String(resDb?.[0]?.status || "").toLowerCase();
+
+                if (hasil.isPaid || statusDb === "diproses" || statusDb === "selesai" || statusDb === "lunas") {
+                    await tampilkanCentangHijauQris(transaksiQrisAktif.idTrx);
+                } else {
+                    btn.innerHTML = `<i class="fas fa-clock mr-1"></i> Belum Masuk (Coba Lagi 3 Detik)`;
+                    setTimeout(() => { btn.innerHTML = asli; btn.disabled = false; }, 2500);
+                    return;
+                }
+            } catch (e) {}
+
+            btn.innerHTML = asli;
+            btn.disabled = false;
+        }
+
+        function resetTampilanModalQris() {
+            const overlay = document.getElementById("qrisPaidOverlay");
+            if (overlay) {
+                overlay.classList.add("hidden");
+                overlay.classList.remove("flex");
+            }
+            const badge = document.getElementById("qrisBadgeStatus");
+            if (badge) {
+                badge.className = "px-3 py-1 rounded-full bg-amber-50 text-amber-600 text-[10px] font-extrabold uppercase tracking-widest inline-flex items-center gap-1.5";
+                badge.innerHTML = `<span class="w-2 h-2 rounded-full bg-amber-500 animate-ping"></span> Menunggu Pembayaran QRIS`;
+            }
+            const subText = document.getElementById("qrisSubText");
+            if (subText) {
+                subText.textContent = "Scan QRIS PayinAja di bawah ini menggunakan M-Banking atau E-Wallet Anda:";
+            }
+            const btnManual = document.getElementById("btnCekManualQris");
+            if (btnManual) {
+                btnManual.classList.remove("hidden");
+                btnManual.disabled = false;
+                btnManual.innerHTML = `<i class="fas fa-rotate mr-1"></i> Saya Sudah Bayar (Cek Status)`;
+            }
+        }
 
         async function submitPesananDariModal(ev) {
             ev.preventDefault();
@@ -1484,10 +1460,14 @@
             const idTrx = "DP" + Date.now().toString().slice(-7);
             const detailPesanan = `${produkModalAktif.nama} — ${labelVarian} (${qty}x)` + (catatan ? ` | Catatan: ${catatan}` : "");
 
-            // Buat QRIS ke PayinAja lebih dulu agar mendapatkan payinaja_trx_id
+            resetTampilanModalQris();
+
+            // Buat QRIS ke PayinAja
             const qrisRes = await buatQrisPayinAja(totalAkhir, idTrx, nama);
             const nominalUnik = qrisRes.total_amount || totalAkhir;
             const payinajaTrxId = qrisRes.payinaja_trx_id || idTrx;
+
+            transaksiQrisAktif = { idTrx, payinajaTrxId };
 
             const pesananBaru = {
                 id_trx: idTrx,
@@ -1518,11 +1498,6 @@
 
                 sinkronisasiProfilMember();
                 document.getElementById("order-pakai-poin").checked = false;
-                voucherTerpakaiModal = null;
-                const vInput = document.getElementById("order-kode-voucher");
-                if (vInput) vInput.value = "";
-                const vStatus = document.getElementById("status-voucher-modal");
-                if (vStatus) vStatus.classList.add("hidden");
             } catch (e) {
                 console.warn("Gagal menyimpan pesanan ke Supabase:", e);
             }
@@ -1540,25 +1515,18 @@
             const pesanWa = `Halo Admin DIGIPRINT, saya sudah memesan melalui Katalog Member:\n\n*ID TRX:* TRX-${idTrx}\n*Nama:* ${nama}\n*Pesanan:* ${detailPesanan}\n*Total:* ${formatRp(nominalUnik)}\n*Alamat:* ${alamat}`;
             document.getElementById("qrisWaBtn").href = `https://wa.me/6283143152613?text=${encodeURIComponent(pesanWa)}`;
 
-            // Polling otomatis setiap 5 detik menggunakan payinaja_trx_id
+            // Polling otomatis setiap 4 detik untuk memunculkan Centang Hijau begitu pembayaran masuk
             if (intervalCekBayar) clearInterval(intervalCekBayar);
-            if (payinajaTrxId) {
-                intervalCekBayar = setInterval(async () => {
-                    if (qm.classList.contains("hidden")) {
-                        clearInterval(intervalCekBayar);
-                        return;
-                    }
-                    const stData = await cekStatusPayinAja(payinajaTrxId);
-                    const st = String(stData?.status || "").toLowerCase();
-                    if (st === "paid" || st === "success" || st === "settlement" || st === "selesai") {
-                        clearInterval(intervalCekBayar);
-                        await fetchSupabase(`pesanan?id_trx=eq.${encodeURIComponent(idTrx)}`, "PATCH", { status: "Diproses" });
-                        alert("Pembayaran QRIS Berhasil Diterima! Pesanan Anda langsung masuk antrean cetak.");
-                        tutupModalQris();
-                        muatRiwayatPesananMember();
-                    }
-                }, 5000);
-            }
+            intervalCekBayar = setInterval(async () => {
+                if (qm.classList.contains("hidden")) {
+                    clearInterval(intervalCekBayar);
+                    return;
+                }
+                const hasil = await cekStatusPayinAja(payinajaTrxId, idTrx);
+                if (hasil.isPaid) {
+                    await tampilkanCentangHijauQris(idTrx);
+                }
+            }, 4000);
 
             muatRiwayatPesananMember();
             btn.disabled = false;
@@ -1566,6 +1534,10 @@
         }
 
         function tutupModalQris() {
+            if (intervalCekBayar) {
+                clearInterval(intervalCekBayar);
+                intervalCekBayar = null;
+            }
             const qm = document.getElementById("qrisModal");
             qm.classList.add("hidden");
             qm.classList.remove("flex");
@@ -1640,7 +1612,6 @@
             window.location.replace("login.html");
         }
 
-        // 6. EVENT LISTENER PENCARIAN, SORTING & HEADER SCROLL
         document.addEventListener("DOMContentLoaded", function () {
             document.documentElement.classList.remove("anim");
             sinkronisasiProfilMember();
@@ -1690,7 +1661,6 @@
                 renderGridProduk();
             });
 
-            // Shortcut "/" untuk fokus ke kolom pencarian
             document.addEventListener("keydown", function (ev) {
                 if (ev.key === "/" && !["INPUT", "TEXTAREA", "SELECT"].includes(document.activeElement?.tagName)) {
                     ev.preventDefault();
@@ -1701,7 +1671,6 @@
                 }
             });
 
-            // Header Scroll & Menu Mobile
             const header = document.getElementById("v2-header");
             const progress = document.getElementById("v2-progress");
             window.addEventListener("scroll", function () {
